@@ -14,3 +14,10 @@ var elixir = require('laravel-elixir');
 elixir(function(mix) {
     mix.sass('app.scss');
 });
+
+// Browser Sync
+elixir(function (mix) {
+    mix.browserSync({
+        proxy: 'orderforms.app'
+    });
+});

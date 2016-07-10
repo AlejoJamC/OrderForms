@@ -22,14 +22,14 @@ class CreateUsersTable extends Migration
             $table->string('email', 100);
             $table->string('address', 45);
             $table->integer('city_id')->unsigned();
-            $table->foreign('city_id')->reference('id')->on('cities');
+            $table->foreign('city_id')->references('id')->on('cities');
             $table->integer('state_id')->unsigned();
-            $table->foreign('state_id')->reference('id')->on('states');
+            $table->foreign('state_id')->references('id')->on('states');
             $table->string('picture', 255);
             $table->string('username', 45);
             $table->string('password', 45);
             $table->integer('role_id')->unsigned();
-            $table->foreign('role_id')->reference('id')->on('roles');
+            $table->foreign('role_id')->references('id')->on('roles');
             $table->boolean('status')->default(1);
             $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));
             $table->timestamp('updated_at')->default(DB::raw('CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP'));

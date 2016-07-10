@@ -16,10 +16,10 @@ class CreateOrdersTable extends Migration
             $table->increments('id')->unsigned();
             $table->date('ship_date');
             $table->integer('user_id')->unsigned();
-            $table->foreign('user_id')->reference('id')->on('users');
+            $table->foreign('user_id')->references('id')->on('users');
             $table->integer('consecutive')->unsigned();
             $table->integer('order_state_id')->unsigned();
-            $table->foreign('order_state_id')->reference('id')->on('order_states');
+            $table->foreign('order_state_id')->references('id')->on('order_states');
             $table->string('way_to_pay', 45);
             $table->boolean('verified')->default(0);
             $table->boolean('canceled')->default(0);

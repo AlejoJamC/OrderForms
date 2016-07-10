@@ -19,7 +19,7 @@ class StatesTableSeeder extends Seeder
             "Santander", "Sucre", "Tolima", "Valle del Cauca", "Vaupes", "Vichada"];
 
         array_map(function ($name){
-            DB::table('roles')->insert([
+            DB::table('states')->insert([
                 'name' => $name,
             ]);
         }, $states);

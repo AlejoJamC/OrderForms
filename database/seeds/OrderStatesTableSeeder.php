@@ -15,7 +15,7 @@ class OrderStatesTableSeeder extends Seeder
         $orderState = ['Generado','En Proceso','Terminado', 'Cancelado'];
 
         array_map(function ($name){
-            DB::table('roles')->insert([
+            DB::table('order_states')->insert([
                 'name' => $name,
             ]);
         }, $orderState);

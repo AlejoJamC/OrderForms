@@ -39,8 +39,8 @@ class City extends Model
     /**
      * Get the State that owns this city.
      */
-    public function states(){
-        return $this->belongsTo('App\Models\State');
+    public function state(){
+        return $this->belongsTo('App\Models\State', 'id', 'state_id');
     }
         
 }

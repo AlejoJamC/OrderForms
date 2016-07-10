@@ -35,5 +35,11 @@ class OrderState extends Model
 
     protected $guarded = [];
 
-        
+    /**
+     * Get the orders for this order state.
+     */
+    public function orders(){
+        return $this->hasMany('App\Models\Order', 'order_state_id', 'id');
+    }    
+    
 }

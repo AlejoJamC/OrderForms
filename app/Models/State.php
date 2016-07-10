@@ -41,5 +41,12 @@ class State extends Model
     public function cities(){
         return $this->hasMany('App\Models\City', 'state_id', 'id');
     }
+
+    /**
+     * Get the users for state.
+     */
+    public function users(){
+        return $this->hasMany('App\Models\User', 'state_id', 'id');
+    }
         
 }

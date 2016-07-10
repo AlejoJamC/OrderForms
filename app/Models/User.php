@@ -53,5 +53,19 @@ class User extends Model
     public function role(){
         return $this->belongsTo('App\Models\Role', 'id', 'role_id');
     }
+
+    /**
+     * Get the state of this user.
+     */
+    public function State(){
+        return $this->belongsTo('App\Models\State', 'id', 'state_id');
+    }
+
+    /**
+     * Get the city of this user.
+     */
+    public function City(){
+        return $this->belongsTo('App\Models\City', 'id', 'city_id');
+    }
         
 }

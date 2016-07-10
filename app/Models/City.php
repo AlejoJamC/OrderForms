@@ -42,5 +42,12 @@ class City extends Model
     public function state(){
         return $this->belongsTo('App\Models\State', 'id', 'state_id');
     }
+
+    /**
+     * Get the users for City.
+     */
+    public function users(){
+        return $this->hasMany('App\Models\User', 'city_', 'id');
+    }
         
 }

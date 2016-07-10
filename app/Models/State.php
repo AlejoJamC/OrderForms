@@ -39,7 +39,7 @@ class State extends Model
      * Get the cities for state.
      */
     public function cities(){
-        return $this->hasMany('App\Models\City', 'state_id');
+        return $this->hasMany('App\Models\City', 'state_id', 'id');
     }
         
 }

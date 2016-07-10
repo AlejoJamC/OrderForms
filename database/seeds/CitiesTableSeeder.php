@@ -11,6 +11,6 @@ class CitiesTableSeeder extends Seeder
      */
     public function run()
     {
-        //
+        //TODO: finish cities seed
     }
 }

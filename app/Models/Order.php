@@ -42,5 +42,11 @@ class Order extends Model
 
     protected $guarded = [];
 
+    /**
+     * Get the role that use this user.
+     */
+    public function orderStates(){
+        return $this->belongsTo('App\Models\OrderState', 'id', 'order_state_id');
+    }
         
 }

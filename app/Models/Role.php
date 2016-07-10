@@ -35,5 +35,11 @@ class Role extends Model
 
     protected $guarded = [];
 
+    /**
+     * Get the users for this role.
+     */
+    public function users(){
+        return $this->hasMany('App\Models\User', 'role_id');
+    }
         
 }

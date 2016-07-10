@@ -47,5 +47,11 @@ class User extends Model
 
     protected $guarded = [];
 
+    /**
+     * Get the role that use this user.
+     */
+    public function cities(){
+        return $this->belongsTo('App\Models\Role');
+    }
         
 }

@@ -23,6 +23,11 @@ class Order extends Model
      */
     public $timestamps = true;
 
+    /**
+     * The attributes that are mass assignable
+     *
+     * @var array
+     */
     protected $fillable = [
         'ship_date',
         'user_id',

@@ -23,6 +23,11 @@ class Product extends Model
      */
     public $timestamps = true;
 
+    /**
+     * The attributes that are mass assignable
+     *
+     * @var array
+     */
     protected $fillable = [
         'title',
         'description',

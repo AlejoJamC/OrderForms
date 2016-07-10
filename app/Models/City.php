@@ -23,6 +23,11 @@ class City extends Model
      */
     public $timestamps = true;
 
+    /**
+     * The attributes that are mass assignable
+     *
+     * @var array
+     */
     protected $fillable = [
         'name',
         'state_id',

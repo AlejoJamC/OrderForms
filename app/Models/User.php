@@ -50,8 +50,8 @@ class User extends Model
     /**
      * Get the role that use this user.
      */
-    public function cities(){
-        return $this->belongsTo('App\Models\Role');
+    public function role(){
+        return $this->belongsTo('App\Models\Role', 'id', 'role_id');
     }
         
 }

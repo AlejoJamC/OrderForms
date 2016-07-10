@@ -11,6 +11,13 @@ class OrderStatesTableSeeder extends Seeder
      */
     public function run()
     {
-        //
+        // TODO: avoid only spanish seeds
+        $orderState = ['Generado','En Proceso','Terminado', 'Cancelado'];
+
+        array_map(function ($name){
+            DB::table('roles')->insert([
+                'name' => $name,
+            ]);
+        }, $orderState);
     }
 }

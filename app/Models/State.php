@@ -24,7 +24,7 @@ class State extends Model
     public $timestamps = true;
 
     /**
-     * The attributes that are mass assignable
+     * The attributes that are mass assignable.
      *
      * @var array
      */
@@ -35,5 +35,11 @@ class State extends Model
 
     protected $guarded = [];
 
+    /**
+     * Get the cities for state.
+     */
+    public function cities(){
+        return $this->hasMany('App\Models\City', 'state_id');
+    }
         
 }

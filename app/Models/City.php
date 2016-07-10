@@ -24,7 +24,7 @@ class City extends Model
     public $timestamps = true;
 
     /**
-     * The attributes that are mass assignable
+     * The attributes that are mass assignable.
      *
      * @var array
      */
@@ -36,5 +36,11 @@ class City extends Model
 
     protected $guarded = [];
 
+    /**
+     * Get the State that owns this city.
+     */
+    public function states(){
+        return $this->belongsTo('App\Models\State');
+    }
         
 }

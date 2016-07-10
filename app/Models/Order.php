@@ -48,5 +48,12 @@ class Order extends Model
     public function orderStates(){
         return $this->belongsTo('App\Models\OrderState', 'id', 'order_state_id');
     }
+
+    /**
+     * Get the user that own this order.
+     */
+    public function User(){
+        return $this->belongsTo('App\Models\User', 'id', 'user_id');
+    }
         
 }

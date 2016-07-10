@@ -67,5 +67,12 @@ class User extends Model
     public function City(){
         return $this->belongsTo('App\Models\City', 'id', 'city_id');
     }
+
+    /**
+     * Get the users for state.
+     */
+    public function orders(){
+        return $this->hasMany('App\Models\Order', 'user_id', 'id');
+    }
         
 }

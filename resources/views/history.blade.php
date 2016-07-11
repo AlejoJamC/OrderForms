@@ -1,6 +1,6 @@
 @extends('layouts.admin')
 
-@section('title', 'Gesti&oacute;n de Ordenes de Compra')
+@section('title', 'Historial de las ordenes de compra')
 
 @section('content')
     

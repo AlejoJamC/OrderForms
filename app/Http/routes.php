@@ -18,6 +18,7 @@
  */
 Route::auth();
 Route::get('/', 'HomeController@index');
+Route::get('/home', 'HomeController@index');
 
 /*
  * Routes for States

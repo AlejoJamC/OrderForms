@@ -13,14 +13,10 @@
     <link href="assets/global/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
     <link href="assets/global/plugins/bootstrap-switch/css/bootstrap-switch.min.css" rel="stylesheet" type="text/css" />
     <!-- END GLOBAL MANDATORY STYLES -->
+    <!-- BEGIN REQUIRED PAGE CSS -->
     @section('css')
     @show
-    <!-- BEGIN PAGE LEVEL PLUGINS -->
-    <link href="assets/global/plugins/bootstrap-daterangepicker/daterangepicker.min.css" rel="stylesheet" type="text/css" />
-    <link href="assets/global/plugins/morris/morris.css" rel="stylesheet" type="text/css" />
-    <link href="assets/global/plugins/fullcalendar/fullcalendar.min.css" rel="stylesheet" type="text/css" />
-    <link href="assets/global/plugins/jqvmap/jqvmap/jqvmap.css" rel="stylesheet" type="text/css" />
-    <!-- END PAGE LEVEL PLUGINS -->
+    <!-- END REQUIRED PAGE CSS -->
     <!-- BEGIN THEME GLOBAL STYLES -->
     <link href="assets/global/css/components.min.css" rel="stylesheet" id="style_components" type="text/css" />
     <link href="assets/global/css/plugins.min.css" rel="stylesheet" type="text/css" />

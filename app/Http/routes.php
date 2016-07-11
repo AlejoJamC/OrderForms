@@ -16,7 +16,8 @@
 /*
  * Routes for Login in this case is the entry point or index
  */
-Route::get('/','LoginController@index');
+Route::auth();
+Route::get('/home', 'HomeController@index');
 
 /*
  * Routes for States

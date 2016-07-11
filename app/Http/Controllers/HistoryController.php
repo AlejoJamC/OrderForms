@@ -9,6 +9,10 @@ use App\Http\Requests;
 class HistoryController extends Controller
 {
     public function index(){
-        return view('history');
+        return view('history.me');
+    }
+    
+    public function fullHistory(){
+        return view('history.all');
     }
 }

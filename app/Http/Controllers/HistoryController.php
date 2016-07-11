@@ -12,7 +12,11 @@ class HistoryController extends Controller
         return view('history.me');
     }
     
-    public function fullHistory(){
+    public function listAll(){
         return view('history.all');
+    }
+
+    public function redirectTo(){
+        return redirect('dash/history/me');
     }
 }

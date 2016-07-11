@@ -9,6 +9,10 @@ use App\Http\Requests;
 class UsersController extends Controller
 {
     public function index(){
-        return view('welcome');
+        return view('blank');
+    }
+
+    public function redirectTo(){
+        return redirect('dash/users');
     }
 }

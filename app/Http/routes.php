@@ -14,3 +14,43 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+/*
+ * Routes for States
+ */
+Route::get('/admin/departamento','StateController@index');
+
+/*
+ * Routes for Cities
+ */
+Route::get('/admin/ciudades','CitiesController@index');
+
+/*
+ * Routes for Roles
+ */
+Route::get('/admin/roles','RolesController@index');
+
+/*
+ * Routes for Order states
+ */
+Route::get('/admin/estados/ordenes','OrderStatesController@index');
+
+/*
+ * Routes for Products
+ */
+Route::get('/admin/productos','ProductsController@index');
+
+/*
+ * Routes for Users
+ */
+Route::get('/admin/usuarios','UsersController@index');
+
+/*
+ * Routes for Orders
+ */
+Route::get('/admin/ordenes','OrdersController@index');
+
+/*
+ * Routes for Order Details
+ */
+Route::get('/admin/orden/detalle','OrderDetailController@index');

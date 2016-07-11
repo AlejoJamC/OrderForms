@@ -11,9 +11,12 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// TODO: Avoid only spanish routes
+
+/*
+ * Routes for Login in this case is the entry point or index
+ */
+Route::get('/','LoginController@index');
 
 /*
  * Routes for States

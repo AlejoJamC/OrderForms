@@ -23,39 +23,39 @@ Route::get('/home', 'HomeController@index');
 /*
  * Routes for States
  */
-Route::get('/admin/departamento','StateController@index');
+Route::get('/dash/departamento','StateController@index');
 
 /*
  * Routes for Cities
  */
-Route::get('/admin/ciudades','CitiesController@index');
+Route::get('/dash/ciudades','CitiesController@index');
 
 /*
  * Routes for Roles
  */
-Route::get('/admin/roles','RolesController@index');
+Route::get('/dash/roles','RolesController@index');
 
 /*
  * Routes for Order states
  */
-Route::get('/admin/estados/ordenes','OrderStatesController@index');
+Route::get('/dash/estados/ordenes','OrderStatesController@index');
 
 /*
  * Routes for Products
  */
-Route::get('/admin/productos','ProductsController@index');
+Route::get('/dash/productos','ProductsController@index');
 
 /*
  * Routes for Users
  */
-Route::get('/admin/usuarios','UsersController@index');
+Route::get('/dash/usuarios','UsersController@index');
 
 /*
  * Routes for Orders
  */
-Route::get('/admin/ordenes','OrdersController@index');
+Route::get('/dash/ordenes','OrdersController@index');
 
 /*
  * Routes for Order Details
  */
-Route::get('/admin/orden/detalle','OrderDetailController@index');
+Route::get('/dash/orden/detalle','OrderDetailController@index');

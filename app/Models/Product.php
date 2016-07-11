@@ -42,5 +42,11 @@ class Product extends Model
 
     protected $guarded = [];
 
+    /**
+     * Get the order details for this product.
+     */
+    public function orderDetails(){
+        return $this->belongsToMany('App\Models\OrderDetail');
+    }
         
 }

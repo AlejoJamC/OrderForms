@@ -39,5 +39,18 @@ class OrderDetail extends Model
 
     protected $guarded = [];
 
+    /**
+     * Get the product listed on this order detail.
+     */
+    public function products(){
+        return $this->belongsToMany('App\Models\Product');
+    }
+
+    /**
+     * Get the order that own this order detail.
+     */
+    public function order(){
+        return $this->belongsToMany('App\Models\Order');
+    }
         
 }

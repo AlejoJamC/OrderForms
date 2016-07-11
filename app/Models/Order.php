@@ -55,5 +55,12 @@ class Order extends Model
     public function User(){
         return $this->belongsTo('App\Models\User', 'id', 'user_id');
     }
+
+    /**
+     * Get the order details for this order.
+     */
+    public function orderDetails(){
+        return $this->belongsToMany('App\Models\OrderDetail');
+    }
         
 }

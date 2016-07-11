@@ -1,4 +1,3 @@
-@extends('layouts.main')
 @section('footer')
 <div class="login-footer">
     <div class="row bs-reset">
@@ -23,9 +22,9 @@
         </div>
         <div class="col-xs-7 bs-reset">
             <div class="login-copyright text-right">
-                <p>Copyright &copy; Unicontacto</p>
+                <p>Copyright &copy; Unicontacto {{ date("Y") }}</p>
             </div>
         </div>
     </div>
 </div>
-@endsection
+@show

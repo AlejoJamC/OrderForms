@@ -55,8 +55,8 @@
                 <!-- END FORGOT PASSWORD FORM -->
             </div>
             <!-- BEGIN FOOTER -->
-        @include('partials.main.footer')
-        <!-- END FOOTER -->
+            @include('partials.main.footer')
+            <!-- END FOOTER -->
         </div>
     </div>
 </div>

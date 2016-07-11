@@ -9,6 +9,6 @@ use App\Http\Requests;
 class StateController extends Controller
 {
     public function index(){
-        return view('welcome');
+        return view('blank');
     }
 }

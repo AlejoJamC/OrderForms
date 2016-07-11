@@ -9,6 +9,6 @@ use App\Http\Requests;
 class OrderDetailController extends Controller
 {
     public function index(){
-        return view('welcome');
+        return view('blank');
     }
 }

@@ -21,6 +21,14 @@ Route::get('/', 'HomeController@index');
 Route::get('/home', 'HomeController@index');
 
 /*
+ * Routes for history
+ */
+Route::get('/dash','HistoryController@index');
+Route::get('/dash/history','HistoryController@index');
+Route::get('/dash/history/me','HistoryController@index');
+Route::get('/dash/history/all','HistoryController@fullHistory');
+
+/*
  * Routes for States
  */
 Route::get('/dash/departamento','StateController@index');

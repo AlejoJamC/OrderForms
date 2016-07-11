@@ -23,9 +23,6 @@
     <!-- BEGIN CONTENT -->
     @yield('content')
     <!-- END CONTENT -->
-    <!-- BEGIN QUICK SIDEBAR -->
-    @include('partials.admin.quicksidebar')
-    <!-- END QUICK SIDEBAR -->
 </div>
 <!-- END CONTAINER -->
 <!-- BEGIN FOOTER -->

@@ -15,7 +15,7 @@
                 </li>
                 <li>
                     <a href="javascript:;">
-                        <i class="icon-social-dribbble"></i>
+                        <i class="icon-envelope"></i>
                     </a>
                 </li>
             </ul>

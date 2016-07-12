@@ -6,17 +6,18 @@
     <div class="user-login-5">
         <div class="row bs-reset">
             <div class="col-md-6 bs-reset">
-                <div class="login-bg" style="background-image:url(assets/pages/img/login/bg1.jpg)">
-                    <img class="login-logo" src="assets/pages/img/login/unicontacto.png" /> </div>
+                <div class="login-bg" style="background-image:url({{URL::asset('assets/pages/img/login/bg1.jpg')}})">
+                    <img class="login-logo" src="{{URL::asset('assets/pages/img/login/unicontacto.png')}}" /> </div>
             </div>
             <div class="col-md-6 login-container bs-reset">
                 <div class="login-content">
                     <h1>Gesti&oacute;n de Ordenes de Compra</h1>
                     <p> Falta esta descripcion- Lorem ipsum dolor sit amet, coectetuer adipiscing elit sed diam nonummy et nibh euismod aliquam erat volutpat. Lorem ipsum dolor sit amet, coectetuer adipiscing. </p>
-                    <form action="javascript:;" class="login-form" method="post">
+                    <form action="{{ url('/login') }}" class="login-form" method="post" role="form">
+                        {{ csrf_field() }}
                         <div class="alert alert-danger display-hide">
                             <button class="close" data-close="alert"></button>
-                            <span>Se requiere nombre de usuario y contrase&ntilde;a. Por favor, revisa e int&eacute;ntalo de nuevo.</span>
+                            <span>Se requiere nombre de usuario y contrase&ntilde;a. Por favor verifique la informaci&oacute;n e int&eacute;ntelo de nuevo.</span>
                         </div>
                         <div class="row">
                             <div class="col-xs-6">

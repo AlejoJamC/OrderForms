@@ -1,9 +1,12 @@
 @extends('layouts.admin')
 
 @section('css')
+    <link href="{{ URL::asset('assets/global/plugins/datatables/datatables.min.css" rel="stylesheet') }}" type="text/css" />
+    <link href="{{ URL::asset('assets/global/plugins/datatables/plugins/bootstrap/datatables.bootstrap.css') }}" rel="stylesheet" type="text/css" />
+    <link href="{{ URL::asset('assets/global/plugins/bootstrap-select/css/bootstrap-select.min.css') }}" rel="stylesheet" type="text/css" />
 @stop
 
-@section('title', 'Historial de las ordenes de compra')
+@section('title', 'Crear una orden de compra')
 
 @section('content')
     <!-- BEGIN CONTENT -->
@@ -55,1581 +58,393 @@
             <!-- END PAGE HEADER-->
             <div class="row">
                 <div class="col-md-12 ">
-                    <!-- BEGIN SAMPLE FORM PORTLET-->
+                    <!-- BEGIN ORDER HEADER -->
                     <div class="portlet light ">
                         <div class="portlet-title">
-                            <div class="caption font-red-sunglo">
-                                <i class="icon-settings font-red-sunglo"></i>
-                                <span class="caption-subject bold uppercase"> Default Form</span>
-                            </div>
-                        </div>
-                        <div class="portlet-body form">
-                            <form role="form">
-                                <div class="form-body">
-                                    <div class="form-group">
-                                        <label>Email Address</label>
-                                        <div class="input-group">
-                                                    <span class="input-group-addon">
-                                                        <i class="fa fa-envelope"></i>
-                                                    </span>
-                                            <input type="text" class="form-control" placeholder="Email Address"> </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Circle Input</label>
-                                        <div class="input-group">
-                                                    <span class="input-group-addon input-circle-left">
-                                                        <i class="fa fa-envelope"></i>
-                                                    </span>
-                                            <input type="text" class="form-control input-circle-right" placeholder="Email Address"> </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="exampleInputPassword1">Password</label>
-                                        <div class="input-group">
-                                            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-                                                    <span class="input-group-addon">
-                                                        <i class="fa fa-user font-red"></i>
-                                                    </span>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Left Icon</label>
-                                        <div class="input-icon">
-                                            <i class="fa fa-bell-o font-green"></i>
-                                            <input type="text" class="form-control" placeholder="Left icon"> </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Left Icon(.input-sm)</label>
-                                        <div class="input-icon input-icon-sm">
-                                            <i class="fa fa-bell-o"></i>
-                                            <input type="text" class="form-control input-sm" placeholder="Left icon"> </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Left Icon(.input-lg)</label>
-                                        <div class="input-icon input-icon-lg">
-                                            <i class="fa fa-bell-o"></i>
-                                            <input type="text" class="form-control input-lg" placeholder="Left icon"> </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Right Icon</label>
-                                        <div class="input-icon right">
-                                            <i class="fa fa-microphone fa-spin font-blue"></i>
-                                            <input type="text" class="form-control" placeholder="Right icon"> </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Right Icon(.input-sm)</label>
-                                        <div class="input-icon input-icon-sm right">
-                                            <i class="fa fa-bell-o"></i>
-                                            <input type="text" class="form-control input-sm" placeholder="Left icon"> </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Right Icon(.input-lg)</label>
-                                        <div class="input-icon input-icon-lg right">
-                                            <i class="fa fa-bell-o font-green"></i>
-                                            <input type="text" class="form-control input-lg" placeholder="Left icon"> </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Circle Input</label>
-                                        <div class="input-icon right">
-                                            <i class="fa fa-microphone"></i>
-                                            <input type="text" class="form-control input-circle" placeholder="Right icon"> </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Input with Icon</label>
-                                        <div class="input-group input-icon right">
-                                                    <span class="input-group-addon">
-                                                        <i class="fa fa-envelope font-purple"></i>
-                                                    </span>
-                                            <i class="fa fa-exclamation tooltips" data-original-title="Invalid email." data-container="body"></i>
-                                            <input id="email" class="input-error form-control" type="text" value=""> </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Input With Spinner</label>
-                                        <input class="form-control spinner" type="text" placeholder="Process something" /> </div>
-                                    <div class="form-group">
-                                        <label>Static Control</label>
-                                        <p class="form-control-static"> email@example.com </p>
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Disabled</label>
-                                        <input type="text" class="form-control" placeholder="Disabled" disabled> </div>
-                                    <div class="form-group">
-                                        <label>Readonly</label>
-                                        <input type="text" class="form-control" placeholder="Readonly" readonly> </div>
-                                    <div class="form-group">
-                                        <label>Dropdown</label>
-                                        <select class="form-control">
-                                            <option>Option 1</option>
-                                            <option>Option 2</option>
-                                            <option>Option 3</option>
-                                            <option>Option 4</option>
-                                            <option>Option 5</option>
-                                        </select>
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Multiple Select</label>
-                                        <select multiple class="form-control">
-                                            <option>Option 1</option>
-                                            <option>Option 2</option>
-                                            <option>Option 3</option>
-                                            <option>Option 4</option>
-                                            <option>Option 5</option>
-                                        </select>
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Textarea</label>
-                                        <textarea class="form-control" rows="3"></textarea>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="exampleInputFile1">File input</label>
-                                        <input type="file" id="exampleInputFile1">
-                                        <p class="help-block"> some help text here. </p>
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Checkboxes</label>
-                                        <div class="mt-checkbox-list">
-                                            <label class="mt-checkbox"> Checkbox 1
-                                                <input type="checkbox" value="1" name="test" />
-                                                <span></span>
-                                            </label>
-                                            <label class="mt-checkbox"> Checkbox 2
-                                                <input type="checkbox" value="1" name="test" />
-                                                <span></span>
-                                            </label>
-                                            <label class="mt-checkbox"> Checkbox 3
-                                                <input type="checkbox" value="1" name="test" />
-                                                <span></span>
-                                            </label>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Outline Checkboxes</label>
-                                        <div class="mt-checkbox-list">
-                                            <label class="mt-checkbox mt-checkbox-outline"> Checkbox 1
-                                                <input type="checkbox" value="1" name="test" />
-                                                <span></span>
-                                            </label>
-                                            <label class="mt-checkbox mt-checkbox-outline"> Checkbox 2
-                                                <input type="checkbox" value="1" name="test" />
-                                                <span></span>
-                                            </label>
-                                            <label class="mt-checkbox mt-checkbox-outline"> Checkbox 3
-                                                <input type="checkbox" value="1" name="test" />
-                                                <span></span>
-                                            </label>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Inline Checkboxes</label>
-                                        <div class="mt-checkbox-inline">
-                                            <label class="mt-checkbox">
-                                                <input type="checkbox" id="inlineCheckbox1" value="option1"> Checkbox 1
-                                                <span></span>
-                                            </label>
-                                            <label class="mt-checkbox">
-                                                <input type="checkbox" id="inlineCheckbox2" value="option2"> Checkbox 2
-                                                <span></span>
-                                            </label>
-                                            <label class="mt-checkbox mt-checkbox-disabled">
-                                                <input type="checkbox" id="inlineCheckbox3" value="option3" disabled> Disabled
-                                                <span></span>
-                                            </label>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Radios</label>
-                                        <div class="mt-radio-list">
-                                            <label class="mt-radio"> Radio 1
-                                                <input type="radio" value="1" name="test" />
-                                                <span></span>
-                                            </label>
-                                            <label class="mt-radio"> Radio 2
-                                                <input type="radio" value="1" name="test" />
-                                                <span></span>
-                                            </label>
-                                            <label class="mt-radio"> Radio 3
-                                                <input type="radio" value="1" name="test" />
-                                                <span></span>
-                                            </label>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Outline Radios</label>
-                                        <div class="mt-radio-list">
-                                            <label class="mt-radio mt-radio-outline"> Radio 1
-                                                <input type="radio" value="1" name="test" />
-                                                <span></span>
-                                            </label>
-                                            <label class="mt-radio mt-radio-outline"> Radio 2
-                                                <input type="radio" value="1" name="test" />
-                                                <span></span>
-                                            </label>
-                                            <label class="mt-radio mt-radio-outline"> Radio 3
-                                                <input type="radio" value="1" name="test" />
-                                                <span></span>
-                                            </label>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Inline Radio</label>
-                                        <div class="mt-radio-inline">
-                                            <label class="mt-radio">
-                                                <input type="radio" name="optionsRadios" id="optionsRadios4" value="option1" checked> Option 1
-                                                <span></span>
-                                            </label>
-                                            <label class="mt-radio">
-                                                <input type="radio" name="optionsRadios" id="optionsRadios5" value="option2"> Option 2
-                                                <span></span>
-                                            </label>
-                                            <label class="mt-radio">
-                                                <input type="radio" name="optionsRadios" id="optionsRadios6" value="option3" disabled> Disabled
-                                                <span></span>
-                                            </label>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="form-actions">
-                                    <button type="submit" class="btn blue">Submit</button>
-                                    <button type="button" class="btn default">Cancel</button>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                    <!-- END SAMPLE FORM PORTLET-->
-                    <!-- BEGIN SAMPLE FORM PORTLET-->
-                    <div class="portlet light ">
-                        <div class="portlet-title">
-                            <div class="caption">
-                                <i class="icon-social-dribbble font-blue-sharp"></i>
-                                <span class="caption-subject font-blue-sharp bold uppercase">Input Height Sizing</span>
-                            </div>
-                            <div class="actions">
-                                <a class="btn btn-circle btn-icon-only btn-default" href="javascript:;">
-                                    <i class="icon-cloud-upload"></i>
-                                </a>
-                                <a class="btn btn-circle btn-icon-only btn-default" href="javascript:;">
-                                    <i class="icon-wrench"></i>
-                                </a>
-                                <a class="btn btn-circle btn-icon-only btn-default" href="javascript:;">
-                                    <i class="icon-trash"></i>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="portlet-body form">
-                            <form role="form">
-                                <div class="form-body">
-                                    <div class="form-group">
-                                        <label>Large Input</label>
-                                        <input type="text" class="form-control input-lg" placeholder="input-lg"> </div>
-                                    <div class="form-group">
-                                        <label>Large Input Group</label>
-                                        <div class="input-group input-group-lg">
-                                            <span class="input-group-addon" id="sizing-addon1">@</span>
-                                            <input type="text" class="form-control" placeholder="Username" aria-describedby="sizing-addon1"> </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Large Input Default Group</label>
-                                        <div class="input-group input-group-lg">
-                                            <input type="text" class="form-control" placeholder="Search for...">
-                                                    <span class="input-group-btn">
-                                                        <button class="btn green" type="button">Go!</button>
-                                                    </span>
-                                        </div>
-                                        <!-- /input-group -->
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Default Input</label>
-                                        <input type="text" class="form-control" placeholder=""> </div>
-                                    <div class="form-group">
-                                        <label>Default Input Group</label>
-                                        <div class="input-group">
-                                            <input type="text" class="form-control" placeholder="Username" aria-describedby="sizing-addon1">
-                                            <span class="input-group-addon" id="sizing-addon1">@</span>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Default Input Button Group</label>
-                                        <div class="input-group">
-                                            <input type="text" class="form-control" placeholder="Search for...">
-                                                    <span class="input-group-btn">
-                                                        <button class="btn red" type="button">Go!</button>
-                                                    </span>
-                                        </div>
-                                        <!-- /input-group -->
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Small Input</label>
-                                        <input type="text" class="form-control input-sm" placeholder="input-sm"> </div>
-                                    <div class="form-group">
-                                        <label>Small Input Group</label>
-                                        <div class="input-group input-group-sm">
-                                            <span class="input-group-addon" id="sizing-addon1">@</span>
-                                            <input type="text" class="form-control" placeholder="Username" aria-describedby="sizing-addon1"> </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Small Input Default Group</label>
-                                        <div class="input-group input-group-sm">
-                                            <input type="text" class="form-control" placeholder="Search for...">
-                                                    <span class="input-group-btn">
-                                                        <button class="btn green" type="button">Go!</button>
-                                                    </span>
-                                        </div>
-                                        <!-- /input-group -->
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Large Select</label>
-                                        <select class="form-control input-lg">
-                                            <option>Option 1</option>
-                                            <option>Option 2</option>
-                                            <option>Option 3</option>
-                                            <option>Option 4</option>
-                                            <option>Option 5</option>
-                                        </select>
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Default Select</label>
-                                        <select class="form-control">
-                                            <option>Option 1</option>
-                                            <option>Option 2</option>
-                                            <option>Option 3</option>
-                                            <option>Option 4</option>
-                                            <option>Option 5</option>
-                                        </select>
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Small Select</label>
-                                        <select class="form-control input-sm">
-                                            <option>Option 1</option>
-                                            <option>Option 2</option>
-                                            <option>Option 3</option>
-                                            <option>Option 4</option>
-                                            <option>Option 5</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="form-actions right">
-                                    <button type="button" class="btn default">Cancel</button>
-                                    <button type="submit" class="btn green">Submit</button>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                    <!-- END SAMPLE FORM PORTLET-->
-                    <!-- BEGIN SAMPLE FORM PORTLET-->
-                    <div class="portlet light ">
-                        <div class="portlet-title">
-                            <div class="caption">
-                                <i class="icon-bubble font-green-sharp"></i>
-                                <span class="caption-subject font-green-sharp bold uppercase">Input Width Sizing</span>
-                            </div>
-                            <div class="actions">
-                                <div class="btn-group">
-                                    <a class="btn green-haze btn-outline btn-circle btn-sm" href="javascript:;" data-toggle="dropdown" data-hover="dropdown" data-close-others="true"> Actions
-                                        <i class="fa fa-angle-down"></i>
-                                    </a>
-                                    <ul class="dropdown-menu pull-right">
-                                        <li>
-                                            <a href="javascript:;"> Option 1</a>
-                                        </li>
-                                        <li class="divider"> </li>
-                                        <li>
-                                            <a href="javascript:;">Option 2</a>
-                                        </li>
-                                        <li>
-                                            <a href="javascript:;">Option 3</a>
-                                        </li>
-                                        <li>
-                                            <a href="javascript:;">Option 4</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="portlet-body form">
-                            <form role="form">
-                                <div class="form-body">
-                                    <div class="form-group">
-                                        <label>Fluid Input</label>
-                                        <input type="text" class="form-control" placeholder="fluid">
-                                        <div class="input-icon right margin-top-10">
-                                            <i class="fa fa-check"></i>
-                                            <input type="text" class="form-control" placeholder="fluid"> </div>
-                                        <div class="input-icon margin-top-10">
-                                            <i class="fa fa-user"></i>
-                                            <input type="text" class="form-control" placeholder="fluid"> </div>
-                                        <div class="input-group margin-top-10">
-                                                    <span class="input-group-addon">
-                                                        <i class="fa fa-envelope"></i>
-                                                    </span>
-                                            <input type="email" class="form-control" placeholder=".input-xlarge"> </div>
-                                        <div class="input-group margin-top-10">
-                                            <input type="email" class="form-control" placeholder=".input-xlarge">
-                                                    <span class="input-group-addon">
-                                                        <i class="fa fa-envelope"></i>
-                                                    </span>
-                                        </div>
-                                        <hr> </div>
-                                    <div class="form-group">
-                                        <label>Extra Large Input</label>
-                                        <input type="text" class="form-control input-xlarge" placeholder=".input-xlarge">
-                                        <div class="input-icon right input-xlarge margin-top-10">
-                                            <i class="fa fa-check"></i>
-                                            <input type="text" class="form-control" placeholder=".input-xlarge"> </div>
-                                        <div class="input-icon input-xlarge margin-top-10">
-                                            <i class="fa fa-user"></i>
-                                            <input type="text" class="form-control" placeholder=".input-xlarge"> </div>
-                                        <div class="input-group input-xlarge margin-top-10">
-                                                    <span class="input-group-addon">
-                                                        <i class="fa fa-envelope"></i>
-                                                    </span>
-                                            <input type="email" class="form-control" placeholder=".input-xlarge"> </div>
-                                        <div class="input-group input-xlarge margin-top-10">
-                                            <input type="email" class="form-control" placeholder=".input-xlarge">
-                                                    <span class="input-group-addon">
-                                                        <i class="fa fa-envelope"></i>
-                                                    </span>
-                                        </div>
-                                        <hr> </div>
-                                    <div class="form-group">
-                                        <label>Large Input</label>
-                                        <input type="text" class="form-control input-large" placeholder=".input-large">
-                                        <div class="input-icon right input-large margin-top-10">
-                                            <i class="fa fa-check"></i>
-                                            <input type="text" class="form-control" placeholder=".input-large"> </div>
-                                        <div class="input-icon input-large margin-top-10">
-                                            <i class="fa fa-user"></i>
-                                            <input type="text" class="form-control" placeholder=".input-large"> </div>
-                                        <div class="input-group input-large margin-top-10">
-                                                    <span class="input-group-addon">
-                                                        <i class="fa fa-envelope"></i>
-                                                    </span>
-                                            <input type="email" class="form-control" placeholder=".input-large"> </div>
-                                        <div class="input-group input-large margin-top-10">
-                                            <input type="email" class="form-control" placeholder=".input-large">
-                                                    <span class="input-group-addon">
-                                                        <i class="fa fa-envelope"></i>
-                                                    </span>
-                                        </div>
-                                        <hr> </div>
-                                    <div class="form-group">
-                                        <label>Medium Input</label>
-                                        <input type="text" class="form-control input-medium" placeholder=".input-medium">
-                                        <div class="input-icon right input-medium margin-top-10">
-                                            <i class="fa fa-check"></i>
-                                            <input type="text" class="form-control" placeholder=".input-medium"> </div>
-                                        <div class="input-icon input-medium margin-top-10">
-                                            <i class="fa fa-user"></i>
-                                            <input type="text" class="form-control" placeholder=".input-medium"> </div>
-                                        <div class="input-group input-medium margin-top-10">
-                                                    <span class="input-group-addon">
-                                                        <i class="fa fa-envelope"></i>
-                                                    </span>
-                                            <input type="email" class="form-control" placeholder=".input-medium"> </div>
-                                        <div class="input-group input-medium margin-top-10">
-                                            <input type="email" class="form-control" placeholder=".input-medium">
-                                                    <span class="input-group-addon">
-                                                        <i class="fa fa-envelope"></i>
-                                                    </span>
-                                        </div>
-                                        <hr> </div>
-                                    <div class="form-group">
-                                        <label>Small Input</label>
-                                        <input type="text" class="form-control input-small" placeholder=".input-small">
-                                        <div class="input-icon right input-small margin-top-10">
-                                            <i class="fa fa-check"></i>
-                                            <input type="text" class="form-control" placeholder=".input-small"> </div>
-                                        <div class="input-icon input-small margin-top-10">
-                                            <i class="fa fa-user"></i>
-                                            <input type="text" class="form-control" placeholder=".input-small"> </div>
-                                        <div class="input-group input-small margin-top-10">
-                                                    <span class="input-group-addon">
-                                                        <i class="fa fa-envelope"></i>
-                                                    </span>
-                                            <input type="email" class="form-control" placeholder=".input-small"> </div>
-                                        <div class="input-group input-small margin-top-10">
-                                            <input type="email" class="form-control" placeholder=".input-small">
-                                                    <span class="input-group-addon">
-                                                        <i class="fa fa-envelope"></i>
-                                                    </span>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Extra Small Input</label>
-                                        <input type="text" class="form-control input-xsmall" placeholder=".input-xsmall"> </div>
-                                    <div class="form-group">
-                                        <label>Extra Large Select</label>
-                                        <select class="form-control input-xlarge">
-                                            <option>Option 1</option>
-                                            <option>Option 2</option>
-                                            <option>Option 3</option>
-                                            <option>Option 4</option>
-                                            <option>Option 5</option>
-                                        </select>
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Large Select</label>
-                                        <select class="form-control input-large">
-                                            <option>Option 1</option>
-                                            <option>Option 2</option>
-                                            <option>Option 3</option>
-                                            <option>Option 4</option>
-                                            <option>Option 5</option>
-                                        </select>
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Medium Select</label>
-                                        <select class="form-control input-medium">
-                                            <option>Option 1</option>
-                                            <option>Option 2</option>
-                                            <option>Option 3</option>
-                                            <option>Option 4</option>
-                                            <option>Option 5</option>
-                                        </select>
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Small Select</label>
-                                        <select class="form-control input-small">
-                                            <option>Option 1</option>
-                                            <option>Option 2</option>
-                                            <option>Option 3</option>
-                                            <option>Option 4</option>
-                                            <option>Option 5</option>
-                                        </select>
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Extra Small Select</label>
-                                        <select class="form-control input-xsmall">
-                                            <option>Option 1</option>
-                                            <option>Option 2</option>
-                                            <option>Option 3</option>
-                                            <option>Option 4</option>
-                                            <option>Option 5</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="form-actions right">
-                                    <button type="button" class="btn default">Cancel</button>
-                                    <button type="submit" class="btn green">Submit</button>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                    <!-- END SAMPLE FORM PORTLET-->
-                </div>
-                <div class="col-md-12 ">
-                    <!-- BEGIN SAMPLE FORM PORTLET-->
-                    <div class="portlet light ">
-                        <div class="portlet-title">
-                            <div class="caption">
+                            <div class="caption font-dark">
                                 <i class="icon-settings font-dark"></i>
-                                <span class="caption-subject font-dark sbold uppercase">Horizontal Form</span>
-                            </div>
-                            <div class="actions">
-                                <div class="btn-group btn-group-devided" data-toggle="buttons">
-                                    <label class="btn btn-transparent dark btn-outline btn-circle btn-sm active">
-                                        <input type="radio" name="options" class="toggle" id="option1">Actions</label>
-                                    <label class="btn btn-transparent dark btn-outline btn-circle btn-sm">
-                                        <input type="radio" name="options" class="toggle" id="option2">Settings</label>
-                                </div>
+                                <span class="caption-subject bold uppercase"> Cabecera de la Orden de Compra</span>
                             </div>
                         </div>
                         <div class="portlet-body form">
-                            <form class="form-horizontal" role="form">
+                            <form role="form">
                                 <div class="form-body">
-                                    <div class="form-group">
-                                        <label class="col-md-3 control-label">Block Help</label>
-                                        <div class="col-md-9">
-                                            <input type="text" class="form-control" placeholder="Enter text">
-                                            <span class="help-block"> A block of help text. </span>
+                                    <div class="form-group  col-md-6">
+                                        <label>Razon Social</label>
+                                        <input type="text" class="form-control" placeholder="Readonly" readonly>
+                                    </div>
+                                    <div class="form-group  col-md-6">
+                                        <label>Identificacion</label>
+                                        <input type="text" class="form-control" placeholder="Readonly" readonly>
+                                    </div>
+                                    <div class="form-group  col-md-6">
+                                        <label>Contacto</label>
+                                        <input type="text" class="form-control" placeholder="Readonly" readonly>
+                                    </div>
+                                    <div class="form-group  col-md-6">
+                                        <label>Email</label>
+                                        <input type="text" class="form-control" placeholder="Readonly" readonly>
+                                    </div>
+                                    <div class="form-group  col-md-6">
+                                        <label>Direccion</label>
+                                        <input type="text" class="form-control" placeholder="Readonly" readonly>
+                                    </div>
+                                    <div class="form-group  col-md-6">
+                                        <label>Ciudad</label>
+                                        <input type="text" class="form-control" placeholder="Readonly" readonly>
+                                    </div>
+                                    <div class="form-group  col-md-6">
+                                        <label>Departamento</label>
+                                        <input type="text" class="form-control" placeholder="Readonly" readonly>
+                                    </div>
+                                    <div class="form-group  col-md-6">
+                                        <label>Forma de Pago</label>
+                                        <div class="input-group">
+                                                    <span class="input-group-addon">
+                                                        <i class="fa fa-money font-green"></i>
+                                                    </span>
+                                            <input type="text" class="form-control " value="Efectivo" placeholder="Efectivo">
                                         </div>
                                     </div>
-                                    <div class="form-group">
-                                        <label class="col-md-3 control-label">Inline Help</label>
-                                        <div class="col-md-9">
-                                            <input type="text" class="form-control input-inline input-medium" placeholder="Enter text">
-                                            <span class="help-inline"> Inline help. </span>
+                                    <div class="form-group  col-md-6">
+                                        <label>Estado de la Orden</label>
+                                        <div class="input-group">
+                                                    <span class="input-group-addon">
+                                                        <i class="fa fa-exclamation-triangle font-yellow"></i>
+                                                    </span>
+                                            <input type="text" class="form-control" placeholder="Creación" readonly>
                                         </div>
                                     </div>
-                                    <div class="form-group">
-                                        <label class="col-md-3 control-label">Input Group</label>
-                                        <div class="col-md-9">
-                                            <div class="input-inline input-medium">
-                                                <div class="input-group">
-                                                            <span class="input-group-addon">
-                                                                <i class="fa fa-user"></i>
-                                                            </span>
-                                                    <input type="email" class="form-control" placeholder="Email Address"> </div>
-                                            </div>
-                                            <span class="help-inline"> Inline help. </span>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="col-md-3 control-label">Email Address</label>
-                                        <div class="col-md-9">
-                                            <div class="input-group">
-                                                        <span class="input-group-addon">
-                                                            <i class="fa fa-envelope"></i>
-                                                        </span>
-                                                <input type="email" class="form-control" placeholder="Email Address"> </div>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="col-md-3 control-label">Password</label>
-                                        <div class="col-md-9">
-                                            <div class="input-group">
-                                                <input type="password" class="form-control" placeholder="Password">
-                                                        <span class="input-group-addon">
-                                                            <i class="fa fa-user"></i>
-                                                        </span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="col-md-3 control-label">Left Icon</label>
-                                        <div class="col-md-9">
-                                            <div class="input-icon">
-                                                <i class="fa fa-bell-o"></i>
-                                                <input type="text" class="form-control" placeholder="Left icon"> </div>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="col-md-3 control-label">Right Icon</label>
-                                        <div class="col-md-9">
-                                            <div class="input-icon right">
-                                                <i class="fa fa-microphone"></i>
-                                                <input type="text" class="form-control" placeholder="Right icon"> </div>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="col-md-3 control-label">Icon Input in Group Input</label>
-                                        <div class="col-md-9">
-                                            <div class="input-group">
-                                                <div class="input-icon">
-                                                    <i class="fa fa-lock fa-fw"></i>
-                                                    <input id="newpassword" class="form-control" type="text" name="password" placeholder="password" /> </div>
-                                                        <span class="input-group-btn">
-                                                            <button id="genpassword" class="btn btn-success" type="button">
-                                                                <i class="fa fa-arrow-left fa-fw" /></i> Random</button>
-                                                        </span>
+                                    <div class="form-group  "><label style="color:#fff">Acciones</label></div>
+                                </div>
+                                <div class="form-body">
+                                    <!-- BEGIN AJAX ORDER DETAIL -->
+                                    <div class="portlet light ">
+                                        <div class="portlet-title">
+                                            <div class="caption font-red-sunglo">
+                                                <i class="icon-settings font-red-sunglo"></i>
+                                                <span class="caption-subject bold uppercase"> Detalle de la orden de compra</span>
+                                                <br/>
+                                                <small>Seleccione un producto por nombre y presione el boton 'Agregar Producto'</small>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="col-md-3 control-label">Input With Spinner</label>
-                                        <div class="col-md-9">
-                                            <input type="password" class="form-control spinner" placeholder="Password"> </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="col-md-3 control-label">Static Control</label>
-                                        <div class="col-md-9">
-                                            <p class="form-control-static"> email@example.com </p>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="col-md-3 control-label">Disabled</label>
-                                        <div class="col-md-9">
-                                            <input type="password" class="form-control" placeholder="Disabled" disabled> </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="col-md-3 control-label">Readonly</label>
-                                        <div class="col-md-9">
-                                            <input type="password" class="form-control" placeholder="Readonly" readonly> </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="col-md-3 control-label">Dropdown</label>
-                                        <div class="col-md-9">
-                                            <select class="form-control">
-                                                <option>Option 1</option>
-                                                <option>Option 2</option>
-                                                <option>Option 3</option>
-                                                <option>Option 4</option>
-                                                <option>Option 5</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="col-md-3 control-label">Multiple Select</label>
-                                        <div class="col-md-9">
-                                            <select multiple class="form-control">
-                                                <option>Option 1</option>
-                                                <option>Option 2</option>
-                                                <option>Option 3</option>
-                                                <option>Option 4</option>
-                                                <option>Option 5</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="col-md-3 control-label">Textarea</label>
-                                        <div class="col-md-9">
-                                            <textarea class="form-control" rows="3"></textarea>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="exampleInputFile" class="col-md-3 control-label">File input</label>
-                                        <div class="col-md-9">
-                                            <input type="file" id="exampleInputFile">
-                                            <p class="help-block"> some help text here. </p>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="col-md-3 control-label">Checkboxes</label>
-                                        <div class="col-md-9">
-                                            <div class="mt-checkbox-list">
-                                                <label class="mt-checkbox">
-                                                    <input type="checkbox"> Checkbox 1
-                                                    <span></span>
-                                                </label>
-                                                <label class="mt-checkbox">
-                                                    <input type="checkbox"> Checkbox 1
-                                                    <span></span>
-                                                </label>
-                                                <label class="mt-checkbox">
-                                                    <input type="checkbox" disabled> Disabled
-                                                    <span></span>
-                                                </label>
+                                        <div class="portlet-body">
+                                            <div class="table-toolbar">
+                                                <div class="row">
+                                                    <div class="col-md-8">
+                                                        <div class="form-group">
+                                                            <select class="bs-select form-control" data-live-search="true" data-size="8">
+                                                                    <option value="AF">Afghanistan</option>
+                                                                    <option value="AL">Albania</option>
+                                                                    <option value="DZ">Algeria</option>
+                                                                    <option value="AS">American Samoa</option>
+                                                                    <option value="AD">Andorra</option>
+                                                                    <option value="AO">Angola</option>
+                                                                    <option value="AI">Anguilla</option>
+                                                                    <option value="AR">Argentina</option>
+                                                                    <option value="AM">Armenia</option>
+                                                                    <option value="AW">Aruba</option>
+                                                                    <option value="AU">Australia</option>
+                                                                    <option value="AT">Austria</option>
+                                                                    <option value="AZ">Azerbaijan</option>
+                                                                    <option value="BS">Bahamas</option>
+                                                                    <option value="BH">Bahrain</option>
+                                                                    <option value="BD">Bangladesh</option>
+                                                                    <option value="BB">Barbados</option>
+                                                                    <option value="BY">Belarus</option>
+                                                                    <option value="BE">Belgium</option>
+                                                                    <option value="BZ">Belize</option>
+                                                                    <option value="BJ">Benin</option>
+                                                                    <option value="BM">Bermuda</option>
+                                                                    <option value="BT">Bhutan</option>
+                                                                    <option value="BO">Bolivia</option>
+                                                                    <option value="BA">Bosnia and Herzegowina</option>
+                                                                    <option value="BW">Botswana</option>
+                                                                    <option value="BV">Bouvet Island</option>
+                                                                    <option value="BR">Brazil</option>
+                                                                    <option value="IO">British Indian Ocean Territory</option>
+                                                                    <option value="BN">Brunei Darussalam</option>
+                                                                    <option value="BG">Bulgaria</option>
+                                                                    <option value="BF">Burkina Faso</option>
+                                                                    <option value="BI">Burundi</option>
+                                                                    <option value="KH">Cambodia</option>
+                                                                    <option value="CM">Cameroon</option>
+                                                                    <option value="CA">Canada</option>
+                                                                    <option value="CV">Cape Verde</option>
+                                                                    <option value="KY">Cayman Islands</option>
+                                                                    <option value="CF">Central African Republic</option>
+                                                                    <option value="TD">Chad</option>
+                                                                    <option value="CL">Chile</option>
+                                                                    <option value="CN">China</option>
+                                                                    <option value="CX">Christmas Island</option>
+                                                                    <option value="CC">Cocos (Keeling) Islands</option>
+                                                                    <option value="CO">Colombia</option>
+                                                                    <option value="KM">Comoros</option>
+                                                                    <option value="CG">Congo</option>
+                                                                    <option value="CD">Congo, the Democratic Republic of the</option>
+                                                                    <option value="CK">Cook Islands</option>
+                                                                    <option value="CR">Costa Rica</option>
+                                                                    <option value="CI">Cote d'Ivoire</option>
+                                                                    <option value="HR">Croatia (Hrvatska)</option>
+                                                                    <option value="CU">Cuba</option>
+                                                                    <option value="CY">Cyprus</option>
+                                                                    <option value="CZ">Czech Republic</option>
+                                                                    <option value="DK">Denmark</option>
+                                                                    <option value="DJ">Djibouti</option>
+                                                                    <option value="DM">Dominica</option>
+                                                                    <option value="DO">Dominican Republic</option>
+                                                                    <option value="EC">Ecuador</option>
+                                                                    <option value="EG">Egypt</option>
+                                                                    <option value="SV">El Salvador</option>
+                                                                    <option value="GQ">Equatorial Guinea</option>
+                                                                    <option value="ER">Eritrea</option>
+                                                                    <option value="EE">Estonia</option>
+                                                                    <option value="ET">Ethiopia</option>
+                                                                    <option value="FK">Falkland Islands (Malvinas)</option>
+                                                                    <option value="FO">Faroe Islands</option>
+                                                                    <option value="FJ">Fiji</option>
+                                                                    <option value="FI">Finland</option>
+                                                                    <option value="FR">France</option>
+                                                                    <option value="GF">French Guiana</option>
+                                                                    <option value="PF">French Polynesia</option>
+                                                                    <option value="TF">French Southern Territories</option>
+                                                                    <option value="GA">Gabon</option>
+                                                                    <option value="GM">Gambia</option>
+                                                                    <option value="GE">Georgia</option>
+                                                                    <option value="DE">Germany</option>
+                                                                    <option value="GH">Ghana</option>
+                                                                    <option value="GI">Gibraltar</option>
+                                                                    <option value="GR">Greece</option>
+                                                                    <option value="GL">Greenland</option>
+                                                                    <option value="GD">Grenada</option>
+                                                                    <option value="GP">Guadeloupe</option>
+                                                                    <option value="GU">Guam</option>
+                                                                    <option value="GT">Guatemala</option>
+                                                                    <option value="GN">Guinea</option>
+                                                                    <option value="GW">Guinea-Bissau</option>
+                                                                    <option value="GY">Guyana</option>
+                                                                    <option value="HT">Haiti</option>
+                                                                    <option value="HM">Heard and Mc Donald Islands</option>
+                                                                    <option value="VA">Holy See (Vatican City State)</option>
+                                                                    <option value="HN">Honduras</option>
+                                                                    <option value="HK">Hong Kong</option>
+                                                                    <option value="HU">Hungary</option>
+                                                                    <option value="IS">Iceland</option>
+                                                                    <option value="IN">India</option>
+                                                                    <option value="ID">Indonesia</option>
+                                                                    <option value="IR">Iran (Islamic Republic of)</option>
+                                                                    <option value="IQ">Iraq</option>
+                                                                    <option value="IE">Ireland</option>
+                                                                    <option value="IL">Israel</option>
+                                                                    <option value="IT">Italy</option>
+                                                                    <option value="JM">Jamaica</option>
+                                                                    <option value="JP">Japan</option>
+                                                                    <option value="JO">Jordan</option>
+                                                                    <option value="KZ">Kazakhstan</option>
+                                                                    <option value="KE">Kenya</option>
+                                                                    <option value="KI">Kiribati</option>
+                                                                    <option value="KP">Korea, Democratic People's Republic of</option>
+                                                                    <option value="KR">Korea, Republic of</option>
+                                                                    <option value="KW">Kuwait</option>
+                                                                    <option value="KG">Kyrgyzstan</option>
+                                                                    <option value="LA">Lao People's Democratic Republic</option>
+                                                                    <option value="LV">Latvia</option>
+                                                                    <option value="LB">Lebanon</option>
+                                                                    <option value="LS">Lesotho</option>
+                                                                    <option value="LR">Liberia</option>
+                                                                    <option value="LY">Libyan Arab Jamahiriya</option>
+                                                                    <option value="LI">Liechtenstein</option>
+                                                                    <option value="LT">Lithuania</option>
+                                                                    <option value="LU">Luxembourg</option>
+                                                                    <option value="MO">Macau</option>
+                                                                    <option value="MK">Macedonia, The Former Yugoslav Republic of</option>
+                                                                    <option value="MG">Madagascar</option>
+                                                                    <option value="MW">Malawi</option>
+                                                                    <option value="MY">Malaysia</option>
+                                                                    <option value="MV">Maldives</option>
+                                                                    <option value="ML">Mali</option>
+                                                                    <option value="MT">Malta</option>
+                                                                    <option value="MH">Marshall Islands</option>
+                                                                    <option value="MQ">Martinique</option>
+                                                                    <option value="MR">Mauritania</option>
+                                                                    <option value="MU">Mauritius</option>
+                                                                    <option value="YT">Mayotte</option>
+                                                                    <option value="MX">Mexico</option>
+                                                                    <option value="FM">Micronesia, Federated States of</option>
+                                                                    <option value="MD">Moldova, Republic of</option>
+                                                                    <option value="MC">Monaco</option>
+                                                                    <option value="MN">Mongolia</option>
+                                                                    <option value="MS">Montserrat</option>
+                                                                    <option value="MA">Morocco</option>
+                                                                    <option value="MZ">Mozambique</option>
+                                                                    <option value="MM">Myanmar</option>
+                                                                    <option value="NA">Namibia</option>
+                                                                    <option value="NR">Nauru</option>
+                                                                    <option value="NP">Nepal</option>
+                                                                    <option value="NL">Netherlands</option>
+                                                                    <option value="AN">Netherlands Antilles</option>
+                                                                    <option value="NC">New Caledonia</option>
+                                                                    <option value="NZ">New Zealand</option>
+                                                                    <option value="NI">Nicaragua</option>
+                                                                    <option value="NE">Niger</option>
+                                                                    <option value="NG">Nigeria</option>
+                                                                    <option value="NU">Niue</option>
+                                                                    <option value="NF">Norfolk Island</option>
+                                                                    <option value="MP">Northern Mariana Islands</option>
+                                                                    <option value="NO">Norway</option>
+                                                                    <option value="OM">Oman</option>
+                                                                    <option value="PK">Pakistan</option>
+                                                                    <option value="PW">Palau</option>
+                                                                    <option value="PA">Panama</option>
+                                                                    <option value="PG">Papua New Guinea</option>
+                                                                    <option value="PY">Paraguay</option>
+                                                                    <option value="PE">Peru</option>
+                                                                    <option value="PH">Philippines</option>
+                                                                    <option value="PN">Pitcairn</option>
+                                                                    <option value="PL">Poland</option>
+                                                                    <option value="PT">Portugal</option>
+                                                                    <option value="PR">Puerto Rico</option>
+                                                                    <option value="QA">Qatar</option>
+                                                                    <option value="RE">Reunion</option>
+                                                                    <option value="RO">Romania</option>
+                                                                    <option value="RU">Russian Federation</option>
+                                                                    <option value="RW">Rwanda</option>
+                                                                    <option value="KN">Saint Kitts and Nevis</option>
+                                                                    <option value="LC">Saint LUCIA</option>
+                                                                    <option value="VC">Saint Vincent and the Grenadines</option>
+                                                                    <option value="WS">Samoa</option>
+                                                                    <option value="SM">San Marino</option>
+                                                                    <option value="ST">Sao Tome and Principe</option>
+                                                                    <option value="SA">Saudi Arabia</option>
+                                                                    <option value="SN">Senegal</option>
+                                                                    <option value="SC">Seychelles</option>
+                                                                    <option value="SL">Sierra Leone</option>
+                                                                    <option value="SG">Singapore</option>
+                                                                    <option value="SK">Slovakia (Slovak Republic)</option>
+                                                                    <option value="SI">Slovenia</option>
+                                                                    <option value="SB">Solomon Islands</option>
+                                                                    <option value="SO">Somalia</option>
+                                                                    <option value="ZA">South Africa</option>
+                                                                    <option value="GS">South Georgia and the South Sandwich Islands</option>
+                                                                    <option value="ES">Spain</option>
+                                                                    <option value="LK">Sri Lanka</option>
+                                                                    <option value="SH">St. Helena</option>
+                                                                    <option value="PM">St. Pierre and Miquelon</option>
+                                                                    <option value="SD">Sudan</option>
+                                                                    <option value="SR">Suriname</option>
+                                                                    <option value="SJ">Svalbard and Jan Mayen Islands</option>
+                                                                    <option value="SZ">Swaziland</option>
+                                                                    <option value="SE">Sweden</option>
+                                                                    <option value="CH">Switzerland</option>
+                                                                    <option value="SY">Syrian Arab Republic</option>
+                                                                    <option value="TW">Taiwan, Province of China</option>
+                                                                    <option value="TJ">Tajikistan</option>
+                                                                    <option value="TZ">Tanzania, United Republic of</option>
+                                                                    <option value="TH">Thailand</option>
+                                                                    <option value="TG">Togo</option>
+                                                                    <option value="TK">Tokelau</option>
+                                                                    <option value="TO">Tonga</option>
+                                                                    <option value="TT">Trinidad and Tobago</option>
+                                                                    <option value="TN">Tunisia</option>
+                                                                    <option value="TR">Turkey</option>
+                                                                    <option value="TM">Turkmenistan</option>
+                                                                    <option value="TC">Turks and Caicos Islands</option>
+                                                                    <option value="TV">Tuvalu</option>
+                                                                    <option value="UG">Uganda</option>
+                                                                    <option value="UA">Ukraine</option>
+                                                                    <option value="AE">United Arab Emirates</option>
+                                                                    <option value="GB">United Kingdom</option>
+                                                                    <option value="US">United States</option>
+                                                                    <option value="UM">United States Minor Outlying Islands</option>
+                                                                    <option value="UY">Uruguay</option>
+                                                                    <option value="UZ">Uzbekistan</option>
+                                                                    <option value="VU">Vanuatu</option>
+                                                                    <option value="VE">Venezuela</option>
+                                                                    <option value="VN">Viet Nam</option>
+                                                                    <option value="VG">Virgin Islands (British)</option>
+                                                                    <option value="VI">Virgin Islands (U.S.)</option>
+                                                                    <option value="WF">Wallis and Futuna Islands</option>
+                                                                    <option value="EH">Western Sahara</option>
+                                                                    <option value="YE">Yemen</option>
+                                                                    <option value="ZM">Zambia</option>
+                                                                    <option value="ZW">Zimbabwe</option>
+                                                                </select>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="btn-group">
+                                                            <button id="sample_editable_1_new" class="btn sbold green"> Agregar Producto
+                                                                <i class="fa fa-plus"></i>
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                             </div>
+                                            <table class="table table-striped table-bordered table-hover table-checkable order-column" id="sample_1">
+                                                <thead>
+                                                <tr>
+                                                    <th> Producto </th>
+                                                    <th> Presentacion </th>
+                                                    <th> Marca </th>
+                                                    <th> Referencia </th>
+                                                    <th> Precio con IVA </th>
+                                                    <th> Cantidad </th>
+                                                    <th> Acciones </th>
+                                                </tr>
+                                                </thead>
+                                                <tbody>
+                                                <tr class="odd gradeX">
+                                                    <td> shuxer </td>
+                                                    <td> Shuxer presentacion </td>
+                                                    <td> Marca Shuxer </td>
+                                                    <td> Referencia Shuxer </td>
+                                                    <td> $ 123.456,78 </td>
+                                                    <td> <input type="text" class="form-control input-xsmall" name="order_customer_name"> </td>
+                                                    <td>
+                                                        <div class="btn-group">
+                                                            <button class="btn btn-xs green dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="false"> Actions
+                                                                <i class="fa fa-angle-down"></i>
+                                                            </button>
+                                                            <ul class="dropdown-menu" role="menu">
+                                                                <li>
+                                                                    <a href="javascript:;">
+                                                                        <i class="icon-docs"></i> New Post </a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="javascript:;">
+                                                                        <i class="icon-tag"></i> New Comment </a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="javascript:;">
+                                                                        <i class="icon-user"></i> New User </a>
+                                                                </li>
+                                                                <li class="divider"> </li>
+                                                                <li>
+                                                                    <a href="javascript:;">
+                                                                        <i class="icon-flag"></i> Comments
+                                                                        <span class="badge badge-success">4</span>
+                                                                    </a>
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                </tbody>
+                                            </table>
                                         </div>
                                     </div>
-                                    <div class="form-group">
-                                        <label class="col-md-3 control-label">Outline Checkboxes</label>
-                                        <div class="col-md-9">
-                                            <div class="mt-checkbox-list">
-                                                <label class="mt-checkbox mt-checkbox-outline">
-                                                    <input type="checkbox"> Checkbox 1
-                                                    <span></span>
-                                                </label>
-                                                <label class="mt-checkbox mt-checkbox-outline">
-                                                    <input type="checkbox"> Checkbox 1
-                                                    <span></span>
-                                                </label>
-                                                <label class="mt-checkbox mt-checkbox-outline">
-                                                    <input type="checkbox" disabled> Disabled
-                                                    <span></span>
-                                                </label>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="col-md-3 control-label">Inline Checkboxes</label>
-                                        <div class="col-md-9">
-                                            <div class="mt-checkbox-inline">
-                                                <label class="mt-checkbox">
-                                                    <input type="checkbox" id="inlineCheckbox21" value="option1"> Checkbox 1
-                                                    <span></span>
-                                                </label>
-                                                <label class="mt-checkbox">
-                                                    <input type="checkbox" id="inlineCheckbox22" value="option2"> Checkbox 2
-                                                    <span></span>
-                                                </label>
-                                                <label class="mt-checkbox">
-                                                    <input type="checkbox" id="inlineCheckbox23" value="option3" disabled> Disabled
-                                                    <span></span>
-                                                </label>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="col-md-3 control-label">Radios</label>
-                                        <div class="col-md-9">
-                                            <div class="mt-radio-list">
-                                                <label class="mt-radio">
-                                                    <input type="radio" name="optionsRadios" id="optionsRadios22" value="option1" checked> Option 1
-                                                    <span></span>
-                                                </label>
-                                                <label class="mt-radio">
-                                                    <input type="radio" name="optionsRadios" id="optionsRadios23" value="option2" checked> Option 2
-                                                    <span></span>
-                                                </label>
-                                                <label class="mt-radio">
-                                                    <input type="radio" name="optionsRadios" id="optionsRadios24" value="option2" disabled> Disabled
-                                                    <span></span>
-                                                </label>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="col-md-3 control-label">Outline Radios</label>
-                                        <div class="col-md-9">
-                                            <div class="mt-radio-list">
-                                                <label class="mt-radio mt-radio-line">
-                                                    <input type="radio" name="optionsRadios" id="optionsRadios22" value="option1" checked> Option 1
-                                                    <span></span>
-                                                </label>
-                                                <label class="mt-radio mt-radio-line">
-                                                    <input type="radio" name="optionsRadios" id="optionsRadios23" value="option2" checked> Option 2
-                                                    <span></span>
-                                                </label>
-                                                <label class="mt-radio mt-radio-line">
-                                                    <input type="radio" name="optionsRadios" id="optionsRadios24" value="option2" disabled> Disabled
-                                                    <span></span>
-                                                </label>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="col-md-3 control-label">Inline Radio</label>
-                                        <div class="col-md-9">
-                                            <div class="mt-radio-inline">
-                                                <label class="mt-radio">
-                                                    <input type="radio" name="optionsRadios" id="optionsRadios25" value="option1" checked> Option 1
-                                                    <span></span>
-                                                </label>
-                                                <label class="mt-radio">
-                                                    <input type="radio" name="optionsRadios" id="optionsRadios26" value="option2" checked> Option 2
-                                                    <span></span>
-                                                </label>
-                                                <label class="mt-radio">
-                                                    <input type="radio" name="optionsRadios" id="optionsRadios27" value="option3" disabled> Disabled
-                                                    <span></span>
-                                                </label>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    <!-- END AJAX ORDER DETAIL -->
                                 </div>
                                 <div class="form-actions">
-                                    <div class="row">
-                                        <div class="col-md-offset-3 col-md-9">
-                                            <button type="submit" class="btn green">Submit</button>
-                                            <button type="button" class="btn default">Cancel</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                    <!-- END SAMPLE FORM PORTLET-->
-                    <!-- BEGIN SAMPLE FORM PORTLET-->
-                    <div class="portlet box purple ">
-                        <div class="portlet-title">
-                            <div class="caption">
-                                <i class="fa fa-gift"></i> Horizontal Form Height Sizing </div>
-                            <div class="tools">
-                                <a href="" class="collapse"> </a>
-                                <a href="#portlet-config" data-toggle="modal" class="config"> </a>
-                                <a href="" class="reload"> </a>
-                                <a href="" class="remove"> </a>
-                            </div>
-                        </div>
-                        <div class="portlet-body form">
-                            <form class="form-horizontal" role="form">
-                                <div class="form-body">
-                                    <div class="form-group">
-                                        <label class="col-md-3 control-label">Large Input</label>
-                                        <div class="col-md-9">
-                                            <input type="text" class="form-control input-lg" placeholder="Large Input"> </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="col-md-3 control-label">Default Input</label>
-                                        <div class="col-md-9">
-                                            <input type="text" class="form-control" placeholder="Default Input"> </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="col-md-3 control-label">Small Input</label>
-                                        <div class="col-md-9">
-                                            <input type="text" class="form-control input-sm" placeholder="Default Input"> </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="col-md-3 control-label">Large Select</label>
-                                        <div class="col-md-9">
-                                            <select class="form-control input-lg">
-                                                <option>Option 1</option>
-                                                <option>Option 2</option>
-                                                <option>Option 3</option>
-                                                <option>Option 4</option>
-                                                <option>Option 5</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="col-md-3 control-label">Default Select</label>
-                                        <div class="col-md-9">
-                                            <select class="form-control">
-                                                <option>Option 1</option>
-                                                <option>Option 2</option>
-                                                <option>Option 3</option>
-                                                <option>Option 4</option>
-                                                <option>Option 5</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="col-md-3 control-label">Small Select</label>
-                                        <div class="col-md-9">
-                                            <select class="form-control input-sm">
-                                                <option>Option 1</option>
-                                                <option>Option 2</option>
-                                                <option>Option 3</option>
-                                                <option>Option 4</option>
-                                                <option>Option 5</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="form-actions right1">
-                                    <button type="button" class="btn default">Cancel</button>
-                                    <button type="submit" class="btn green">Submit</button>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                    <!-- END SAMPLE FORM PORTLET-->
-                    <!-- BEGIN SAMPLE FORM PORTLET-->
-                    <div class="portlet box purple ">
-                        <div class="portlet-title">
-                            <div class="caption">
-                                <i class="fa fa-gift"></i> Fluid Input Groups </div>
-                            <div class="tools">
-                                <a href="" class="collapse"> </a>
-                                <a href="#portlet-config" data-toggle="modal" class="config"> </a>
-                                <a href="" class="reload"> </a>
-                                <a href="" class="remove"> </a>
-                            </div>
-                        </div>
-                        <div class="portlet-body">
-                            <h4 class="block">Checkboxe Addons</h4>
-                            <form role="form">
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <div class="input-group">
-                                                    <span class="input-group-addon">
-                                                        <input type="checkbox">
-                                                        <span></span>
-                                                    </span>
-                                            <input type="text" class="form-control"> </div>
-                                        <!-- /input-group -->
-                                    </div>
-                                    <!-- /.col-md-6 -->
-                                    <div class="col-md-6">
-                                        <div class="input-group">
-                                            <input type="text" class="form-control">
-                                                    <span class="input-group-addon">
-                                                        <input type="checkbox"> </span>
-                                        </div>
-                                        <!-- /input-group -->
-                                    </div>
-                                    <!-- /.col-md-6 -->
-                                </div>
-                                <!-- /.row -->
-                            </form>
-                            <h4 class="block">Button Addons</h4>
-                            <form role="form">
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <div class="input-group">
-                                                    <span class="input-group-btn">
-                                                        <button class="btn red" type="button">Go!</button>
-                                                    </span>
-                                            <input type="text" class="form-control"> </div>
-                                        <!-- /input-group -->
-                                    </div>
-                                    <!-- /.col-md-6 -->
-                                    <div class="col-md-6">
-                                        <div class="input-group">
-                                            <input type="text" class="form-control">
-                                                    <span class="input-group-btn">
-                                                        <button class="btn blue" type="button">Go!</button>
-                                                    </span>
-                                        </div>
-                                        <!-- /input-group -->
-                                    </div>
-                                    <!-- /.col-md-6 -->
-                                </div>
-                                <!-- /.row -->
-                            </form>
-                            <h4 class="block">Button Addons On Both Sides</h4>
-                            <form role="form">
-                                <div class="row">
                                     <div class="col-md-12">
-                                        <div class="input-group">
-                                                    <span class="input-group-btn">
-                                                        <button class="btn red" type="button">Go!</button>
-                                                    </span>
-                                            <input type="text" class="form-control">
-                                                    <span class="input-group-btn">
-                                                        <button class="btn blue" type="button">Go!</button>
-                                                    </span>
-                                        </div>
-                                        <!-- /input-group -->
-                                    </div>
-                                    <!-- /.col-md-6 -->
-                                </div>
-                            </form>
-                            <h4 class="block">Buttons With Dropdowns</h4>
-                            <form role="form">
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <div class="input-group">
-                                            <div class="input-group-btn">
-                                                <button type="button" class="btn green dropdown-toggle" data-toggle="dropdown">Action
-                                                    <i class="fa fa-angle-down"></i>
-                                                </button>
-                                                <ul class="dropdown-menu">
-                                                    <li>
-                                                        <a href="javascript:;"> Action </a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="javascript:;"> Another action </a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="javascript:;"> Something else here </a>
-                                                    </li>
-                                                    <li class="divider"> </li>
-                                                    <li>
-                                                        <a href="javascript:;"> Separated link </a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                            <!-- /btn-group -->
-                                            <input type="text" class="form-control"> </div>
-                                        <!-- /input-group -->
-                                    </div>
-                                    <!-- /.col-md-6 -->
-                                    <div class="col-md-6">
-                                        <div class="input-group">
-                                            <input type="text" class="form-control">
-                                            <div class="input-group-btn">
-                                                <button type="button" class="btn yellow dropdown-toggle" data-toggle="dropdown">Action
-                                                    <i class="fa fa-angle-down"></i>
-                                                </button>
-                                                <ul class="dropdown-menu pull-right">
-                                                    <li>
-                                                        <a href="javascript:;"> Action </a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="javascript:;"> Another action </a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="javascript:;"> Something else here </a>
-                                                    </li>
-                                                    <li class="divider"> </li>
-                                                    <li>
-                                                        <a href="javascript:;"> Separated link </a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                            <!-- /btn-group -->
-                                        </div>
-                                        <!-- /input-group -->
-                                    </div>
-                                    <!-- /.col-md-6 -->
-                                </div>
-                                <!-- /.row -->
-                            </form>
-                            <h4 class="block">Buttons With Dropdowns On Both Sides</h4>
-                            <form role="form">
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <div class="input-group">
-                                            <div class="input-group-btn">
-                                                <button type="button" class="btn green dropdown-toggle" data-toggle="dropdown">Action
-                                                    <i class="fa fa-angle-down"></i>
-                                                </button>
-                                                <ul class="dropdown-menu">
-                                                    <li>
-                                                        <a href="javascript:;"> Action </a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="javascript:;"> Another action </a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="javascript:;"> Something else here </a>
-                                                    </li>
-                                                    <li class="divider"> </li>
-                                                    <li>
-                                                        <a href="javascript:;"> Separated link </a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                            <!-- /btn-group -->
-                                            <input type="text" class="form-control">
-                                            <div class="input-group-btn">
-                                                <button type="button" class="btn yellow dropdown-toggle" data-toggle="dropdown">Action
-                                                    <i class="fa fa-angle-down"></i>
-                                                </button>
-                                                <ul class="dropdown-menu pull-right">
-                                                    <li>
-                                                        <a href="javascript:;"> Action </a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="javascript:;"> Another action </a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="javascript:;"> Something else here </a>
-                                                    </li>
-                                                    <li class="divider"> </li>
-                                                    <li>
-                                                        <a href="javascript:;"> Separated link </a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                            <!-- /btn-group -->
-                                        </div>
-                                        <!-- /input-group -->
-                                    </div>
-                                    <!-- /.col-md-6 -->
-                                </div>
-                                <!-- /.row -->
-                            </form>
-                            <h4 class="block">Segmented Buttons</h4>
-                            <form role="form">
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <div class="input-group">
-                                            <div class="input-group-btn">
-                                                <button type="button" class="btn default" tabindex="-1">Action</button>
-                                                <button type="button" class="btn default dropdown-toggle" data-toggle="dropdown" tabindex="-1">
-                                                    <i class="fa fa-angle-down"></i>
-                                                </button>
-                                                <ul class="dropdown-menu" role="menu">
-                                                    <li>
-                                                        <a href="javascript:;"> Action </a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="javascript:;"> Another action </a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="javascript:;"> Something else here </a>
-                                                    </li>
-                                                    <li class="divider"> </li>
-                                                    <li>
-                                                        <a href="javascript:;"> Separated link </a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                            <input type="text" class="form-control"> </div>
-                                        <!-- /.input-group -->
-                                    </div>
-                                    <!-- /.col-md-6 -->
-                                    <div class="col-md-6">
-                                        <div class="input-group">
-                                            <input type="text" class="form-control">
-                                            <div class="input-group-btn">
-                                                <button type="button" class="btn green" tabindex="-1">Action</button>
-                                                <button type="button" class="btn green dropdown-toggle" data-toggle="dropdown" tabindex="-1">
-                                                    <i class="fa fa-angle-down"></i>
-                                                </button>
-                                                <ul class="dropdown-menu pull-right" role="menu">
-                                                    <li>
-                                                        <a href="javascript:;"> Action </a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="javascript:;"> Another action </a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="javascript:;"> Something else here </a>
-                                                    </li>
-                                                    <li class="divider"> </li>
-                                                    <li>
-                                                        <a href="javascript:;"> Separated link </a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                        <!-- /.input-group -->
-                                    </div>
-                                    <!-- /.col-md-6 -->
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                    <!-- END SAMPLE FORM PORTLET-->
-                    <!-- BEGIN SAMPLE FORM PORTLET-->
-                    <div class="portlet box purple ">
-                        <div class="portlet-title">
-                            <div class="caption">
-                                <i class="fa fa-gift"></i> Fixed Input Groups </div>
-                            <div class="tools">
-                                <a href="" class="collapse"> </a>
-                                <a href="#portlet-config" data-toggle="modal" class="config"> </a>
-                                <a href="" class="reload"> </a>
-                                <a href="" class="remove"> </a>
-                            </div>
-                        </div>
-                        <div class="portlet-body">
-                            <h4 class="block">Checkboxe Addons</h4>
-                            <form role="form">
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <div class="input-group input-medium">
-                                                    <span class="input-group-addon">
-                                                        <input type="checkbox"> </span>
-                                            <input type="text" class="form-control" placeholder=".input-medium"> </div>
-                                        <!-- /input-group -->
-                                    </div>
-                                    <!-- /.col-md-6 -->
-                                    <div class="col-md-6">
-                                        <div class="input-group input-medium">
-                                            <input type="text" class="form-control" placeholder=".input-medium">
-                                                    <span class="input-group-addon">
-                                                        <input type="checkbox"> </span>
-                                        </div>
-                                        <!-- /input-group -->
-                                    </div>
-                                    <!-- /.col-md-6 -->
-                                </div>
-                                <!-- /.row -->
-                            </form>
-                            <h4 class="block">Button Addons</h4>
-                            <form role="form">
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <div class="input-group input-medium">
-                                                    <span class="input-group-btn">
-                                                        <button class="btn red" type="button">Go!</button>
-                                                    </span>
-                                            <input type="text" class="form-control" placeholder=".input-medium"> </div>
-                                        <!-- /input-group -->
-                                    </div>
-                                    <!-- /.col-md-6 -->
-                                    <div class="col-md-6">
-                                        <div class="input-group input-medium">
-                                            <input type="text" class="form-control" placeholder=".input-medium">
-                                                    <span class="input-group-btn">
-                                                        <button class="btn blue" type="button">Go!</button>
-                                                    </span>
-                                        </div>
-                                        <!-- /input-group -->
-                                    </div>
-                                    <!-- /.col-md-6 -->
-                                </div>
-                                <!-- /.row -->
-                            </form>
-                            <h4 class="block">Button Addons On Both Sides</h4>
-                            <form role="form">
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <div class="input-group input-large">
-                                                    <span class="input-group-btn">
-                                                        <button class="btn red" type="button">Go!</button>
-                                                    </span>
-                                            <input type="text" class="form-control" placeholder=".input-large">
-                                                    <span class="input-group-btn">
-                                                        <button class="btn blue" type="button">Go!</button>
-                                                    </span>
-                                        </div>
-                                        <!-- /input-group -->
-                                    </div>
-                                    <!-- /.col-md-6 -->
-                                </div>
-                            </form>
-                            <h4 class="block">Buttons With Dropdowns</h4>
-                            <form role="form">
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <div class="input-group input-medium">
-                                            <div class="input-group-btn">
-                                                <button type="button" class="btn green dropdown-toggle" data-toggle="dropdown">Action
-                                                    <i class="fa fa-angle-down"></i>
-                                                </button>
-                                                <ul class="dropdown-menu">
-                                                    <li>
-                                                        <a href="javascript:;"> Action </a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="javascript:;"> Another action </a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="javascript:;"> Something else here </a>
-                                                    </li>
-                                                    <li class="divider"> </li>
-                                                    <li>
-                                                        <a href="javascript:;"> Separated link </a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                            <!-- /btn-group -->
-                                            <input type="text" class="form-control" placeholder=".input-medium"> </div>
-                                        <!-- /input-group -->
-                                    </div>
-                                    <!-- /.col-md-6 -->
-                                    <div class="col-md-6">
-                                        <div class="input-group input-medium">
-                                            <input type="text" class="form-control" placeholder=".input-medium">
-                                            <div class="input-group-btn">
-                                                <button type="button" class="btn yellow dropdown-toggle" data-toggle="dropdown">Action
-                                                    <i class="fa fa-angle-down"></i>
-                                                </button>
-                                                <ul class="dropdown-menu pull-right">
-                                                    <li>
-                                                        <a href="javascript:;"> Action </a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="javascript:;"> Another action </a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="javascript:;"> Something else here </a>
-                                                    </li>
-                                                    <li class="divider"> </li>
-                                                    <li>
-                                                        <a href="javascript:;"> Separated link </a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                            <!-- /btn-group -->
-                                        </div>
-                                        <!-- /input-group -->
-                                    </div>
-                                    <!-- /.col-md-6 -->
-                                </div>
-                                <!-- /.row -->
-                            </form>
-                            <h4 class="block">Buttons With Dropdowns On Both Sides</h4>
-                            <form role="form">
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <div class="input-group input-xlarge">
-                                            <div class="input-group-btn">
-                                                <button type="button" class="btn green dropdown-toggle" data-toggle="dropdown">Action
-                                                    <i class="fa fa-angle-down"></i>
-                                                </button>
-                                                <ul class="dropdown-menu">
-                                                    <li>
-                                                        <a href="javascript:;"> Action </a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="javascript:;"> Another action </a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="javascript:;"> Something else here </a>
-                                                    </li>
-                                                    <li class="divider"> </li>
-                                                    <li>
-                                                        <a href="javascript:;"> Separated link </a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                            <!-- /btn-group -->
-                                            <input type="text" class="form-control" placeholder=".input-xlarge">
-                                            <div class="input-group-btn">
-                                                <button type="button" class="btn yellow dropdown-toggle" data-toggle="dropdown">Action
-                                                    <i class="fa fa-angle-down"></i>
-                                                </button>
-                                                <ul class="dropdown-menu pull-right">
-                                                    <li>
-                                                        <a href="javascript:;"> Action </a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="javascript:;"> Another action </a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="javascript:;"> Something else here </a>
-                                                    </li>
-                                                    <li class="divider"> </li>
-                                                    <li>
-                                                        <a href="javascript:;"> Separated link </a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                            <!-- /btn-group -->
-                                        </div>
-                                        <!-- /input-group -->
-                                    </div>
-                                    <!-- /.col-md-6 -->
-                                </div>
-                                <!-- /.row -->
-                            </form>
-                            <h4 class="block">Segmented Buttons</h4>
-                            <form role="form">
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <div class="input-group input-large">
-                                            <div class="input-group-btn">
-                                                <button type="button" class="btn default" tabindex="-1">Action</button>
-                                                <button type="button" class="btn default dropdown-toggle" data-toggle="dropdown" tabindex="-1">
-                                                    <i class="fa fa-angle-down"></i>
-                                                </button>
-                                                <ul class="dropdown-menu" role="menu">
-                                                    <li>
-                                                        <a href="javascript:;"> Action </a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="javascript:;"> Another action </a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="javascript:;"> Something else here </a>
-                                                    </li>
-                                                    <li class="divider"> </li>
-                                                    <li>
-                                                        <a href="javascript:;"> Separated link </a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                            <input type="text" class="form-control" placeholder=".input-large"> </div>
-                                        <!-- /.input-group -->
-                                    </div>
-                                    <!-- /.col-md-6 -->
-                                </div>
-                            </form>
-                            <form role="form" class="margin-top-10">
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <div class="input-group input-large">
-                                            <input type="text" class="form-control" placeholder=".input-large">
-                                            <div class="input-group-btn">
-                                                <button type="button" class="btn green" tabindex="-1">Action</button>
-                                                <button type="button" class="btn green dropdown-toggle" data-toggle="dropdown" tabindex="-1">
-                                                    <i class="fa fa-angle-down"></i>
-                                                </button>
-                                                <ul class="dropdown-menu" role="menu">
-                                                    <li>
-                                                        <a href="javascript:;"> Action </a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="javascript:;"> Another action </a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="javascript:;"> Something else here </a>
-                                                    </li>
-                                                    <li class="divider"> </li>
-                                                    <li>
-                                                        <a href="javascript:;"> Separated link </a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                        <!-- /.input-group -->
-                                    </div>
-                                    <!-- /.col-md-6 -->
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                    <!-- END SAMPLE FORM PORTLET-->
-                    <div class="portlet box blue ">
-                        <div class="portlet-title">
-                            <div class="caption">
-                                <i class="fa fa-gift"></i> Validation States </div>
-                            <div class="tools">
-                                <a href="" class="collapse"> </a>
-                                <a href="#portlet-config" data-toggle="modal" class="config"> </a>
-                                <a href="" class="reload"> </a>
-                                <a href="" class="remove"> </a>
-                            </div>
-                        </div>
-                        <div class="portlet-body form">
-                            <form role="form">
-                                <div class="form-body">
-                                    <div class="form-group has-success">
-                                        <label class="control-label">Input with success</label>
-                                        <input type="text" class="form-control" id="inputSuccess"> </div>
-                                    <div class="form-group has-warning">
-                                        <label class="control-label">Input with warning</label>
-                                        <input type="text" class="form-control" id="inputWarning"> </div>
-                                    <div class="form-group has-error">
-                                        <label class="control-label">Input with error</label>
-                                        <input type="text" class="form-control" id="inputError"> </div>
-                                </div>
-                                <div class="form-actions">
-                                    <button type="button" class="btn default">Cancel</button>
-                                    <button type="submit" class="btn red">Submit</button>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                    <div class="portlet box yellow ">
-                        <div class="portlet-title">
-                            <div class="caption">
-                                <i class="fa fa-gift"></i> Validation States With Icons </div>
-                            <div class="tools">
-                                <a href="" class="collapse"> </a>
-                                <a href="#portlet-config" data-toggle="modal" class="config"> </a>
-                                <a href="" class="reload"> </a>
-                                <a href="" class="remove"> </a>
-                            </div>
-                        </div>
-                        <div class="portlet-body form">
-                            <form role="form">
-                                <div class="form-body">
-                                    <div class="form-group">
-                                        <label class="control-label">Default input</label>
-                                        <div class="input-icon right">
-                                            <i class="fa fa-info-circle tooltips" data-original-title="Email address" data-container="body"></i>
-                                            <input type="text" class="form-control"> </div>
-                                    </div>
-                                    <div class="form-group has-success">
-                                        <label class="control-label">Input with success</label>
-                                        <div class="input-icon right">
-                                            <i class="fa fa-check tooltips" data-original-title="You look OK!" data-container="body"></i>
-                                            <input type="text" class="form-control"> </div>
-                                    </div>
-                                    <div class="form-group has-warning">
-                                        <label class="control-label">Input with warning</label>
-                                        <div class="input-icon right">
-                                            <i class="fa fa-warning tooltips" data-original-title="please provide an email" data-container="body"></i>
-                                            <input type="text" class="form-control"> </div>
-                                    </div>
-                                    <div class="form-group has-error">
-                                        <label class="control-label">Input with error</label>
-                                        <div class="input-icon right">
-                                            <i class="fa fa-exclamation tooltips" data-original-title="please write a valid email" data-container="body"></i>
-                                            <input type="text" class="form-control"> </div>
-                                    </div>
-                                </div>
-                                <div class="form-actions right">
-                                    <button type="button" class="btn default">Cancel</button>
-                                    <button type="submit" class="btn green">Submit</button>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                    <div class="portlet box purple">
-                        <div class="portlet-title">
-                            <div class="caption">
-                                <i class="fa fa-gift"></i> Horizontal Form Validation States </div>
-                            <div class="tools">
-                                <a href="" class="collapse"> </a>
-                                <a href="#portlet-config" data-toggle="modal" class="config"> </a>
-                                <a href="" class="reload"> </a>
-                                <a href="" class="remove"> </a>
-                            </div>
-                        </div>
-                        <div class="portlet-body form">
-                            <form role="form" class="form-horizontal">
-                                <div class="form-body">
-                                    <div class="form-group">
-                                        <label class="col-md-4 control-label">Default input</label>
-                                        <div class="col-md-8">
-                                            <div class="input-icon right">
-                                                <i class="fa fa-info-circle tooltips" data-original-title="Email address" data-container="body"></i>
-                                                <input type="text" class="form-control"> </div>
-                                        </div>
-                                    </div>
-                                    <div class="form-group has-success">
-                                        <label class="col-md-4 control-label">Input with success</label>
-                                        <div class="col-md-8">
-                                            <div class="input-icon right">
-                                                <i class="fa fa-check tooltips" data-original-title="You look OK!" data-container="body"></i>
-                                                <input type="text" class="form-control"> </div>
-                                        </div>
-                                    </div>
-                                    <div class="form-group has-warning">
-                                        <label class="col-md-4 control-label">Input with warning</label>
-                                        <div class="col-md-8">
-                                            <div class="input-icon right">
-                                                <i class="fa fa-warning tooltips" data-original-title="please provide an email" data-container="body"></i>
-                                                <input type="text" class="form-control"> </div>
-                                        </div>
-                                    </div>
-                                    <div class="form-group has-error">
-                                        <label class="col-md-4 control-label">Input with error</label>
-                                        <div class="col-md-8">
-                                            <div class="input-icon right">
-                                                <i class="fa fa-exclamation tooltips" data-original-title="please write a valid email" data-container="body"></i>
-                                                <input type="text" class="form-control"> </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="form-actions">
-                                    <div class="row">
-                                        <div class="col-md-offset-4 col-md-8">
-                                            <button type="button" class="btn default">Cancel</button>
-                                            <button type="submit" class="btn blue">Submit</button>
-                                        </div>
+                                        <button type="submit" class="btn blue">Submit</button>
+                                        <button type="button" class="btn red">Cancel</button>
                                     </div>
                                 </div>
                             </form>
                         </div>
                     </div>
+                    <!-- END ORDER HEADER -->
                 </div>
             </div>
         </div>
@@ -1639,4 +454,10 @@
 @endsection
 
 @section('js')
+    <script src="{{ URL::asset('assets/global/scripts/datatable.js') }}" type="text/javascript"></script>
+    <script src="{{ URL::asset('assets/global/plugins/datatables/datatables.min.js') }}" type="text/javascript"></script>
+    <script src="{{ URL::asset('assets/global/plugins/datatables/plugins/bootstrap/datatables.bootstrap.js') }}" type="text/javascript"></script>
+    <script src="{{ URL::asset('assets/pages/scripts/table-datatables-managed.min.js') }}" type="text/javascript"></script>
+    <script src="{{ URL::asset('assets/global/plugins/bootstrap-select/js/bootstrap-select.min.js') }}" type="text/javascript"></script>
+    <script src="{{ URL::asset('assets/pages/scripts/components-bootstrap-select.min.js') }}" type="text/javascript"></script>
 @endsection

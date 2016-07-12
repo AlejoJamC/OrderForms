@@ -34,9 +34,8 @@ Route::get('/dash/history/all','HistoryController@listAll');
 /*
  * Routes for Orders
  */
-Route::get('/dash/orders','OrdersController@index');
+Route::get('/dash/orders','OrdersController@redirectTo');
 Route::get('/dash/orders/new','OrdersController@index');
-Route::get('/dash/orders/update','OrdersController@index');
 
 /*
  * Routes for Products

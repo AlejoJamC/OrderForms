@@ -12,6 +12,10 @@ class UsersController extends Controller
         return view('user.list');
     }
 
+    public function register(){
+        return view('user.new');
+    }
+
     public function redirectTo(){
         return redirect('dash/users');
     }

@@ -41,10 +41,9 @@ Route::get('/dash/orders/update','OrdersController@index');
 /*
  * Routes for Products
  */
-Route::get('/dash/products','ProductsController@index');
+Route::get('/dash/products','ProductsController@redirectTo');
 Route::get('/dash/products/list','ProductsController@index');
-Route::get('/dash/products/update','ProductsController@index');
-Route::get('/dash/products/load','ProductsController@index');
+Route::get('/dash/products/load','ProductsController@load');
 
 /*
  * Routes for Users

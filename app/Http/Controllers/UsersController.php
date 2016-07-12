@@ -9,7 +9,7 @@ use App\Http\Requests;
 class UsersController extends Controller
 {
     public function index(){
-        return view('blank');
+        return view('user.list');
     }
 
     public function redirectTo(){

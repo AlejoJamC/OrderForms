@@ -28,6 +28,7 @@ class CreateUsersTable extends Migration
             $table->string('picture', 255);
             $table->string('username', 45);
             $table->string('password', 45);
+            $table->rememberToken();
             $table->integer('role_id')->unsigned();
             $table->foreign('role_id')->references('id')->on('roles');
             $table->boolean('status')->default(1);

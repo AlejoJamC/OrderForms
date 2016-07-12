@@ -47,30 +47,10 @@ Route::get('/dash/products/load','ProductsController@load');
 /*
  * Routes for Users
  */
-Route::get('/dash/users','UsersController@index');
+Route::get('/dash/users','UsersController@redirectTo');
 Route::get('/dash/users/list','UsersController@index');
-Route::get('/dash/users/new','UsersController@index');
-Route::get('/dash/users/reset/password','UsersController@index');
-
-/*
- * Routes for States
- */
-Route::get('/dash/states','StateController@index');
-
-/*
- * Routes for Cities
- */
-Route::get('/dash/cities','CitiesController@index');
-
-/*
- * Routes for Roles
- */
-Route::get('/dash/roles','RolesController@index');
-
-/*
- * Routes for Order states
- */
-Route::get('/dash/states/orders','OrderStatesController@index');
+Route::get('/dash/users/new','UsersController@new');
+Route::get('/dash/users/reset/password','UsersController@reset');
 
 /*
  * Routes for Order Details

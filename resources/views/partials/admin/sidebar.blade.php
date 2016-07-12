@@ -37,12 +37,6 @@
                             <span {{ Request::is('dash/orders/new') ? ' class=selected ' : '' }}></span>
                         </a>
                     </li>
-                    <li class="nav-item start {{ Request::is('dash/orders/update') ? ' active open ' : '' }}">
-                        <a href="/dash/orders/update" class="nav-link ">
-                            <span class="title">Gestionar</span>
-                            <span {{ Request::is('dash/orders/update') ? ' class=selected ' : '' }}></span>
-                        </a>
-                    </li>
                 </ul>
             </li>
             <li class="nav-item {{ Request::is('dash/products/*') ? ' active open ' : '' }} ">
@@ -56,12 +50,6 @@
                         <a href="/dash/products/list" class="nav-link ">
                             <span class="title">Lista</span>
                             <span {{ Request::is('dash/products/list') ? ' class=selected ' : '' }}></span>
-                        </a>
-                    </li>
-                    <li class="nav-item start {{ Request::is('dash/products/update') ? ' active open ' : '' }}">
-                        <a href="/dash/products/update" class="nav-link ">
-                            <span class="title">Modificar</span>
-                            <span {{ Request::is('dash/products/update') ? ' class=selected ' : '' }}></span>
                         </a>
                     </li>
                     <li class="nav-item start {{ Request::is('dash/products/load') ? ' active open ' : '' }}">

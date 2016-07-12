@@ -15,4 +15,8 @@ class UsersController extends Controller
     public function redirectTo(){
         return redirect('dash/users');
     }
+
+    public function profile(){
+        return view('user.profile');
+    }
 }

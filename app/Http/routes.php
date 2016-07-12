@@ -51,6 +51,7 @@ Route::get('/dash/users','UsersController@redirectTo');
 Route::get('/dash/users/list','UsersController@index');
 Route::get('/dash/users/new','UsersController@new');
 Route::get('/dash/users/reset/password','UsersController@reset');
+Route::get('/profile','UsersController@profile');
 
 /*
  * Routes for Order Details

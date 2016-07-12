@@ -28,12 +28,12 @@
                         </a>
                         <ul class="dropdown-menu dropdown-menu-default">
                             <li>
-                                <a href="page_user_profile_1.html">
+                                <a href="/profile">
                                     <i class="icon-user"></i> Mi perfil </a>
                             </li>
                             <li class="divider"> </li>
                             <li>
-                                <a href="page_user_login_1.html">
+                                <a href="/logout">
                                     <i class="icon-key"></i> Cerrar sesi&oacute;n </a>
                             </li>
                         </ul>

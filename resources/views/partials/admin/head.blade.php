@@ -26,6 +26,6 @@
     <link href="{{ URL::asset('assets/layouts/layout2/css/themes/blue.min.css') }}" rel="stylesheet" type="text/css" id="style_color" />
     <link href="{{ URL::asset('assets/layouts/layout2/css/custom.min.css') }}" rel="stylesheet" type="text/css" />
     <!-- END THEME LAYOUT STYLES -->
-    <link rel="shortcut icon" href="favicon.ico" />
+    <link rel="shortcut icon" href="{{ URL::asset('favicon.ico') }}" />
 </head>
 @show

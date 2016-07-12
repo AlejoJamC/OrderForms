@@ -9,7 +9,7 @@ use App\Http\Requests;
 class OrdersController extends Controller
 {
     public function index(){
-        return view('blank');
+        return view('order.new');
     }
 
     public function redirectTo(){

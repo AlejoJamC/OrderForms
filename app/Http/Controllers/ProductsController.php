@@ -8,15 +8,20 @@ use App\Http\Requests;
 
 class ProductsController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function index(){
         return view('product.list');
     }
 
-    public function redirectTo(){
-        return redirect('dash/products');
-    }
-
     public function load(){
         return view('product.load');
+    }
+
+    public function redirectTo(){
+        return redirect('dash/products');
     }
 }

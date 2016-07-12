@@ -8,6 +8,11 @@ use App\Http\Requests;
 
 class UsersController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function index(){
         return view('user.list');
     }
@@ -16,15 +21,15 @@ class UsersController extends Controller
         return view('user.new');
     }
 
-    public function redirectTo(){
-        return redirect('dash/users');
-    }
-
     public function profile(){
         return view('user.profile');
     }
 
     public function reset(){
         return view('user.reset');
+    }
+
+    public function redirectTo(){
+        return redirect('dash/users');
     }
 }

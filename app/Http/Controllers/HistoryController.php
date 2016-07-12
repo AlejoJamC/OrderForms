@@ -8,6 +8,11 @@ use App\Http\Requests;
 
 class HistoryController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+    
     public function index(){
         return view('history.me');
     }

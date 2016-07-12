@@ -19,7 +19,7 @@
 /*
  * Routes for Login in this case is the entry point or index
  */
-//Route::auth();
+Route::auth();
 Route::get('/', 'HomeController@index');
 Route::get('/home', 'HomeController@index');
 

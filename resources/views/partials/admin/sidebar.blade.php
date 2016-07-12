@@ -13,12 +13,13 @@
                     <li class="nav-item start {{ Request::is('dash/history/me') ? ' active open ' : '' }}">
                         <a href="/dash/history/me" class="nav-link ">
                             <span class="title">Nombre Empresa</span>
-                            <span class="selected"></span>
+                            <span {{ Request::is('dash/history/me') ?  ' class=selected ' : '' }}></span>
                         </a>
                     </li>
                     <li class="nav-item start {{ Request::is('dash/history/all') ? ' active open ' : '' }}">
                         <a href="/dash/history/all" class="nav-link ">
                             <span class="title">Todos los Clientes</span>
+                            <span {{ Request::is('dash/history/me') ? ' class=selected ' : '' }}></span>
                         </a>
                     </li>
                 </ul>
@@ -30,14 +31,16 @@
                     <span class="arrow"></span>
                 </a>
                 <ul class="sub-menu">
-                    <li class="nav-item start {{ Request::is('/dash/orders/new') ? ' active open ' : '' }}">
+                    <li class="nav-item start {{ Request::is('dash/orders/new') ? ' active open ' : '' }}">
                         <a href="/dash/orders/new" class="nav-link ">
                             <span class="title">Crear</span>
+                            <span {{ Request::is('dash/orders/new') ? ' class=selected ' : '' }}></span>
                         </a>
                     </li>
-                    <li class="nav-item start {{ Request::is('/dash/orders/update') ? ' active open ' : '' }}">
+                    <li class="nav-item start {{ Request::is('dash/orders/update') ? ' active open ' : '' }}">
                         <a href="/dash/orders/update" class="nav-link ">
-                            <span class="title">Modificar</span>
+                            <span class="title">Gestionar</span>
+                            <span {{ Request::is('dash/orders/update') ? ' class=selected ' : '' }}></span>
                         </a>
                     </li>
                 </ul>
@@ -49,19 +52,22 @@
                     <span class="arrow"></span>
                 </a>
                 <ul class="sub-menu">
-                    <li class="nav-item start {{ Request::is('/dash/products/list') ? ' active open ' : '' }}">
+                    <li class="nav-item start {{ Request::is('dash/products/list') ? ' active open ' : '' }}">
                         <a href="/dash/products/list" class="nav-link ">
                             <span class="title">Lista</span>
+                            <span {{ Request::is('dash/products/list') ? ' class=selected ' : '' }}></span>
                         </a>
                     </li>
-                    <li class="nav-item start {{ Request::is('/dash/products/update') ? ' active open ' : '' }}">
+                    <li class="nav-item start {{ Request::is('dash/products/update') ? ' active open ' : '' }}">
                         <a href="/dash/products/update" class="nav-link ">
                             <span class="title">Modificar</span>
+                            <span {{ Request::is('dash/products/update') ? ' class=selected ' : '' }}></span>
                         </a>
                     </li>
-                    <li class="nav-item start {{ Request::is('/dash/products/load') ? ' active open ' : '' }}">
+                    <li class="nav-item start {{ Request::is('dash/products/load') ? ' active open ' : '' }}">
                         <a href="/dash/products/load" class="nav-link ">
                             <span class="title">Cargar</span>
+                            <span {{ Request::is('dash/products/load') ? ' class=selected ' : '' }}></span>
                         </a>
                     </li>
                 </ul>
@@ -73,19 +79,22 @@
                     <span class="arrow"></span>
                 </a>
                 <ul class="sub-menu">
-                    <li class="nav-item start {{ Request::is('/dash/users/list') ? ' active open ' : '' }}">
+                    <li class="nav-item start {{ Request::is('dash/users/list') ? ' active open ' : '' }}">
                         <a href="/dash/users/list" class="nav-link ">
                             <span class="title">Lista</span>
+                            <span {{ Request::is('dash/users/list') ? ' class=selected ' : '' }}></span>
                         </a>
                     </li>
-                    <li class="nav-item start {{ Request::is('/dash/users/new') ? ' active open ' : '' }}">
+                    <li class="nav-item start {{ Request::is('dash/users/new') ? ' active open ' : '' }}">
                         <a href="/dash/users/new" class="nav-link ">
                             <span class="title">Crear</span>
+                            <span {{ Request::is('dash/users/new') ? ' class=selected ' : '' }}></span>
                         </a>
                     </li>
-                    <li class="nav-item start {{ Request::is('/dash/users/reset/password') ? ' active open ' : '' }}">
+                    <li class="nav-item start {{ Request::is('dash/users/reset/password') ? ' active open ' : '' }}">
                         <a href="/dash/users/reset/password" class="nav-link ">
                             <span class="title">Recuperar Contrase&ntilde;a</span>
+                            <span {{ Request::is('dash/users/reset/password') ? ' class=selected ' : '' }}></span>
                         </a>
                     </li>
                 </ul>

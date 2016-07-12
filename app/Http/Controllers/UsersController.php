@@ -19,4 +19,8 @@ class UsersController extends Controller
     public function profile(){
         return view('user.profile');
     }
+
+    public function reset(){
+        return view('user.reset');
+    }
 }

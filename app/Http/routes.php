@@ -15,13 +15,18 @@
 // TODO: Improve the use of nouns and reorder the routes
 // TODO: Fix the problem with Request:is('route') to show on the same level
 // TODO: Build a helper to manage active menu 
+// TODO: fix custom login and register using default version
 
 /*
  * Routes for Login in this case is the entry point or index
  */
-Route::auth();
+Route::get('/login', 'HomeController@gotoLogin');
+Route::get('/register', 'HomeController@gotoRegister');
+
+/*
+ * Routes for Login in this case is the entry point or index
+ */
 Route::get('/', 'HomeController@index');
-Route::get('/home', 'HomeController@index');
 
 /*
  * Routes for history

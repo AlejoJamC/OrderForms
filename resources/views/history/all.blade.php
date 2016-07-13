@@ -19,7 +19,6 @@
         <div class="page-content">
             <!-- BEGIN PAGE HEADER-->
             <h3 class="page-title"> Lista de Ordenes
-                <small>Utilice los filtro de la cabecera de la tabla para filtar la informaci&oacute;n</small>
             </h3>
             <div class="page-bar">
                 <ul class="page-breadcrumb">
@@ -64,11 +63,11 @@
                                     <tbody id="tbodyhistory">
                                     <tr role="row" class="odd">
                                         <td></td>
-                                        <td class="sorting_1">1</td>
+                                        <td>1</td>
                                         <td>Jhon Doe</td>
                                         <td>12/09/2013</td>
                                         <td>
-                                            <span class="label label-sm label-success">Pending</span>
+                                            <span class="label label-sm label-info">Pending</span>
                                         </td>
                                         <td>
                                             <a href="javascript:;" class="btn btn-sm btn-outline grey-salsa"><i class="fa fa-search"></i> Ver detalle</a>
@@ -122,13 +121,52 @@
             });
         });
 
+        function pad(num, size) {
+            var s = num+"";
+            while (s.length < size) s = "0" + s;
+            return s;
+        }
+
         jQuery(document).ready(function() {
             $.get('{{ url('dash') }}/history/ajax-all', function(data) {
                 console.log(data);
                 $('#tbodyhistory').empty();
-                $.each(data, function(index,histories){
+                var flag ='';
+                var trHTML = '';
+                var dateFormat = '';
+                $.each(data, function (i, item) {
+                    // Choose flag style
+                    switch (item.order_state_id){
+                        case 1:
+                            flag = '<span class="label label-sm label-info">' + item.order_state_name + '</span>';
+                            break;
+                        case 2:
+                            flag = '<span class="label label-sm label-warning">' + item.order_state_name + '</span>';
+                            break;
+                        case 3 :
+                            flag = '<span class="label label-sm label-success">' + item.order_state_name + '</span>';
+                            break;
+                        case 4 :
+                            flag = '<span class="label label-sm label-danger">' + item.order_state_name + '</span>';
+                            break;
+                        default:
+                            flag = '<span class="label label-sm label-default">' + item.order_state_name + '</span>';
+                            break;
 
+                    }
+                    // Get date
+                    dateFormat = moment(item.created_at).format('DD/MM/YYYY');
+
+                    trHTML +='<tr>' +
+                            '<td></td>' +
+                            '<td>'+ item.id +'</td>' +
+                            '<td>'+ item.business_name +'</td>' +
+                            '<td>'+ dateFormat +'</td>' +
+                            '<td>'+ flag +'</td>' +
+                            '<td>'+ '<a href="{{url('dash')}}/orders/'+ item.id + '" class="btn btn-sm btn-outline grey-salsa"><i class="fa fa-search"></i> Ver detalle</a>' +'</td>' +
+                            '</tr>';
                 });
+                $('#tbodyhistory').append(trHTML);
             });
         });
 

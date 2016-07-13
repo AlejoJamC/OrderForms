@@ -15,7 +15,8 @@
 // TODO: Improve the use of nouns and reorder the routes
 // TODO: Fix the problem with Request:is('route') to show on the same level
 // TODO: Build a helper to manage active menu 
-// TODO: fix custom login and register using default version
+// TODO: Fix custom login and register using default version
+// TODO: Create it own file for ajax javascript
 
 /*
  * Routes for Login in this case is the entry point or index

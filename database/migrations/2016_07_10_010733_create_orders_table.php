@@ -17,7 +17,6 @@ class CreateOrdersTable extends Migration
             $table->date('ship_date');
             $table->integer('user_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users');
-            $table->integer('consecutive')->unsigned();
             $table->integer('order_state_id')->unsigned();
             $table->foreign('order_state_id')->references('id')->on('order_states');
             $table->string('way_to_pay', 45);

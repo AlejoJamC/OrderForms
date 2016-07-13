@@ -31,7 +31,6 @@ class Order extends Model
     protected $fillable = [
         'ship_date',
         'user_id',
-        'consecutive',
         'order_state_id',
         'way_to_pay',
         'verified',

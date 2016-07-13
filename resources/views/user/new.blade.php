@@ -55,7 +55,7 @@
                                     <div class="form-group">
                                         <label class="col-md-3 control-label">NIT</label>
                                         <div class="col-md-9">
-                                            <input type="text" id="identification" name="identification" class="form-control" placeholder="N&uacute;mero de Identificaci&oacute;n Tributaria.">
+                                            <input type="text" id="identification" name="identification" class="form-control" placeholder="N&uacute;mero de Identificaci&oacute;n Tributaria">
                                         </div>
                                     </div>
                                     <div class="form-group">
@@ -83,15 +83,18 @@
                                     <div class="form-group">
                                         <label class="col-md-3 control-label">Departamento</label>
                                         <div class="col-md-9">
-                                            <select class="bs-select form-control" id="state" name="state">
+                                            <select class="bs-select form-control" data-live-search="true" data-size="8" id="state" name="state">
                                                 <option value="0">Seleccionar...</option>
+                                                @foreach ($states as $state_id => $state)
+                                                    <option value="{{ $state_id }}">{{ $state }}</option>
+                                                @endforeach
                                             </select>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-md-3 control-label">Ciudad</label>
                                         <div class="col-md-9">
-                                            <select class="bs-select form-control" id="city" name="city">
+                                            <select class="bs-select form-control" data-live-search="true" data-size="8" id="city" name="city">
                                                 <option value="0">Seleccionar...</option>
                                             </select>
                                         </div>
@@ -140,6 +143,9 @@
                                         <div class="col-md-9">
                                             <select class="bs-select form-control" id="role" name="role">
                                                 <option value="0">Seleccionar...</option>
+                                                @foreach ($roles as $srole_id => $role)
+                                                    <option value="{{ $srole_id }}">{{ $role }}</option>
+                                                @endforeach
                                             </select>
                                         </div>
                                     </div>
@@ -165,7 +171,7 @@
 @endsection
 
 @section('js')
+    <script src="{{URL::asset('assets/pages/scripts/components-bootstrap-select.min.js')}}" type="text/javascript"></script>
     <script src="{{URL::asset('assets/global/plugins/bootstrap-fileinput/bootstrap-fileinput.js')}}" type="text/javascript"></script>
     <script src="{{URL::asset('assets/global/plugins/bootstrap-select/js/bootstrap-select.min.js')}}" type="text/javascript"></script>
-    <script src="{{URL::asset('assets/pages/scripts/components-bootstrap-select.min.js')}}" type="text/javascript"></script>
 @endsection

@@ -83,7 +83,7 @@
                                     <div class="form-group">
                                         <label class="col-md-3 control-label">Departamento</label>
                                         <div class="col-md-9">
-                                            <select class="bs-select form-control" data-live-search="true" data-size="8" id="state" name="state">
+                                            <select class="bs-select form-control" data-live-search="true" data-size="8" id="state" name="state_id">
                                                 <option value="0">Seleccionar...</option>
                                                 @foreach ($states as $state_id => $state)
                                                     <option value="{{ $state_id }}">{{ $state }}</option>
@@ -94,7 +94,7 @@
                                     <div class="form-group">
                                         <label class="col-md-3 control-label">Ciudad</label>
                                         <div class="col-md-9">
-                                            <select class="bs-select form-control" data-live-search="true" data-size="8" id="city" name="city">
+                                            <select class="bs-select form-control" data-live-search="true" data-size="8" id="city" name="city_id">
                                                 <option value="0">Seleccionar...</option>
                                             </select>
                                         </div>
@@ -174,4 +174,25 @@
     <script src="{{URL::asset('assets/pages/scripts/components-bootstrap-select.min.js')}}" type="text/javascript"></script>
     <script src="{{URL::asset('assets/global/plugins/bootstrap-fileinput/bootstrap-fileinput.js')}}" type="text/javascript"></script>
     <script src="{{URL::asset('assets/global/plugins/bootstrap-select/js/bootstrap-select.min.js')}}" type="text/javascript"></script>
+    <script>
+        $('#state').on('change', function(e){
+            console.log(e);
+            var state_id = e.target.value;
+
+            $.get('{{ url('dash') }}/users/new/ajax-city?state_id=' + state_id, function(data) {
+                console.log(data);
+                $('#city').empty();
+                $('#city').append($('<option>', {
+                    value: 0,
+                    text : "Seleccionar..."
+                }));
+                $.each(data, function(index,cities){
+                    $('#city').append($('<option>', {
+                        value: cities.id,
+                        text : cities.name
+                    }));
+                });
+            });
+        });
+    </script>
 @endsection

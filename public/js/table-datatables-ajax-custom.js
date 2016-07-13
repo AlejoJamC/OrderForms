@@ -41,7 +41,7 @@ var TableDatatablesAjax = function () {
                 ],
                 "pageLength": 10, // default record count per page
                 "ajax": {
-                    "url": "../demo/table_ajax.php", // ajax source
+                    "url": "/dash/history/ajax-all", // ajax source
                 },
                 "order": [
                     [1, "asc"]

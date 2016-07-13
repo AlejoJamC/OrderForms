@@ -16,15 +16,4 @@ class HomeController extends Controller
     {
         return view('history.me');
     }
-
-    public function gotoLogin()
-    {
-        return view('auth.login');
-    }
-
-    public function gotoRegister()
-    {
-        return redirect('/login');
-        //return view('auth.register');
-    }
 }

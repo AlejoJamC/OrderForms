@@ -18,180 +18,54 @@
         <!-- BEGIN CONTENT BODY -->
         <div class="page-content">
             <!-- BEGIN PAGE HEADER-->
-            <h3 class="page-title"> Dashboard
-                <small>dashboard & statistics</small>
+            <h3 class="page-title"> Lista de Ordenes
             </h3>
             <div class="page-bar">
                 <ul class="page-breadcrumb">
                     <li>
-                        <i class="icon-home"></i>
-                        <a href="index.html">Home</a>
+                        <i class="icon-screen-desktop"></i>
+                        <a href="/dash">Dashboard</a>
                         <i class="fa fa-angle-right"></i>
                     </li>
                     <li>
-                        <span>Dashboard</span>
+                        <span>Historial de Ordenes</span>
+                        <i class="fa fa-angle-right"></i>
+                    </li>
+                    <li>
+                        <span>Todas</span>
                     </li>
                 </ul>
-                <div class="page-toolbar">
-                    <div class="btn-group pull-right">
-                        <button type="button" class="btn btn-fit-height grey-salt dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="1000" data-close-others="true"> Actions
-                            <i class="fa fa-angle-down"></i>
-                        </button>
-                        <ul class="dropdown-menu pull-right" role="menu">
-                            <li>
-                                <a href="#">
-                                    <i class="icon-bell"></i> Action</a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <i class="icon-shield"></i> Another action</a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <i class="icon-user"></i> Something else here</a>
-                            </li>
-                            <li class="divider"> </li>
-                            <li>
-                                <a href="#">
-                                    <i class="icon-bag"></i> Separated link</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
             </div>
             <!-- END PAGE HEADER-->
             <!-- BEGIN AJAX DATATABLE-->
             <div class="row">
                 <div class="col-md-12">
-                    <!-- Begin: life time stats -->
-                    <div class="portlet light portlet-fit portlet-datatable ">
+                    <div class="portlet light ">
                         <div class="portlet-title">
                             <div class="caption">
-                                <i class="icon-settings font-dark"></i>
-                                <span class="caption-subject font-dark sbold uppercase">Ajax Datatable</span>
-                            </div>
-                            <div class="actions">
-                                <div class="btn-group btn-group-devided" data-toggle="buttons">
-                                    <label class="btn btn-transparent grey-salsa btn-outline btn-circle btn-sm active">
-                                        <input type="radio" name="options" class="toggle" id="option1">Actions</label>
-                                    <label class="btn btn-transparent grey-salsa btn-outline btn-circle btn-sm">
-                                        <input type="radio" name="options" class="toggle" id="option2">Settings</label>
-                                </div>
-                                <div class="btn-group">
-                                    <a class="btn red btn-outline btn-circle" href="javascript:;" data-toggle="dropdown">
-                                        <i class="fa fa-share"></i>
-                                        <span class="hidden-xs"> Tools </span>
-                                        <i class="fa fa-angle-down"></i>
-                                    </a>
-                                    <ul class="dropdown-menu pull-right">
-                                        <li>
-                                            <a href="javascript:;"> Export to Excel </a>
-                                        </li>
-                                        <li>
-                                            <a href="javascript:;"> Export to CSV </a>
-                                        </li>
-                                        <li>
-                                            <a href="javascript:;"> Export to XML </a>
-                                        </li>
-                                        <li class="divider"> </li>
-                                        <li>
-                                            <a href="javascript:;"> Print Invoices </a>
-                                        </li>
-                                    </ul>
-                                </div>
+                                <i class="icon-social-dribbble font-green"></i>
+                                <span class="caption-subject font-green bold uppercase">Todas las ordenes de todos los usuarios</span>
                             </div>
                         </div>
                         <div class="portlet-body">
-                            <div class="table-container">
-                                <div class="table-actions-wrapper">
-                                    <span> </span>
-                                    <select class="table-group-action-input form-control input-inline input-small input-sm">
-                                        <option value="">Select...</option>
-                                        <option value="Cancel">Cancel</option>
-                                        <option value="Cancel">Hold</option>
-                                        <option value="Cancel">On Hold</option>
-                                        <option value="Close">Close</option>
-                                    </select>
-                                    <button class="btn btn-sm green table-group-action-submit">
-                                        <i class="fa fa-check"></i> Submit</button>
-                                </div>
-                                <table class="table table-striped table-bordered table-hover table-checkable" id="datatable_ajax">
+                            <div class="table-scrollable">
+                                <table class="table table-hover" id="tbhistoy" name="tbhistoy">
                                     <thead>
                                     <tr role="row" class="heading">
-                                        <th width="2%">
-                                            <label class="mt-checkbox mt-checkbox-single mt-checkbox-outline">
-                                                <input type="checkbox" class="group-checkable" data-set="#sample_2 .checkboxes" />
-                                                <span></span>
-                                            </label>
-                                        </th>
-                                        <th width="5%"> Record&nbsp;# </th>
-                                        <th width="15%"> Date </th>
-                                        <th width="200"> Customer </th>
-                                        <th width="10%"> Ship&nbsp;To </th>
-                                        <th width="10%"> Price </th>
-                                        <th width="10%"> Amount </th>
-                                        <th width="10%"> Status </th>
-                                        <th width="10%"> Actions </th>
-                                    </tr>
-                                    <tr role="row" class="filter">
-                                        <td> </td>
-                                        <td>
-                                            <input type="text" class="form-control form-filter input-sm" name="order_id"> </td>
-                                        <td>
-                                            <div class="input-group date date-picker margin-bottom-5" data-date-format="dd/mm/yyyy">
-                                                <input type="text" class="form-control form-filter input-sm" readonly name="order_date_from" placeholder="From">
-                                                            <span class="input-group-btn">
-                                                                <button class="btn btn-sm default" type="button">
-                                                                    <i class="fa fa-calendar"></i>
-                                                                </button>
-                                                            </span>
-                                            </div>
-                                            <div class="input-group date date-picker" data-date-format="dd/mm/yyyy">
-                                                <input type="text" class="form-control form-filter input-sm" readonly name="order_date_to" placeholder="To">
-                                                            <span class="input-group-btn">
-                                                                <button class="btn btn-sm default" type="button">
-                                                                    <i class="fa fa-calendar"></i>
-                                                                </button>
-                                                            </span>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <input type="text" class="form-control form-filter input-sm" name="order_customer_name"> </td>
-                                        <td>
-                                            <input type="text" class="form-control form-filter input-sm" name="order_ship_to"> </td>
-                                        <td>
-                                            <div class="margin-bottom-5">
-                                                <input type="text" class="form-control form-filter input-sm" name="order_price_from" placeholder="From" /> </div>
-                                            <input type="text" class="form-control form-filter input-sm" name="order_price_to" placeholder="To" /> </td>
-                                        <td>
-                                            <div class="margin-bottom-5">
-                                                <input type="text" class="form-control form-filter input-sm margin-bottom-5 clearfix" name="order_quantity_from" placeholder="From" /> </div>
-                                            <input type="text" class="form-control form-filter input-sm" name="order_quantity_to" placeholder="To" /> </td>
-                                        <td>
-                                            <select name="order_status" class="form-control form-filter input-sm">
-                                                <option value="">Select...</option>
-                                                <option value="pending">Pending</option>
-                                                <option value="closed">Closed</option>
-                                                <option value="hold">On Hold</option>
-                                                <option value="fraud">Fraud</option>
-                                            </select>
-                                        </td>
-                                        <td>
-                                            <div class="margin-bottom-5">
-                                                <button class="btn btn-sm green btn-outline filter-submit margin-bottom">
-                                                    <i class="fa fa-search"></i> Search</button>
-                                            </div>
-                                            <button class="btn btn-sm red btn-outline filter-cancel">
-                                                <i class="fa fa-times"></i> Reset</button>
-                                        </td>
+                                        <th width="1%"></th>
+                                        <th width="10%"> ID Orden# </th>
+                                        <th width="200"> Cliente </th>
+                                        <th width="25%"> Fecha Creaci&oacute;n </th>
+                                        <th width="15%"> Estado </th>
+                                        <th width="15%"> Acciones </th>
                                     </tr>
                                     </thead>
-                                    <tbody> </tbody>
+                                    <tbody id="tbodyhistory">
+                                    </tbody>
                                 </table>
                             </div>
                         </div>
                     </div>
-                    <!-- End: life time stats -->
                 </div>
             </div>
             <!-- END AJAX DATATABLE-->
@@ -213,6 +87,76 @@
     <!-- END PAGE LEVEL PLUGINS -->
     <!-- BEGIN PAGE LEVEL SCRIPTS -->
     <script src="{{ URL::asset('assets/pages/scripts/dashboard.min.js') }}" type="text/javascript"></script>
-    <script src="{{ URL::asset('assets/pages/scripts/table-datatables-ajax.min.js') }}" type="text/javascript"></script>
     <!-- END PAGE LEVEL SCRIPTS -->
+    <script>
+        $('#state').on('change', function(e){
+            console.log(e);
+            var state_id = e.target.value;
+
+            $.get('{{ url('dash') }}/history/ajax-all?user_id=' + user_id, function(data) {
+                console.log(data);
+                $('#tbhistoy').empty();
+                $('#tbhistoy').append($('<option>', {
+                    value: 0,
+                    text : "Seleccionar..."
+                }));
+                $.each(data, function(index,cities){
+                    $('#city').append($('<option>', {
+                        value: cities.id,
+                        text : cities.name
+                    }));
+                });
+            });
+        });
+
+        function pad(num, size) {
+            var s = num+"";
+            while (s.length < size) s = "0" + s;
+            return s;
+        }
+
+        jQuery(document).ready(function() {
+            $.get('{{ url('dash') }}/history/ajax-me?user_id='+ 1, function(data) {
+                console.log(data);
+                $('#tbodyhistory').empty();
+                var flag ='';
+                var trHTML = '';
+                var dateFormat = '';
+                $.each(data, function (i, item) {
+                    // Choose flag style
+                    switch (item.order_state_id){
+                        case 1:
+                            flag = '<span class="label label-sm label-info">' + item.order_state_name + '</span>';
+                            break;
+                        case 2:
+                            flag = '<span class="label label-sm label-warning">' + item.order_state_name + '</span>';
+                            break;
+                        case 3 :
+                            flag = '<span class="label label-sm label-success">' + item.order_state_name + '</span>';
+                            break;
+                        case 4 :
+                            flag = '<span class="label label-sm label-danger">' + item.order_state_name + '</span>';
+                            break;
+                        default:
+                            flag = '<span class="label label-sm label-default">' + item.order_state_name + '</span>';
+                            break;
+
+                    }
+                    // Get date
+                    dateFormat = moment(item.created_at).format('DD/MM/YYYY');
+
+                    trHTML +='<tr>' +
+                            '<td></td>' +
+                            '<td>'+ item.id +'</td>' +
+                            '<td>'+ item.business_name +'</td>' +
+                            '<td>'+ dateFormat +'</td>' +
+                            '<td>'+ flag +'</td>' +
+                            '<td>'+ '<a href="{{url('dash')}}/orders/'+ item.id + '" class="btn btn-sm btn-outline dark"><i class="fa fa-search"></i> Ver detalle</a>' +'</td>' +
+                            '</tr>';
+                });
+                $('#tbodyhistory').append(trHTML);
+            });
+        });
+
+    </script>
 @endsection

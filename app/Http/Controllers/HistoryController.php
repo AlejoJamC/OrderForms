@@ -7,6 +7,7 @@ use App\Models\OrderState;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
+use Illuminate\Support\Facades\Input;
 
 class HistoryController extends Controller
 {
@@ -32,6 +33,20 @@ class HistoryController extends Controller
             ->select('orders.id', 'users.business_name', 'orders.created_at',
                 'order_states.name AS order_state_name', 'orders.order_state_id')
             ->where('orders.status', true)
+            ->get();
+        return $orders;
+    }
+    public function listMeAjax(){
+        $user_id = Input::get('user_id');
+        // Populate datatable control
+        // All Orders by user
+        $orders = DB::table('orders')
+            ->join('users', 'orders.user_id', '=', 'users.id')
+            ->join('order_states', 'orders.order_state_id', '=', 'order_states.id')
+            ->select('orders.id', 'users.business_name', 'orders.created_at',
+                'order_states.name AS order_state_name', 'orders.order_state_id')
+            ->where('orders.status', true)
+            ->where('orders.user_id', $user_id)
             ->get();
         return $orders;
     }

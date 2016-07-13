@@ -49,6 +49,7 @@ Route::get('/dash/history/ajax-all','HistoryController@listAllAjax');
  */
 Route::get('/dash/orders','OrdersController@redirectTo');
 Route::get('/dash/orders/new','OrdersController@index');
+Route::get('/dash/orders/{id}','OrdersController@details');
 
 /*
  * Routes for Products

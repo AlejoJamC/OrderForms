@@ -20,13 +20,17 @@
 /*
  * Routes for Login in this case is the entry point or index
  */
-Route::get('/login', 'HomeController@gotoLogin');
-Route::get('/register', 'HomeController@gotoRegister');
+Route::get('/login', 'SessionController@gotoLogin');
+Route::get('/register', 'SessionController@gotoRegister');
 
 /*
  * Routes for Login in this case is the entry point or index
  */
-Route::get('/', 'HomeController@index');
+
+Route::get('/', [
+    'middleware' => 'auth',
+    'uses' => 'HomeController@index'
+]);
 
 /*
  * Routes for history

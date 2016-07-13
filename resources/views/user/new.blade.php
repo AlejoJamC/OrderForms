@@ -18,7 +18,7 @@
             <div class="page-bar">
                 <ul class="page-breadcrumb">
                     <li>
-                        <i class="icon-badge"></i>
+                        <i class="icon-screen-desktop"></i>
                         <a href="/dash">Dashboard</a>
                         <i class="fa fa-angle-right"></i>
                     </li>
@@ -69,7 +69,7 @@
                                         <div class="col-md-9">
                                             <div class="input-group">
                                                         <span class="input-group-addon">
-                                                            <i class="fa fa-envelope"></i>
+                                                            <i class="fa fa-envelope font-blue"></i>
                                                         </span>
                                                 <input type="email" id="email" name="email" class="form-control" placeholder="Direcci&oacute;n de email"> </div>
                                         </div>
@@ -105,7 +105,7 @@
                                             <div class="fileinput fileinput-new" data-provides="fileinput">
                                                 <div class="input-group input-large">
                                                     <div class="form-control uneditable-input input-fixed input-medium" data-trigger="fileinput">
-                                                        <i class="fa fa-file fileinput-exists"></i>&nbsp;
+                                                        <i class="fa fa-file-image-o fileinput-exists"></i>&nbsp;
                                                         <span class="fileinput-filename"></span>
                                                     </div>
                                                             <span class="input-group-addon btn default btn-file">
@@ -122,7 +122,7 @@
                                         <div class="col-md-9">
                                             <div class="input-group">
                                                         <span class="input-group-addon">
-                                                            <i class="fa fa-user"></i>
+                                                            <i class="fa fa-user font-blue"></i>
                                                         </span>
                                                 <input type="text" id="username" name="username" class="form-control" placeholder="NombreDeUsuarioUnico"> </div>
                                         </div>
@@ -132,7 +132,7 @@
                                         <div class="col-md-9">
                                             <div class="input-group">
                                                 <span class="input-group-addon">
-                                                    <i class="fa fa-user"></i>
+                                                    <i class="fa fa-exclamation-triangle font-blue"></i>
                                                 </span>
                                                 <input type="password" id="password" name="password" class="form-control" placeholder="Password">
                                             </div>

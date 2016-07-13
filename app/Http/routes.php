@@ -63,6 +63,8 @@ Route::get('/dash/users/reset/password','UsersController@reset');
 Route::get('/profile','UsersController@profile');
 Route::get('/dash/users/new/ajax-city', 'UsersController@ajaxCity');
 
+Route::post('/dash/users/new','UsersController@postRegister');
+
 /*
  * Routes for Order Details
  */

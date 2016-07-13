@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\City;
 use App\Models\Role;
 use App\Models\State;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
+use Illuminate\Support\Facades\Input;
 
 class UsersController extends Controller
 {
@@ -18,11 +20,18 @@ class UsersController extends Controller
         // Populate Select controls
         // States
         $states = State::where('status', true)->orderBy('name')->pluck('name','id');
-        // Cities
         // Roles
         $roles = Role::where('status', true)->pluck('name','id');
 
         return view('user.new')->with('states', $states)->with('roles', $roles);
+    }
+
+    public function ajaxCity(){
+        // Populate Select controls
+        // Cities
+        $state_id = Input::get('state_id');
+        $city = City::where('state_id','=',$state_id)->where('status', true)->get();
+        return $city;
     }
     
     public function postRegister(){

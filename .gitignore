@@ -12,3 +12,4 @@ bootstrap/cache/
 
 # Premium template Assets
 public/assets/
+public/*.html

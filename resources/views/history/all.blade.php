@@ -19,7 +19,7 @@
         <div class="page-content">
             <!-- BEGIN PAGE HEADER-->
             <h3 class="page-title"> Lista de Ordenes
-                <small>Todas las ordenes de todos los usuarios</small>
+                <small>Utilice los filtro de la cabecera de la tabla para filtar la informaci&oacute;n</small>
             </h3>
             <div class="page-bar">
                 <ul class="page-breadcrumb">
@@ -46,7 +46,7 @@
                         <div class="portlet-title">
                             <div class="caption">
                                 <i class="icon-settings font-dark"></i>
-                                <span class="caption-subject font-dark sbold uppercase">Ajax Datatable</span>
+                                <span class="caption-subject font-dark sbold uppercase">Todas las ordenes de todos los usuarios</span>
                             </div>
                         </div>
                         <div class="portlet-body">
@@ -161,6 +161,6 @@
     <!-- END PAGE LEVEL PLUGINS -->
     <!-- BEGIN PAGE LEVEL SCRIPTS -->
     <script src="{{ URL::asset('assets/pages/scripts/dashboard.min.js') }}" type="text/javascript"></script>
-    <script src="{{ URL::asset('assets/pages/scripts/table-datatables-ajax.min.js') }}" type="text/javascript"></script>
+    <script src="{{ URL::asset('js/table-datatables-ajax-custom.js') }}" type="text/javascript"></script>
     <!-- END PAGE LEVEL SCRIPTS -->
 @endsection

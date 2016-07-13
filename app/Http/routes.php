@@ -38,7 +38,10 @@ Route::get('/', [
 Route::get('/dash','HistoryController@redirectTo');
 Route::get('/dash/history','HistoryController@redirectTo');
 Route::get('/dash/history/me','HistoryController@index');
+Route::get('/dash/history/ajax-me','HistoryController@index');
 Route::get('/dash/history/all','HistoryController@listAll');
+Route::get('/dash/history/ajax-all','HistoryController@listAllAjax');
+
 
 /*
  * Routes for Orders

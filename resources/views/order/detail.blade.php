@@ -66,36 +66,37 @@
                                 <span class="caption-subject bold uppercase"> Cabecera de la Orden de Compra</span>
                             </div>
                         </div>
+                        <?php print_r($order_header);  ?>
                         <div class="portlet-body form">
                             <form role="form">
                                 <div class="form-body">
                                     <div class="form-group  col-md-6">
                                         <label>Razon Social</label>
-                                        <input type="text" class="form-control" placeholder="Readonly" readonly>
+                                        <input type="text" class="form-control" placeholder="Readonly" readonly value="{{ $order_header{0}->business_name }}">
                                     </div>
                                     <div class="form-group  col-md-6">
                                         <label>Identificacion</label>
-                                        <input type="text" class="form-control" placeholder="Readonly" readonly>
+                                        <input type="text" class="form-control" placeholder="Readonly" readonly value="{{ $order_header{0}->identification }}">
                                     </div>
                                     <div class="form-group  col-md-6">
                                         <label>Contacto</label>
-                                        <input type="text" class="form-control" placeholder="Readonly" readonly>
+                                        <input type="text" class="form-control" placeholder="Readonly" readonly value="{{ $order_header{0}->contact }}">
                                     </div>
                                     <div class="form-group  col-md-6">
                                         <label>Email</label>
-                                        <input type="text" class="form-control" placeholder="Readonly" readonly>
+                                        <input type="text" class="form-control" placeholder="Readonly" readonly value="{{ $order_header{0}->email }}">
                                     </div>
                                     <div class="form-group  col-md-6">
                                         <label>Direccion</label>
-                                        <input type="text" class="form-control" placeholder="Readonly" readonly>
+                                        <input type="text" class="form-control" placeholder="Readonly" readonly value="{{ $order_header{0}->address }}">
                                     </div>
                                     <div class="form-group  col-md-6">
                                         <label>Ciudad</label>
-                                        <input type="text" class="form-control" placeholder="Readonly" readonly>
+                                        <input type="text" class="form-control" placeholder="Readonly" readonly value="{{ $order_header{0}->city }}">
                                     </div>
                                     <div class="form-group  col-md-6">
                                         <label>Departamento</label>
-                                        <input type="text" class="form-control" placeholder="Readonly" readonly>
+                                        <input type="text" class="form-control" placeholder="Readonly" readonly value="{{ $order_header{0}->state }}">
                                     </div>
                                     <div class="form-group  col-md-6">
                                         <label>Forma de Pago</label>
@@ -103,17 +104,20 @@
                                                     <span class="input-group-addon">
                                                         <i class="fa fa-money font-green"></i>
                                                     </span>
-                                            <input type="text" class="form-control " value="Efectivo" placeholder="Efectivo">
+                                            <input type="text" class="form-control " value="{{ $order_header{0}->way_to_pay }}" placeholder="Readonly" readonly >
                                         </div>
                                     </div>
-                                    <div class="form-group  col-md-6">
+                                    <div class="form-group  col-md-3">
                                         <label>Estado de la Orden</label>
-                                        <div class="input-group">
-                                                    <span class="input-group-addon">
-                                                        <i class="fa fa-exclamation-triangle font-yellow"></i>
-                                                    </span>
-                                            <input type="text" class="form-control" placeholder="Creación" readonly>
-                                        </div>
+                                        <ul class="list-group">
+                                            <li class="list-group-item list-group-item-info"> {{ $order_header{0}->order_state }}</li>
+                                        </ul>
+                                    </div>
+                                    <div class="form-group  col-md-3">
+                                        <label>Fecha de Creación</label>
+                                        <ul class="list-group">
+                                            <li class="list-group-item list-group-item-default"> {{ date('d-m-Y', strtotime($order_header{0}->created_at)) }}</li>
+                                        </ul>
                                     </div>
                                     <div class="form-group  "><label style="color:#fff">Acciones</label></div>
                                 </div>

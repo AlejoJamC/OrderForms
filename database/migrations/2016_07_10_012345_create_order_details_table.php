@@ -19,7 +19,7 @@ class CreateOrderDetailsTable extends Migration
             $table->integer('product_id')->unsigned();
             $table->foreign('product_id')->references('id')->on('products');
             $table->integer('quantity')->unsigned();
-            $table->string('observation', 100);
+            $table->string('observation', 255);
             $table->boolean('verified')->default(0);
             $table->boolean('canceled')->default(0);
             $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));

@@ -55,7 +55,7 @@ Route::get('/dash/orders/{id}','OrdersController@details');
 /*
  * Routes for Order Details
  */
-Route::get('/dash/orders/details','OrdersController@ajaxOrderDetail');
+Route::get('/dash/details/ajax-order','OrdersController@ajaxOrderDetail');
 
 /*
  * Routes for Products

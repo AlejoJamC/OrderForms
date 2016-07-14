@@ -6,7 +6,7 @@
     <div class="user-login-5">
         <div class="row bs-reset">
             <div class="col-md-6 bs-reset">
-                <div class="login-bg" style="background-image:url({{URL::asset('assets/pages/img/login/bg1.jpg')}})">
+                <div class="login-bg" style="background-image:url({{URL::asset('assets/pages/img/login/altbg1.jpg')}})">
                     <img class="login-logo" src="{{URL::asset('assets/pages/img/login/unicontacto.png')}}" /> </div>
             </div>
             <div class="col-md-6 login-container bs-reset">

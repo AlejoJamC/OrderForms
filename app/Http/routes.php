@@ -53,6 +53,11 @@ Route::get('/dash/orders/new','OrdersController@index');
 Route::get('/dash/orders/{id}','OrdersController@details');
 
 /*
+ * Routes for Order Details
+ */
+Route::get('/dash/orders/details','OrdersController@ajaxOrderDetail');
+
+/*
  * Routes for Products
  */
 Route::get('/dash/products','ProductsController@redirectTo');
@@ -71,7 +76,3 @@ Route::get('/dash/users/new/ajax-city', 'UsersController@ajaxCity');
 
 Route::post('/dash/users/new','UsersController@postRegister');
 
-/*
- * Routes for Order Details
- */
-Route::get('/dash/orders/details','OrderDetailController@index');

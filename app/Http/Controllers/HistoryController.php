@@ -11,10 +11,21 @@ use Illuminate\Support\Facades\Input;
 
 class HistoryController extends Controller
 {
+    /*
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+    */
+
     public function index(){
         return view('history.me');
     }
-    
+
+    public function redirectToLogin(){
+        return redirect('login');
+    }
+
     public function listAll(){
         // Populate select controls
         // Order states

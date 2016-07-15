@@ -82,7 +82,7 @@ class AuthController extends Controller
             $user_data = User::where('username', $request->input('username'))->first();
             session()->flash('msg','Bienvenido!');
             session()->flash('username', $request->input('username'));
-            return redirect()->intended('/dash/orders/me')->iwth('user_data', $user_data);
+            return redirect()->intended('/dash/history/me')->with('user_data', $user_data);
         }
         session()->flash('msg','Error en la autenticación');
         session()->flash('username', 'guest');

@@ -22,13 +22,13 @@
                     <!-- DOC: Apply "dropdown-dark" class after below "dropdown-extended" to change the dropdown styte -->
                     <li class="dropdown dropdown-user">
                         <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
-                            <img alt="" class="img-circle" src="{{ URL::asset('assets/layouts/layout2/img/avatar3_small.jpg') }}" />
+                            <img alt="" class="img-circle" src="{{ URL::asset(Auth::user()->picture) }}" />
                             <span class="username username-hide-on-mobile"> {{ Auth::user()->business_name }} </span>
                             <i class="fa fa-angle-down"></i>
                         </a>
                         <ul class="dropdown-menu dropdown-menu-default">
                             <li>
-                                <a href="/profile">
+                                <a href="{{ url('profile/'. Auth::user()->id) }}">
                                     <i class="icon-user"></i> Mi perfil </a>
                             </li>
                             <li class="divider"> </li>

@@ -84,7 +84,7 @@
                                         <label class="col-md-3 control-label">Departamento</label>
                                         <div class="col-md-9">
                                             <select class="bs-select form-control" data-live-search="true" data-size="8" id="state" name="state_id">
-                                                <option value="0">Seleccionar...</option>
+                                                <option value="0" disabled selected>Seleccionar...</option>
                                                 @foreach ($states as $state_id => $state)
                                                     <option value="{{ $state_id }}">{{ $state }}</option>
                                                 @endforeach
@@ -95,7 +95,7 @@
                                         <label class="col-md-3 control-label">Ciudad</label>
                                         <div class="col-md-9">
                                             <select class="bs-select form-control" data-live-search="true" data-size="8" id="city" name="city_id">
-                                                <option value="0">Seleccionar...</option>
+                                                <option value="0" disabled selected>Seleccionar...</option>
                                             </select>
                                         </div>
                                     </div>
@@ -142,7 +142,7 @@
                                         <label class="col-md-3 control-label">Rol</label>
                                         <div class="col-md-9">
                                             <select class="bs-select form-control" id="role" name="role">
-                                                <option value="0">Seleccionar...</option>
+                                                <option value="0" disabled selected>Seleccionar...</option>
                                                 @foreach ($roles as $srole_id => $role)
                                                     <option value="{{ $srole_id }}">{{ $role }}</option>
                                                 @endforeach

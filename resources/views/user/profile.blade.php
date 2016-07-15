@@ -12,8 +12,8 @@
         <!-- BEGIN CONTENT BODY -->
         <div class="page-content">
             <!-- BEGIN PAGE HEADER-->
-            <h3 class="page-title"> New User Profile | Account
-                <small>user account page</small>
+            <h3 class="page-title"> Perfil del Usuario
+                <small>Todos los campos son requeridos</small>
             </h3>
             <!-- END PAGE HEADER-->
             <div class="row">
@@ -24,34 +24,14 @@
                         <div class="portlet light profile-sidebar-portlet ">
                             <!-- SIDEBAR USERPIC -->
                             <div class="profile-userpic">
-                                <img src="../assets/pages/media/profile/profile_user.jpg" class="img-responsive" alt=""> </div>
+                                <img src="{{ URL::asset($user_data{0}->picture) }}" class="img-responsive" alt=""> </div>
                             <!-- END SIDEBAR USERPIC -->
-                            <!-- SIDEBAR USER TITLE -->
-                            <div class="profile-usertitle">
-                                <div class="profile-usertitle-name"> Marcus Doe </div>
-                                <div class="profile-usertitle-job"> Developer </div>
-                            </div>
-                            <!-- END SIDEBAR USER TITLE -->
-                            <!-- SIDEBAR BUTTONS -->
-                            <div class="profile-userbuttons">
-                                <button type="button" class="btn btn-circle green btn-sm">Follow</button>
-                                <button type="button" class="btn btn-circle red btn-sm">Message</button>
-                            </div>
-                            <!-- END SIDEBAR BUTTONS -->
                             <!-- SIDEBAR MENU -->
                             <div class="profile-usermenu">
                                 <ul class="nav">
-                                    <li>
-                                        <a href="page_user_profile_1.html">
-                                            <i class="icon-home"></i> Overview </a>
-                                    </li>
                                     <li class="active">
-                                        <a href="page_user_profile_1_account.html">
-                                            <i class="icon-settings"></i> Account Settings </a>
-                                    </li>
-                                    <li>
-                                        <a href="page_user_profile_1_help.html">
-                                            <i class="icon-info"></i> Help </a>
+                                        <a href="javascript:;">
+                                            <i class="icon-settings"></i> Configuraciones de la cuenta </a>
                                     </li>
                                 </ul>
                             </div>
@@ -68,20 +48,17 @@
                                     <div class="portlet-title tabbable-line">
                                         <div class="caption caption-md">
                                             <i class="icon-globe theme-font hide"></i>
-                                            <span class="caption-subject font-blue-madison bold uppercase">Profile Account</span>
+                                            <span class="caption-subject font-blue-madison bold uppercase">Detalles</span>
                                         </div>
                                         <ul class="nav nav-tabs">
                                             <li class="active">
-                                                <a href="#tab_1_1" data-toggle="tab">Personal Info</a>
+                                                <a href="#tab_1_1" data-toggle="tab">Información</a>
                                             </li>
                                             <li>
-                                                <a href="#tab_1_2" data-toggle="tab">Change Avatar</a>
+                                                <a href="#tab_1_2" data-toggle="tab">Cambiar Imagen</a>
                                             </li>
                                             <li>
-                                                <a href="#tab_1_3" data-toggle="tab">Change Password</a>
-                                            </li>
-                                            <li>
-                                                <a href="#tab_1_4" data-toggle="tab">Privacy Settings</a>
+                                                <a href="#tab_1_3" data-toggle="tab">Cambiar Contrase&ntilde;a</a>
                                             </li>
                                         </ul>
                                     </div>
@@ -91,30 +68,54 @@
                                             <div class="tab-pane active" id="tab_1_1">
                                                 <form role="form" action="#">
                                                     <div class="form-group">
-                                                        <label class="control-label">First Name</label>
-                                                        <input type="text" placeholder="John" class="form-control" /> </div>
-                                                    <div class="form-group">
-                                                        <label class="control-label">Last Name</label>
-                                                        <input type="text" placeholder="Doe" class="form-control" /> </div>
-                                                    <div class="form-group">
-                                                        <label class="control-label">Mobile Number</label>
-                                                        <input type="text" placeholder="+1 646 580 DEMO (6284)" class="form-control" /> </div>
-                                                    <div class="form-group">
-                                                        <label class="control-label">Interests</label>
-                                                        <input type="text" placeholder="Design, Web etc." class="form-control" /> </div>
-                                                    <div class="form-group">
-                                                        <label class="control-label">Occupation</label>
-                                                        <input type="text" placeholder="Web Developer" class="form-control" /> </div>
-                                                    <div class="form-group">
-                                                        <label class="control-label">About</label>
-                                                        <textarea class="form-control" rows="3" placeholder="We are KeenThemes!!!"></textarea>
+                                                        <label class="control-label">Razon Social</label>
+                                                        <input type="text" placeholder="John" class="form-control"  value="{{$user_data{0}->business_name}}"/>
                                                     </div>
                                                     <div class="form-group">
-                                                        <label class="control-label">Website Url</label>
-                                                        <input type="text" placeholder="http://www.mywebsite.com" class="form-control" /> </div>
+                                                        <label class="control-label">NIT</label>
+                                                        <input type="text" placeholder="Doe" class="form-control" value="{{$user_data{0}->identification}}"/>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label class="control-label">Contacto</label>
+                                                        <input type="text" placeholder="+1 646 580 DEMO (6284)" class="form-control" value="{{$user_data{0}->contact}}"/>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label class="control-label">Email</label>
+                                                        <input type="text" placeholder="Design, Web etc." class="form-control" value="{{$user_data{0}->email}}"/>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label class="control-label">Direcci&oacute;n</label>
+                                                        <input type="text" placeholder="Design, Web etc." class="form-control" value="{{$user_data{0}->address}}"/>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label class="control-label">Departamento</label>
+                                                        <select class="bs-select form-control" data-live-search="true" data-size="8" id="state" name="state_id">
+                                                            <option value="0" disabled selected>Seleccionar...</option>
+                                                            @foreach ($states as $state_id => $state)
+                                                                @if($state_id == $user_data{0}->state_id)
+                                                                    <option value="{{ $state_id }}" selected>{{ $state }}</option>
+                                                                @else
+                                                                    <option value="{{ $state_id }}">{{ $state }}</option>
+                                                                @endif
+                                                            @endforeach
+                                                        </select>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label class="control-label">Ciudad</label>
+                                                        <select class="bs-select form-control" data-live-search="true" data-size="8" id="city" name="city_id">
+                                                            <option value="0" disabled selected>Seleccionar...</option>
+                                                            @foreach ($cities as $city_id => $city)
+                                                                @if($city_id == $user_data{0}->city_id)
+                                                                    <option value="{{ $city_id }}" selected>{{ $city }}</option>
+                                                                @else
+                                                                    <option value="{{ $city_id }}">{{ $city }}</option>
+                                                                @endif
+                                                            @endforeach
+                                                        </select>
+                                                    </div>
                                                     <div class="margiv-top-10">
-                                                        <a href="javascript:;" class="btn green"> Save Changes </a>
-                                                        <a href="javascript:;" class="btn default"> Cancel </a>
+                                                        <a href="javascript:;" class="btn green"> Guardar Cambios </a>
+                                                        <a href="javascript:;" class="btn red"> Cancelar </a>
                                                     </div>
                                                 </form>
                                             </div>
@@ -143,8 +144,8 @@
                                                         </div>
                                                     </div>
                                                     <div class="margin-top-10">
-                                                        <a href="javascript:;" class="btn green"> Submit </a>
-                                                        <a href="javascript:;" class="btn default"> Cancel </a>
+                                                        <a href="javascript:;" class="btn green"> Cargar </a>
+                                                        <a href="javascript:;" class="btn red"> Cancelar </a>
                                                     </div>
                                                 </form>
                                             </div>
@@ -162,85 +163,12 @@
                                                         <label class="control-label">Re-type New Password</label>
                                                         <input type="password" class="form-control" /> </div>
                                                     <div class="margin-top-10">
-                                                        <a href="javascript:;" class="btn green"> Change Password </a>
-                                                        <a href="javascript:;" class="btn default"> Cancel </a>
+                                                        <a href="javascript:;" class="btn green"> Cambiar Contrase&ntilde;a </a>
+                                                        <a href="javascript:;" class="btn red"> Cancelar </a>
                                                     </div>
                                                 </form>
                                             </div>
                                             <!-- END CHANGE PASSWORD TAB -->
-                                            <!-- PRIVACY SETTINGS TAB -->
-                                            <div class="tab-pane" id="tab_1_4">
-                                                <form action="#">
-                                                    <table class="table table-light table-hover">
-                                                        <tr>
-                                                            <td> Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus.. </td>
-                                                            <td>
-                                                                <div class="mt-radio-inline">
-                                                                    <label class="mt-radio">
-                                                                        <input type="radio" name="optionsRadios1" value="option1" /> Yes
-                                                                        <span></span>
-                                                                    </label>
-                                                                    <label class="mt-radio">
-                                                                        <input type="radio" name="optionsRadios1" value="option2" checked/> No
-                                                                        <span></span>
-                                                                    </label>
-                                                                </div>
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td> Enim eiusmod high life accusamus terry richardson ad squid wolf moon </td>
-                                                            <td>
-                                                                <div class="mt-radio-inline">
-                                                                    <label class="mt-radio">
-                                                                        <input type="radio" name="optionsRadios11" value="option1" /> Yes
-                                                                        <span></span>
-                                                                    </label>
-                                                                    <label class="mt-radio">
-                                                                        <input type="radio" name="optionsRadios11" value="option2" checked/> No
-                                                                        <span></span>
-                                                                    </label>
-                                                                </div>
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td> Enim eiusmod high life accusamus terry richardson ad squid wolf moon </td>
-                                                            <td>
-                                                                <div class="mt-radio-inline">
-                                                                    <label class="mt-radio">
-                                                                        <input type="radio" name="optionsRadios21" value="option1" /> Yes
-                                                                        <span></span>
-                                                                    </label>
-                                                                    <label class="mt-radio">
-                                                                        <input type="radio" name="optionsRadios21" value="option2" checked/> No
-                                                                        <span></span>
-                                                                    </label>
-                                                                </div>
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td> Enim eiusmod high life accusamus terry richardson ad squid wolf moon </td>
-                                                            <td>
-                                                                <div class="mt-radio-inline">
-                                                                    <label class="mt-radio">
-                                                                        <input type="radio" name="optionsRadios31" value="option1" /> Yes
-                                                                        <span></span>
-                                                                    </label>
-                                                                    <label class="mt-radio">
-                                                                        <input type="radio" name="optionsRadios31" value="option2" checked/> No
-                                                                        <span></span>
-                                                                    </label>
-                                                                </div>
-                                                            </td>
-                                                        </tr>
-                                                    </table>
-                                                    <!--end profile-settings-->
-                                                    <div class="margin-top-10">
-                                                        <a href="javascript:;" class="btn red"> Save Changes </a>
-                                                        <a href="javascript:;" class="btn default"> Cancel </a>
-                                                    </div>
-                                                </form>
-                                            </div>
-                                            <!-- END PRIVACY SETTINGS TAB -->
                                         </div>
                                     </div>
                                 </div>
@@ -259,4 +187,21 @@
     <script src="{{ URL::asset('assets/global/plugins/bootstrap-fileinput/bootstrap-fileinput.js') }}" type="text/javascript"></script>
     <script src="{{ URL::asset('assets/global/plugins/jquery.sparkline.min.js') }}" type="text/javascript"></script>
     <script src="{{ URL::asset('assets/pages/scripts/profile.min.js') }}" type="text/javascript"></script>
+    <script>
+        $('#state').on('change', function(e){
+            console.log(e);
+            var state_id = e.target.value;
+            $.get('{{ url('dash') }}/users/new/ajax-city?state_id=' + state_id, function(data) {
+                console.log(data);
+                $('#city').empty();
+                $('#city').append($('<option disabled selected value="0">Seleccionar ...</option>'));
+                $.each(data, function(index,cities){
+                    $('#city').append($('<option>', {
+                        value: cities.id,
+                        text : cities.name
+                    }));
+                });
+            });
+        });
+    </script>
 @endsection

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\City;
 use App\Models\Role;
 use App\Models\State;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -43,8 +44,11 @@ class UsersController extends Controller
         
     }
 
-    public function profile(){
-        return view('user.profile');
+    public function profile($user_id){
+        $user_data = User::where('id', $user_id)->get();
+        $states = State::where('status', true)->orderBy('name')->pluck('name','id');
+        $cities = City::where('status', true)->orderBy('name')->pluck('name','id');
+        return view('user.profile')->with('user_data', $user_data)->with('states', $states)->with('cities', $cities);
     }
 
     public function reset(){

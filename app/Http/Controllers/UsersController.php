@@ -12,6 +12,11 @@ use Illuminate\Support\Facades\Input;
 
 class UsersController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function index(){
         return view('user.list');
     }

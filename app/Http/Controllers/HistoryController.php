@@ -11,12 +11,10 @@ use Illuminate\Support\Facades\Input;
 
 class HistoryController extends Controller
 {
-    /*
     public function __construct()
     {
         $this->middleware('auth');
     }
-    */
 
     public function index(){
         return view('history.me');
@@ -30,8 +28,6 @@ class HistoryController extends Controller
         // Populate select controls
         // Order states
         $order_states = OrderState::where('status', true)->pluck('name','id');
-
-
         return view('history.all')->with('order_states', $order_states);
     }
 

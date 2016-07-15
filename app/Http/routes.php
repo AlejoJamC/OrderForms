@@ -28,10 +28,7 @@ Route::get('/register', 'SessionController@gotoRegister');
  * Routes for Login in this case is the entry point or index
  */
 
-Route::get('/', [
-    'middleware' => 'auth',
-    'uses' => 'HomeController@index'
-]);
+Route::get('/', 'HistoryController@redirectToLogin');
 
 /*
  * Routes for history

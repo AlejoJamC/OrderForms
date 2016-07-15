@@ -21,9 +21,9 @@
                         </div>
                         <div class="row">
                             <div class="col-xs-6">
-                                <input class="form-control form-control-solid placeholder-no-fix form-group" type="text" autocomplete="off" placeholder="Nombre de usuario" name="username" required/> </div>
+                                <input class="form-control form-control-solid placeholder-no-fix form-group" type="text" autocomplete="off" placeholder="Nombre de usuario" name="username" id="username" required/> </div>
                             <div class="col-xs-6">
-                                <input class="form-control form-control-solid placeholder-no-fix form-group" type="password" autocomplete="off" placeholder="Contrase&ntilde;a" name="password" required/> </div>
+                                <input class="form-control form-control-solid placeholder-no-fix form-group" type="password" autocomplete="off" placeholder="Contrase&ntilde;a" name="password"  id="password" required/> </div>
                         </div>
                         <div class="row">
                             <div class="col-sm-4"></div>

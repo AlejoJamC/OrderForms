@@ -21,8 +21,13 @@
 /*
  * Routes for Login in this case is the entry point or index
  */
-Route::get('/login', 'SessionController@gotoLogin');
-Route::get('/register', 'SessionController@gotoRegister');
+Route::auth();
+
+Route::post('/login', 'Auth\AuthController@postLogin');
+
+Route::get('/login', 'Auth\AuthController@login');
+Route::get('/logout', 'Auth\AuthController@logout');
+Route::get('/register', 'Auth\AuthController@gotoRegister');
 
 /*
  * Routes for Login in this case is the entry point or index

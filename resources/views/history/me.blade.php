@@ -32,7 +32,7 @@
                         <i class="fa fa-angle-right"></i>
                     </li>
                     <li>
-                        <span>Todas</span>
+                        <span>{{ Auth::user()->business_name }}</span>
                     </li>
                 </ul>
             </div>

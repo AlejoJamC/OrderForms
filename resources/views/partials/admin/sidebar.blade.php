@@ -12,7 +12,7 @@
                 <ul class="sub-menu">
                     <li class="nav-item start {{ Request::is('dash/history/me') ? ' active open ' : '' }}">
                         <a href="/dash/history/me" class="nav-link ">
-                            <span class="title">Nombre Empresa</span>
+                            <span class="title">{{ Auth::user()->business_name }}</span>
                             <span {{ Request::is('dash/history/me') ?  ' class=selected ' : '' }}></span>
                         </a>
                     </li>

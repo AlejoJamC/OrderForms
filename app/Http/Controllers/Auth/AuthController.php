@@ -48,12 +48,23 @@ class AuthController extends Controller
         $this->middleware($this->guestMiddleware(), ['except' => 'logout']);
     }
 
+    /*
     public function login(){
-        if(Auth::check()){
-            return redirect('/dash');
+        if(session()->has('username')){
+            $value = session()->get('username');
+            if($value === 'guest'){
+                return view('auth.login');
+            }else{
+                $user_data = User::where('username', $value)->get();
+                return redirect()->intended('/dash')->with('user_data', $user_data);
+            }
         }else{
             return view('auth.login');
         }
+    }
+    */
+    public function login(){
+        return view('auth.login');
     }
 
     /**
@@ -68,11 +79,13 @@ class AuthController extends Controller
         $this->validate($request, ['username' => 'required', 'password' => 'required']);
         if ($this->signIn($request)) {
             // get some values required to show data on dashboard
-            $user_data = User::where('username', $request->input('username'))->get();
+            $user_data = User::where('username', $request->input('username'))->first();
             session()->flash('msg','Bienvenido!');
-            return redirect()->intended('/dash')->with('user_data', $user_data);
+            session()->flash('username', $request->input('username'));
+            return redirect()->intended('/dash/orders/me')->iwth('user_data', $user_data);
         }
         session()->flash('msg','Error en la autenticación');
+        session()->flash('username', 'guest');
         return redirect()->back();
     }
     /**

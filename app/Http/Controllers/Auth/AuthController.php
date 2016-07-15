@@ -3,7 +3,8 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Models\User;
-use Validator;
+use Auth;
+use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
@@ -47,31 +48,70 @@ class AuthController extends Controller
         $this->middleware($this->guestMiddleware(), ['except' => 'logout']);
     }
 
-    /**
-     * Get a validator for an incoming registration request.
-     *
-     * @param  array  $data
-     * @return \Illuminate\Contracts\Validation\Validator
-     */
-    protected function validator(array $data)
-    {
-        return Validator::make($data, [
-            'username' => 'required|max:255',
-            'password' => 'required|min:5',
-        ]);
+    public function login(){
+        if(Auth::check()){
+            return redirect('/dash');
+        }else{
+            return view('auth.login');
+        }
     }
 
     /**
-     * Create a new user instance after a valid registration.
+     * Perform the login.
      *
-     * @param  array  $data
-     * @return User
+     * @param  Request  $request
+     * @return \Redirect
      */
-    protected function create(array $data)
+    public function postLogin(Request $request)
     {
-        return User::create([
-            'username' => $data['username'],
-            'password' => bcrypt($data['password']),
-        ]);
+        // Process the request and validate the mandatory fields
+        $this->validate($request, ['username' => 'required', 'password' => 'required']);
+        if ($this->signIn($request)) {
+            // get some values required to show data on dashboard
+            $user_data = User::where('username', $request->input('username'))->get();
+            session()->flash('msg','Bienvenido!');
+            return redirect()->intended('/dash')->with('user_data', $user_data);
+        }
+        session()->flash('msg','Error en la autenticación');
+        return redirect()->back();
+    }
+    /**
+     * Destroy the user's current session.
+     *
+     * @return \Redirect
+     */
+    public function logout()
+    {
+        Auth::logout();
+        session()->flash('msg','You have now been signed out. See ya.');
+        return redirect('login');
+    }
+
+    /**
+     * Attempt to sign in the user.
+     *
+     * @param  Request $request
+     * @return boolean
+     */
+    protected function signIn(Request $request)
+    {
+        return Auth::attempt($this->getCredentials($request), $request->has('remember'));
+    }
+    /**
+     * Get the login credentials and requirements.
+     *
+     * @param  Request $request
+     * @return array
+     */
+    protected function getCredentials(Request $request)
+    {
+        return [
+            'username'  => $request->input('username'),
+            'password'  => $request->input('password')
+        ];
+    }
+
+    public function gotoRegister(){
+        return redirect('login');
     }
 }

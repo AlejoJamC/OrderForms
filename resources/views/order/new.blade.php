@@ -49,7 +49,7 @@
                             </div>
                         </div>
                         <div class="portlet-body form">
-                            <form role="form">
+                            <form action="{{ url('/dash/orders/new') }}" method="post" role="form">
                                 <div class="form-body">
                                     <div class="form-group  col-md-6 no-bottom">
                                         <label>Razon Social</label>
@@ -124,64 +124,34 @@
                                                                 </select>
                                                         </div>
                                                     </div>
-                                                    <div class="col-md-4">
+                                                    <div class="col-md-2">
                                                         <div class="btn-group">
-                                                            <button id="sample_editable_1_new" class="btn sbold green"> Agregar Producto
+                                                            <button class="btn sbold green" id="btnaddrow" name="btnaddrow" type='button'> Agregar Producto
                                                                 <i class="fa fa-plus"></i>
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-2">
+                                                        <div class="btn-group">
+                                                            <button class="btn purple-plum" id="btncleantb" name="btncleantb" type='button'> Limpiar todo
+                                                                <i class="fa fa-minus"></i>
                                                             </button>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
-                                            <table class="table table-striped table-bordered table-hover table-checkable order-column" id="sample_1">
+                                            <table id="tbDetail" class="table table-striped table-bordered table-hover table-checkable order-column">
                                                 <thead>
                                                 <tr>
                                                     <th> Producto </th>
                                                     <th> Presentacion </th>
                                                     <th> Marca </th>
-                                                    <th> Referencia </th>
-                                                    <th> Precio con IVA </th>
+                                                    <th> Precio sin IVA </th>
                                                     <th> Cantidad </th>
                                                     <th> Acciones </th>
                                                 </tr>
                                                 </thead>
-                                                <tbody>
-                                                <tr class="odd gradeX">
-                                                    <td> shuxer </td>
-                                                    <td> Shuxer presentacion </td>
-                                                    <td> Marca Shuxer </td>
-                                                    <td> Referencia Shuxer </td>
-                                                    <td> $ 123.456,78 </td>
-                                                    <td> <input type="text" class="form-control input-xsmall" name="order_customer_name"> </td>
-                                                    <td>
-                                                        <div class="btn-group">
-                                                            <button class="btn btn-xs green dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="false"> Actions
-                                                                <i class="fa fa-angle-down"></i>
-                                                            </button>
-                                                            <ul class="dropdown-menu" role="menu">
-                                                                <li>
-                                                                    <a href="javascript:;">
-                                                                        <i class="icon-docs"></i> New Post </a>
-                                                                </li>
-                                                                <li>
-                                                                    <a href="javascript:;">
-                                                                        <i class="icon-tag"></i> New Comment </a>
-                                                                </li>
-                                                                <li>
-                                                                    <a href="javascript:;">
-                                                                        <i class="icon-user"></i> New User </a>
-                                                                </li>
-                                                                <li class="divider"> </li>
-                                                                <li>
-                                                                    <a href="javascript:;">
-                                                                        <i class="icon-flag"></i> Comments
-                                                                        <span class="badge badge-success">4</span>
-                                                                    </a>
-                                                                </li>
-                                                            </ul>
-                                                        </div>
-                                                    </td>
-                                                </tr>
+                                                <tbody id="tbBodyDetail">
                                                 </tbody>
                                             </table>
                                         </div>
@@ -190,8 +160,8 @@
                                 </div>
                                 <div class="form-actions">
                                     <div class="col-md-12">
-                                        <button type="submit" class="btn blue">Submit</button>
-                                        <button type="button" class="btn red">Cancel</button>
+                                        <button type="submit" class="btn blue">Crear Orden</button>
+                                        <a href="{{ url('dash/orders/new') }}" class="btn red">Cancelar</a>
                                     </div>
                                 </div>
                             </form>

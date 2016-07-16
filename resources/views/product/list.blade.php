@@ -98,7 +98,6 @@
 
         jQuery(document).ready(function() {
             $.get('{{ url('dash') }}/products/ajax-list', function(data) {
-                console.log(data);
                 $('#tbodyProducts').empty();
                 var flag ='';
                 var trHTML = '';
@@ -109,8 +108,8 @@
                             '<td>'+ item.title +'</td>' +
                             '<td>'+ item.presentation +'</td>' +
                             '<td>'+ item.brand +'</td>' +
-                            '<td>'+ item.price +'</td>' +
-                            '<td>'+ item.price_with_tax +'</td>' +
+                            '<td>$'+ item.price +'</td>' +
+                            '<td>$'+ item.price_with_tax +'</td>' +
                             '<td>'+ '<a href="{{url('dash')}}/products/details/'+ item.id + '" class="btn btn-sm btn-outline dark"><i class="fa fa-edit"></i> Modificar</a>' +'</td>' +
                             '</tr>';
                 });

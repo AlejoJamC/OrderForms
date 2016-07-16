@@ -96,7 +96,7 @@ class AuthController extends Controller
     public function logout()
     {
         Auth::logout();
-        session()->flash('msg','You have now been signed out. See ya.');
+        session()->flash('msg','Se cerro la sesi&oacute;n correctamente, gracias por usar este sistema de gesti&oacute;n');
         return redirect('login');
     }
 

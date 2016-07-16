@@ -64,7 +64,7 @@ class OrdersController extends Controller
         $order_detail =DB::table('order_details')
             ->join('products', 'order_details.product_id', '=', 'products.id')
             ->select('order_details.id', 'order_details.order_id', 'products.title', 'products.presentation',
-            'products.brand', 'products.reference', 'products.price_with_tax', 'order_details.quantity')
+            'products.brand','products.price', 'order_details.quantity')
             ->where('order_details.order_id', $order_id)
             ->get();
         return $order_detail;

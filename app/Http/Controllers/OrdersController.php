@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Order;
 use App\Models\OrderDetail;
 use DB;
+use Auth;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -18,7 +19,19 @@ class OrdersController extends Controller
     }
 
     public function index(){
-        return view('order.new');
+        $order_header = DB::table('orders')
+            ->join('users', 'orders.user_id', '=', 'users.id')
+            ->join('cities', 'users.city_id', '=', 'cities.id')
+            ->join('states', 'users.state_id', '=', 'states.id')
+            ->join('order_states', 'orders.order_state_id', '=', 'order_states.id')
+            ->select('orders.id', 'orders.ship_date', 'users.business_name', 'users.identification', 'users.contact',
+                'users.email', 'users.address', 'cities.name AS city', 'states.name AS state', 'orders.way_to_pay',
+                'order_states.name AS order_state', 'orders.verified', 'orders.canceled', 'orders.created_at',
+                'orders.order_state_id')
+            ->where('orders.status', true)
+            ->where('orders.id', Auth::user()->id)
+            ->get();
+        return view('order.new')->with('order_header', $order_header);
     }
 
     public function redirectTo(){

@@ -31,11 +31,16 @@ class ProductsController extends Controller
         return $products;
     }
 
+    public function ajaxListLight(){
+        $products = Product::where('status', true)->orderBy('title')->pluck('title','id');
+        return $products;
+    }
+
     public function details(){
         return view('product.detail');
     }
 
-    public function new(){
+    public function newProduct(){
         return view('product.new');
     }
 }

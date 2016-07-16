@@ -63,12 +63,13 @@ Route::get('/dash/details/ajax-order','OrdersController@ajaxOrderDetail');
  * Routes for Products
  */
 Route::get('/dash/products','ProductsController@redirectTo');
-Route::get('/dash/products/new','ProductsController@new');
+Route::get('/dash/products/new','ProductsController@newProduct');
 Route::get('/dash/products/list','ProductsController@index');
 Route::get('/dash/products/load','ProductsController@load');
 Route::get('/dash/products/details/{id}','ProductsController@details');
 
 Route::get('/dash/products/ajax-list','ProductsController@ajaxList');
+Route::get('/dash/products/ajax-light-list','ProductsController@ajaxList');
 
 /*
  * Routes for Users

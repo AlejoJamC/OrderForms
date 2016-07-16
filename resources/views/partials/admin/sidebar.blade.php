@@ -73,12 +73,6 @@
                             <span {{ Request::is('dash/users/new') ? ' class=selected ' : '' }}></span>
                         </a>
                     </li>
-                    <li class="nav-item start {{ Request::is('dash/users/reset/password') ? ' active open ' : '' }}">
-                        <a href="/dash/users/reset/password" class="nav-link ">
-                            <span class="title">Recuperar Contrase&ntilde;a</span>
-                            <span {{ Request::is('dash/users/reset/password') ? ' class=selected ' : '' }}></span>
-                        </a>
-                    </li>
                 </ul>
             </li>
 

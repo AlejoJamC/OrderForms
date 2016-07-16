@@ -75,12 +75,12 @@ Route::get('/dash/products/ajax-list','ProductsController@ajaxList');
 Route::get('/dash/users','UsersController@redirectTo');
 Route::get('/dash/users/list','UsersController@index');
 Route::get('/dash/users/new','UsersController@register');
-Route::get('/dash/users/reset/password','UsersController@reset');
 Route::get('/profile/{id}','UsersController@profile');
+Route::get('/dash/users/detail/{id}','UsersController@profile');
+Route::get('/dash/users/ajax-list','UsersController@ajaxList');
 Route::get('/dash/users/new/ajax-city', 'UsersController@ajaxCity');
 
 Route::post('/dash/users/new','UsersController@postRegister');
 Route::post('/dash/users/add/image','UsersController@postLogo');
 
 Route::put('/profile/{id}','UsersController@putProfile');
-Route::put('/dash/users/reset/password','UsersController@putPassword');

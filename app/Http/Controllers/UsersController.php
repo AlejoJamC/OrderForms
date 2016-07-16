@@ -51,11 +51,12 @@ class UsersController extends Controller
         return view('user.profile')->with('user_data', $user_data)->with('states', $states)->with('cities', $cities);
     }
 
-    public function reset(){
-        return view('user.reset');
-    }
-
     public function redirectTo(){
         return redirect('dash/users');
+    }
+
+    public function ajaxList(){
+        $users =  User::where('status', true)->orderBy('business_name')->get();
+        return $users;
     }
 }

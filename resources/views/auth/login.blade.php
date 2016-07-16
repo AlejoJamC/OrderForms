@@ -12,7 +12,7 @@
             <div class="col-md-6 login-container bs-reset">
                 <div class="login-content">
                     <h1>Gesti&oacute;n de Ordenes de Compra</h1>
-                    <p> Falta esta descripcion- Lorem ipsum dolor sit amet, coectetuer adipiscing elit sed diam nonummy et nibh euismod aliquam erat volutpat. Lorem ipsum dolor sit amet, coectetuer adipiscing. </p>
+                    <p> Sistema de pedidos en línea de Jairo Osorio caballero (Unicontacto).</p>
                     @if(Session::has('msg'))
                         {{ Session::get('msg') }}
                     @endif

@@ -122,8 +122,7 @@
                                             <!-- END PERSONAL INFO TAB -->
                                             <!-- CHANGE AVATAR TAB -->
                                             <div class="tab-pane" id="tab_1_2">
-                                                <p> Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum
-                                                    eiusmod. </p>
+                                                <p> La imagen corporativa o el logo de la empresa/cliente es obligatorio. </p>
                                                 <form action="#" role="form">
                                                     <div class="form-group">
                                                         <div class="fileinput fileinput-new" data-provides="fileinput">
@@ -139,8 +138,8 @@
                                                             </div>
                                                         </div>
                                                         <div class="clearfix margin-top-10">
-                                                            <span class="label label-danger">NOTE! </span>
-                                                            <span>Attached image thumbnail is supported in Latest Firefox, Chrome, Opera, Safari and Internet Explorer 10 only </span>
+                                                            <span class="label label-danger">Nota! </span>
+                                                            <span>la imagen adjunta se apoya en las últimas versiones de Firefox, Chrome, Opera, Safari e Internet Explorer 10 unicamente.</span>
                                                         </div>
                                                     </div>
                                                     <div class="margin-top-10">
@@ -154,13 +153,13 @@
                                             <div class="tab-pane" id="tab_1_3">
                                                 <form action="#">
                                                     <div class="form-group">
-                                                        <label class="control-label">Current Password</label>
+                                                        <label class="control-label">Contrase&ntilde;a actual</label>
                                                         <input type="password" class="form-control" /> </div>
                                                     <div class="form-group">
-                                                        <label class="control-label">New Password</label>
+                                                        <label class="control-label">Nueva contrase&ntilde;a</label>
                                                         <input type="password" class="form-control" /> </div>
                                                     <div class="form-group">
-                                                        <label class="control-label">Re-type New Password</label>
+                                                        <label class="control-label">Repetir nueva Contrase&ntilde;a</label>
                                                         <input type="password" class="form-control" /> </div>
                                                     <div class="margin-top-10">
                                                         <a href="javascript:;" class="btn green"> Cambiar Contrase&ntilde;a </a>

@@ -34,4 +34,8 @@ class ProductsController extends Controller
     public function details(){
         return view('product.detail');
     }
+
+    public function new(){
+        return view('product.new');
+    }
 }

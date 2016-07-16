@@ -63,6 +63,7 @@ Route::get('/dash/details/ajax-order','OrdersController@ajaxOrderDetail');
  * Routes for Products
  */
 Route::get('/dash/products','ProductsController@redirectTo');
+Route::get('/dash/products/new','ProductsController@new');
 Route::get('/dash/products/list','ProductsController@index');
 Route::get('/dash/products/load','ProductsController@load');
 Route::get('/dash/products/details/{id}','ProductsController@details');

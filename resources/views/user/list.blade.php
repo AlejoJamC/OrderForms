@@ -99,7 +99,6 @@
 
         jQuery(document).ready(function() {
             $.get('{{ url('dash') }}/users/ajax-list', function(data) {
-                console.log(data);
                 $('#tbodyProducts').empty();
                 var flag ='';
                 var trHTML = '';

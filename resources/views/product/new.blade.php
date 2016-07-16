@@ -170,11 +170,8 @@
     <script src="{{URL::asset('assets/global/plugins/bootstrap-select/js/bootstrap-select.min.js')}}" type="text/javascript"></script>
     <script>
         $('#state').on('change', function(e){
-            console.log(e);
             var state_id = e.target.value;
-
             $.get('{{ url('dash') }}/users/new/ajax-city?state_id=' + state_id, function(data) {
-                console.log(data);
                 $('#city').empty();
                 $('#city').append($('<option>', {
                     value: 0,

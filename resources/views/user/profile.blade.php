@@ -188,10 +188,8 @@
     <script src="{{ URL::asset('assets/pages/scripts/profile.min.js') }}" type="text/javascript"></script>
     <script>
         $('#state').on('change', function(e){
-            console.log(e);
             var state_id = e.target.value;
             $.get('{{ url('dash') }}/users/new/ajax-city?state_id=' + state_id, function(data) {
-                console.log(data);
                 $('#city').empty();
                 $('#city').append($('<option disabled selected value="0">Seleccionar ...</option>'));
                 $.each(data, function(index,cities){

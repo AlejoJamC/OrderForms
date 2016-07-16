@@ -97,7 +97,6 @@
 
         jQuery(document).ready(function() {
             $.get('{{ url('dash') }}/history/ajax-all', function(data) {
-                console.log(data);
                 $('#tbodyhistory').empty();
                 var flag ='';
                 var trHTML = '';

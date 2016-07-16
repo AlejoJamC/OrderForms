@@ -89,26 +89,6 @@
     <script src="{{ URL::asset('assets/pages/scripts/dashboard.min.js') }}" type="text/javascript"></script>
     <!-- END PAGE LEVEL SCRIPTS -->
     <script>
-        $('#state').on('change', function(e){
-            console.log(e);
-            var state_id = e.target.value;
-
-            $.get('{{ url('dash') }}/history/ajax-all?user_id=' + user_id, function(data) {
-                console.log(data);
-                $('#tbhistoy').empty();
-                $('#tbhistoy').append($('<option>', {
-                    value: 0,
-                    text : "Seleccionar..."
-                }));
-                $.each(data, function(index,cities){
-                    $('#city').append($('<option>', {
-                        value: cities.id,
-                        text : cities.name
-                    }));
-                });
-            });
-        });
-
         function pad(num, size) {
             var s = num+"";
             while (s.length < size) s = "0" + s;
@@ -117,7 +97,6 @@
 
         jQuery(document).ready(function() {
             $.get('{{ url('dash') }}/history/ajax-me?user_id='+ 1, function(data) {
-                console.log(data);
                 $('#tbodyhistory').empty();
                 var flag ='';
                 var trHTML = '';

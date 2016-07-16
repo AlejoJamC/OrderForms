@@ -52,12 +52,6 @@
                             <span {{ Request::is('dash/products/list') ? ' class=selected ' : '' }}></span>
                         </a>
                     </li>
-                    <li class="nav-item start {{ Request::is('dash/products/load') ? ' active open ' : '' }}">
-                        <a href="/dash/products/load" class="nav-link ">
-                            <span class="title">Cargar</span>
-                            <span {{ Request::is('dash/products/load') ? ' class=selected ' : '' }}></span>
-                        </a>
-                    </li>
                 </ul>
             </li>
             <li class="nav-item {{ Request::is('dash/users/*') ? ' active open ' : '' }} ">

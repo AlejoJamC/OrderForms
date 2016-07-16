@@ -65,6 +65,9 @@ Route::get('/dash/details/ajax-order','OrdersController@ajaxOrderDetail');
 Route::get('/dash/products','ProductsController@redirectTo');
 Route::get('/dash/products/list','ProductsController@index');
 Route::get('/dash/products/load','ProductsController@load');
+Route::get('/dash/products/details/{id}','ProductsController@details');
+
+Route::get('/dash/products/ajax-list','ProductsController@ajaxList');
 
 /*
  * Routes for Users
@@ -73,10 +76,11 @@ Route::get('/dash/users','UsersController@redirectTo');
 Route::get('/dash/users/list','UsersController@index');
 Route::get('/dash/users/new','UsersController@register');
 Route::get('/dash/users/reset/password','UsersController@reset');
-
 Route::get('/profile/{id}','UsersController@profile');
-
 Route::get('/dash/users/new/ajax-city', 'UsersController@ajaxCity');
 
 Route::post('/dash/users/new','UsersController@postRegister');
+Route::post('/dash/users/add/image','UsersController@postLogo');
 
+Route::put('/profile/{id}','UsersController@putProfile');
+Route::put('/dash/users/reset/password','UsersController@putPassword');

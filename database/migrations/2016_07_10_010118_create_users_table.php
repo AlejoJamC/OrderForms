@@ -16,9 +16,9 @@ class CreateUsersTable extends Migration
             $table->increments('id')->unsigned();
             $table->string('business_name', 255);
             $table->string('identification', 255);
-            $table->string('contact', 255);
-            $table->string('email', 255);
-            $table->string('address', 255);
+            $table->string('contact', 255)->nullable();
+            $table->string('email', 255)->nullable();
+            $table->string('address', 255)->nullable();
             $table->integer('city_id')->unsigned();
             $table->foreign('city_id')->references('id')->on('cities');
             $table->integer('state_id')->unsigned();
@@ -26,7 +26,7 @@ class CreateUsersTable extends Migration
             $table->string('picture', 255);
             $table->string('username', 255);
             $table->string('password', 255);
-            $table->rememberToken();
+            $table->rememberToken()->nullable();
             $table->integer('role_id')->unsigned();
             $table->foreign('role_id')->references('id')->on('roles');
             $table->boolean('status')->default(1);

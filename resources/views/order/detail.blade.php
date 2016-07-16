@@ -136,20 +136,11 @@
                                                     <th> Producto </th>
                                                     <th> Presentacion </th>
                                                     <th> Marca </th>
-                                                    <th> Referencia </th>
-                                                    <th> Precio con IVA </th>
+                                                    <th> Precio sin IVA </th>
                                                     <th> Cantidad </th>
                                                 </tr>
                                                 </thead>
                                                 <tbody id="tbodyDetail">
-                                                    <tr class="odd gradeX">
-                                                        <td> shuxer </td>
-                                                        <td> Shuxer presentacion </td>
-                                                        <td> Marca Shuxer </td>
-                                                        <td> Referencia Shuxer </td>
-                                                        <td> $ 123.456,78 </td>
-                                                        <td> 2 </td>
-                                                    </tr>
                                                 </tbody>
                                             </table>
                                         </div>
@@ -186,8 +177,7 @@
                             '<td>'+ item.title +'</td>' +
                             '<td>'+ item.presentation +'</td>' +
                             '<td>'+ item.brand +'</td>' +
-                            '<td>'+ item.reference +'</td>' +
-                            '<td>$'+ item.price_with_tax +'</td>' +
+                            '<td>$'+ item.price +'</td>' +
                             '<td>'+ item.quantity +'</td>' +
                             '</tr>';
                 });

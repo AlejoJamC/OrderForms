@@ -32,6 +32,11 @@
                 </ul>
             </div>
             <!-- END PAGE HEADER-->
+            @if(Auth::user()->role_id == 3)
+                <div class="alert alert-warning">
+                    <strong>Advertencia!</strong> Este perfil es de solo navegaci&oacute;n.
+                </div>
+            @endif
             <div class="row">
                 <div class="col-md-2 "></div>
                 <div class="col-md-8 ">
@@ -147,8 +152,13 @@
                                 <div class="form-actions">
                                     <div class="row">
                                         <div class="col-md-offset-3 col-md-9">
-                                            <button type="submit" class="btn green" id="btnsubmit" name="btnsubmit">Guardar</button>
-                                            <button type="button" class="btn red" id="btncancel" name="btncancel">Cancelar</button>
+                                            @if(Auth::user()->role_id == 3)
+                                                <button type="submit" class="btn blue" disabled>Guardar</button>
+                                                <a href="{{ url('dash/products/new') }}" class="btn red" disabled>Cancelar</a>
+                                            @else
+                                                <button type="submit" class="btn blue" id="btnsubmit" name="btnsubmit">Guardar</button>
+                                                <a href="{{ url('dash/products/new') }}" class="btn red">Cancelar</a>
+                                            @endif
                                         </div>
                                     </div>
                                 </div>

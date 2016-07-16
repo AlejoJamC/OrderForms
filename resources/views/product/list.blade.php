@@ -37,6 +37,11 @@
                 </ul>
             </div>
             <!-- END PAGE HEADER-->
+            @if(Auth::user()->role_id == 3)
+                <div class="alert alert-warning">
+                    <strong>Advertencia!</strong> Este perfil es de solo navegaci&oacute;n.
+                </div>
+            @endif
             <!-- BEGIN AJAX DATATABLE-->
             <div class="row">
                 <div class="col-md-12">
@@ -110,7 +115,7 @@
                             '<td>'+ item.brand +'</td>' +
                             '<td>$'+ item.price +'</td>' +
                             '<td>$'+ item.price_with_tax +'</td>' +
-                            '<td>'+ '<a href="{{url('dash')}}/products/details/'+ item.id + '" class="btn btn-sm btn-outline dark"><i class="fa fa-edit"></i> Modificar</a>' +'</td>' +
+                            '<td>'+ '<a href="{{url('dash')}}/products/details/'+ item.id + '" class="btn btn-sm btn-outline dark" disabled><i class="fa fa-edit"></i> Modificar</a>' +'</td>' +
                             '</tr>';
                 });
                 $('#tbodyProducts').append(trHTML);

@@ -12,8 +12,7 @@
         <!-- BEGIN CONTENT BODY -->
         <div class="page-content">
             <!-- BEGIN PAGE HEADER-->
-            <h3 class="page-title"> Registrar usuarios
-                <small>Todos los campos son requeridos.</small>
+            <h3 class="page-title"> Registrar un producto
             </h3>
             <div class="page-bar">
                 <ul class="page-breadcrumb">
@@ -23,7 +22,7 @@
                         <i class="fa fa-angle-right"></i>
                     </li>
                     <li>
-                        <span>Usuarios</span>
+                        <span>Productos</span>
                         <i class="fa fa-angle-right"></i>
                     </li>
                     <li>
@@ -52,100 +51,39 @@
                             <form class="form-horizontal" role="form">
                                 <div class="form-body">
                                     <div class="form-group">
-                                        <label class="col-md-3 control-label">Razon Social</label>
+                                        <label class="col-md-3 control-label">Nombre</label>
                                         <div class="col-md-9">
-                                            <input type="text" id="business_name" name="business_name" class="form-control" placeholder="Nombre completo de la empresa">
+                                            <input type="text" id="business_name" name="business_name" class="form-control" placeholder="producto">
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="col-md-3 control-label">NIT</label>
+                                        <label class="col-md-3 control-label">Presentaci&oacute;n</label>
                                         <div class="col-md-9">
-                                            <input type="text" id="identification" name="identification" class="form-control" placeholder="N&uacute;mero de Identificaci&oacute;n Tributaria">
+                                            <input type="text" id="identification" name="identification" class="form-control" placeholder="detalles">
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="col-md-3 control-label">Contacto</label>
+                                        <label class="col-md-3 control-label">Marca</label>
                                         <div class="col-md-9">
-                                            <input type="text" id="contact" name="contact" class="form-control" placeholder="Nombre de la persona de contacto">
+                                            <input type="text" id="contact" name="contact" class="form-control" placeholder="fabricante">
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="col-md-3 control-label">Email</label>
+                                        <label class="col-md-3 control-label">Precio sin IVA</label>
                                         <div class="col-md-9">
-                                            <div class="input-group">
-                                                        <span class="input-group-addon">
-                                                            <i class="fa fa-envelope font-blue"></i>
-                                                        </span>
-                                                <input type="email" id="email" name="email" class="form-control" placeholder="Direcci&oacute;n de email"> </div>
+                                            <input type="text" id="contact" name="contact" class="form-control" placeholder="valor antes de IVA">
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="col-md-3 control-label">Direcci&oacute;n</label>
+                                        <label class="col-md-3 control-label">Precio con IVA</label>
                                         <div class="col-md-9">
-                                            <input type="text" id="address" name="address" class="form-control" placeholder="Direcci&oacute;n principal">
+                                            <input type="text" id="contact" name="contact" class="form-control" placeholder="Valor con impuesto IVA">
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="col-md-3 control-label">Departamento</label>
+                                        <label class="col-md-3 control-label">Cantidad</label>
                                         <div class="col-md-9">
-                                            <select class="bs-select form-control" data-live-search="true" data-size="8" id="state" name="state_id">
-                                                <option value="0" disabled selected>Seleccionar...</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="col-md-3 control-label">Ciudad</label>
-                                        <div class="col-md-9">
-                                            <select class="bs-select form-control" data-live-search="true" data-size="8" id="city" name="city_id">
-                                                <option value="0" disabled selected>Seleccionar...</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="control-label col-md-3">Logo de la empresa</label>
-                                        <div class="col-md-9">
-                                            <div class="fileinput fileinput-new" data-provides="fileinput">
-                                                <div class="input-group input-large">
-                                                    <div class="form-control uneditable-input input-fixed input-medium" data-trigger="fileinput">
-                                                        <i class="fa fa-file-image-o fileinput-exists"></i>&nbsp;
-                                                        <span class="fileinput-filename"></span>
-                                                    </div>
-                                                            <span class="input-group-addon btn default btn-file">
-                                                                <span class="fileinput-new"> Seleccionar archivo </span>
-                                                                <span class="fileinput-exists"> Cambiar </span>
-                                                                <input type="file" id="picture" name="picture"> </span>
-                                                    <a href="javascript:;" class="input-group-addon btn red fileinput-exists" data-dismiss="fileinput"> Eliminar </a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="col-md-3 control-label">Nombre de Usuario</label>
-                                        <div class="col-md-9">
-                                            <div class="input-group">
-                                                        <span class="input-group-addon">
-                                                            <i class="fa fa-user font-blue"></i>
-                                                        </span>
-                                                <input type="text" id="username" name="username" class="form-control" placeholder="NombreDeUsuarioUnico"> </div>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="col-md-3 control-label">Contrase&ntilde;a</label>
-                                        <div class="col-md-9">
-                                            <div class="input-group">
-                                                <span class="input-group-addon">
-                                                    <i class="fa fa-exclamation-triangle font-blue"></i>
-                                                </span>
-                                                <input type="password" id="password" name="password" class="form-control" placeholder="Password">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="col-md-3 control-label">Rol</label>
-                                        <div class="col-md-9">
-                                            <select class="bs-select form-control" id="role" name="role">
-                                                <option value="0" disabled selected>Seleccionar...</option>
-                                            </select>
+                                            <input type="text" id="contact" name="contact" class="form-control" placeholder="Disponible">
                                         </div>
                                     </div>
                                 </div>

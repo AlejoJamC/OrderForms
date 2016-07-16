@@ -224,5 +224,32 @@
                 });
             });
         });
+        $('#btncleantb').click(function(){
+            $('#tbBodyDetail').empty();
+        });
+        $(document).on('click', 'button', function () {
+            var subid = this.id;
+            subid = subid.substring(0,8);
+            if(subid = 'btnclean'){
+                $(this).closest("tr").remove();
+            }
+        });
+        $('#btnaddrow').click(function(){
+            var product_id = $("#product_list option:selected").val();
+            $.get('{{ url('dash') }}/products/ajax-product-by-id?product=' + product_id, function(data) {
+                var trHTML = '';
+                $.each(data, function (i, item) {
+                    trHTML +='<tr  class="odd gradeX">' +
+                            '<td>'+ item.title +'</td>' +
+                            '<td>'+ item.presentation +'</td>' +
+                            '<td>'+ item.brand +'</td>' +
+                            '<td>'+ item.price +'</td>' +
+                            '<td>'+ '<input type="text" class="form-control input-xsmall" name="order_customer_name">' +'</td>' +
+                            '<td>'+ '<div class="btn-group"> <button class="btn btn-xs purple-plum" type="button" id="btnclean'+ item.id +'" > Eliminar <i class="fa fa-minus"></i> </button> </div>' +'</td>' +
+                            '</tr>';
+                });
+                $('#tbBodyDetail').append(trHTML);
+            });
+        });
     </script>
 @endsection

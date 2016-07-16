@@ -70,6 +70,7 @@ Route::get('/dash/products/details/{id}','ProductsController@details');
 
 Route::get('/dash/products/ajax-list','ProductsController@ajaxList');
 Route::get('/dash/products/ajax-light-list','ProductsController@ajaxList');
+Route::get('/dash/products/ajax-product-by-id','ProductsController@ajaxProductById');
 
 /*
  * Routes for Users

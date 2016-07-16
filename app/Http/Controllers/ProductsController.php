@@ -6,6 +6,7 @@ use App\Models\Product;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
+use Illuminate\Support\Facades\Input;
 
 class ProductsController extends Controller
 {
@@ -43,4 +44,11 @@ class ProductsController extends Controller
     public function newProduct(){
         return view('product.new');
     }
+
+    public function ajaxProductById(){
+        $product_id = Input::get('product');
+        $product = Product::where('id', $product_id)->get();
+        return $product;
+    }
+
 }

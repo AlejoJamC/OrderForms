@@ -57,6 +57,8 @@ Route::get('/dash/orders/{id}','OrdersController@details');
 
 Route::post('/dash/orders/new','OrdersController@postOrder');
 
+Route::patch('/dash/orders/{id}','OrdersController@patchOrderState');
+
 /*
  * Routes for Order Details
  */

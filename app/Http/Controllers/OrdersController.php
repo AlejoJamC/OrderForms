@@ -108,4 +108,19 @@ class OrdersController extends Controller
         return redirect('dash/orders/new')->with('header_msg', $header_msg)->with('detail_msg', $detail_msg);
     }
 
+    public function patchOrderState(Request $request, $id){
+        $order_header = Order::where('id', $id)->first();
+
+        $order_header->order_state_id = $request->role;
+
+        if($order_header->save()){
+            $header_msg = 'true';
+        }
+        else{
+            $header_msg = 'Error actualizando la orden';
+        }
+        return redirect()->back()->withErrors('header_msg', $header_msg);
+
+    }
+
 }

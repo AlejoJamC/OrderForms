@@ -50,7 +50,9 @@
                             </div>
                         </div>
                         <div class="portlet-body form">
-                            <form role="form">
+                            <form action="{{ url('/dash/orders/'. $order_header{0}->id) }}" method="post" role="form" >
+                                {{ csrf_field() }}
+                                {{ method_field('PATCH') }}
                                 <div class="form-body">
                                     <div class="form-group  col-md-6 no-bottom">
                                         <label>Razon Social</label>
@@ -165,11 +167,11 @@
                                     <div class="row">
                                         <div class="col-md-12">
                                             @if(Auth::user()->role_id == 3)
-                                                <button type="submit" class="btn blue" disabled>Guardar</button>
-                                                <a href="{{ url('dash/products/new') }}" class="btn red" disabled>Cancelar</a>
+                                                <button type="submit" class="btn blue" disabled>Actualizar</button>
+                                                <a href="{{ url('dash') }}" class="btn red" disabled>Cancelar</a>
                                             @else
-                                                <button type="submit" class="btn blue" id="btnsubmit" name="btnsubmit">Guardar</button>
-                                                <a href="{{ url('dash/products/new') }}" class="btn red">Cancelar</a>
+                                                <button type="submit" class="btn blue" id="btnsubmit" name="btnsubmit">Actualizar</button>
+                                                <a href="{{ url('dash') }}" class="btn red">Cancelar</a>
                                             @endif
                                         </div>
                                     </div>

@@ -21,7 +21,7 @@ class Order extends Model
      *
      * @var bool
      */
-    public $timestamps = true;
+    public $timestamps = false;
 
     /**
      * The attributes that are mass assignable.
@@ -36,7 +36,8 @@ class Order extends Model
         'verified',
         'canceled',
         'seller',
-        'status'
+        'status',
+        'created_at'
     ];
 
     protected $guarded = [];

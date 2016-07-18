@@ -31,7 +31,6 @@ class CreateUsersTable extends Migration
             $table->foreign('role_id')->references('id')->on('roles');
             $table->boolean('status')->default(1);
             $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));
-            $table->timestamp('updated_at')->default(DB::raw('CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP'));
         });
     }
 

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Auth;
 use DB;
 use App\Models\OrderState;
 use Illuminate\Http\Request;
@@ -17,7 +18,11 @@ class HistoryController extends Controller
     }
 
     public function index(){
-        return view('history.me');
+        if(Auth::user()->role_id == 3){
+            return redirect('dash/history/all');
+        }else{
+            return view('history.me');
+        }
     }
 
     public function redirectToLogin(){
@@ -59,6 +64,12 @@ class HistoryController extends Controller
     }
 
     public function redirectTo(){
-        return redirect('dash/history/me');
+        $url = '';
+        if(Auth::user()->role_id == 3){
+            $url = 'dash/history/all';
+        }else{
+            $url = 'dash/history/me';
+        }
+        return redirect($url);
     }
 }

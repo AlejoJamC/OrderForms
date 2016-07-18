@@ -108,10 +108,10 @@
                 $('#tbodyProducts').empty();
                 var trHTML = '';
                 var aRow = '';
-                if( {{ Auth::user()->role_id }} == 2 ){
-                    aRow = '<td>'+ '<a href="{{url('dash')}}/products/details/'+ item.id + '" class="btn btn-sm btn-outline dark" ><i class="fa fa-edit"></i> Modificar</a>' +'</td>';
-                }
                 $.each(data, function (i, item) {
+                    if( {{ Auth::user()->role_id }} == 2 ){
+                        aRow = '<td>'+ '<a href="{{url('dash')}}/products/details/'+ item.id + '" class="btn btn-sm btn-outline dark" ><i class="fa fa-edit"></i> Modificar</a>' +'</td>';
+                    }
                     trHTML +='<tr>' +
                             '<td></td>' +
                             '<td>'+ item.title +'</td>' +

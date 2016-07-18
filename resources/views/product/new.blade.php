@@ -90,7 +90,7 @@
                                 <div class="form-actions">
                                     <div class="row">
                                         <div class="col-md-offset-3 col-md-9">
-                                            @if(Auth::user()->role_id == 3)
+                                            @if(Auth::user()->role_id == 3 || Auth::user()->role_id == 1 )
                                                 <button type="submit" class="btn blue" disabled>Guardar</button>
                                                 <a href="{{ url('dash/products/new') }}" class="btn red" disabled>Cancelar</a>
                                             @else

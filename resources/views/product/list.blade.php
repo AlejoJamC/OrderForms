@@ -63,7 +63,9 @@
                                         <th width="25%"> Marca y Referencia </th>
                                         <th width="15%"> Precio sin IVA </th>
                                         <th width="15%"> Precio con IVA </th>
+                                        @if(Auth::user()->role_id == 2)
                                         <th width="15%"> Acciones </th>
+                                        @endif
                                     </tr>
                                     </thead>
                                     <tbody id="tbodyProducts">
@@ -104,9 +106,11 @@
         jQuery(document).ready(function() {
             $.get('{{ url('dash') }}/products/ajax-list', function(data) {
                 $('#tbodyProducts').empty();
-                var flag ='';
                 var trHTML = '';
-                var dateFormat = '';
+                var aRow = '';
+                if( {{ Auth::user()->role_id }} == 2 ){
+                    aRow = '<td>'+ '<a href="{{url('dash')}}/products/details/'+ item.id + '" class="btn btn-sm btn-outline dark" ><i class="fa fa-edit"></i> Modificar</a>' +'</td>';
+                }
                 $.each(data, function (i, item) {
                     trHTML +='<tr>' +
                             '<td></td>' +
@@ -115,7 +119,7 @@
                             '<td>'+ item.brand +'</td>' +
                             '<td>$'+ item.price +'</td>' +
                             '<td>$'+ item.price_with_tax +'</td>' +
-                            '<td>'+ '<a href="{{url('dash')}}/products/details/'+ item.id + '" class="btn btn-sm btn-outline dark" disabled><i class="fa fa-edit"></i> Modificar</a>' +'</td>' +
+                            aRow +
                             '</tr>';
                 });
                 $('#tbodyProducts').append(trHTML);

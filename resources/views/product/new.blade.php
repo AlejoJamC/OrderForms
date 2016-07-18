@@ -5,7 +5,7 @@
     <link href="{{URL::asset('assets/global/plugins/bootstrap-fileinput/bootstrap-fileinput.css')}}" rel="stylesheet" type="text/css" />
 @stop
 
-@section('title', 'Registrar usuario')
+@section('title', 'Registrar producto')
 
 @section('content')
     <div class="page-content-wrapper">
@@ -31,6 +31,17 @@
                 </ul>
             </div>
             <!-- END PAGE HEADER-->
+            @if($errors->any())
+                @if($errors->first() == 'true')
+                    <div class="alert alert alert-success">
+                        Se inserto el producto <strong>correctamente!</strong>
+                    </div>
+                @else
+                    <div class="alert alert-danger">
+                        <strong>Error!</strong> No se pudo insertar el producto, comuniquese con su administrador.
+                    </div>
+                @endif
+            @endif
             @if(Auth::user()->role_id == 3)
                 <div class="alert alert-warning">
                     <strong>Advertencia!</strong> Este perfil es de solo navegaci&oacute;n.
@@ -48,42 +59,43 @@
                             </div>
                         </div>
                         <div class="portlet-body form">
-                            <form class="form-horizontal" role="form">
+                            <form action="{{ url('/dash/products/new') }}" method="post" role="form" class="form-horizontal">
+                                {{ csrf_field() }}
                                 <div class="form-body">
                                     <div class="form-group">
                                         <label class="col-md-3 control-label">Nombre</label>
                                         <div class="col-md-9">
-                                            <input type="text" id="business_name" name="business_name" class="form-control" placeholder="producto">
+                                            <input type="text" id="title" name="title" class="form-control" placeholder="producto" required>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-md-3 control-label">Presentaci&oacute;n</label>
                                         <div class="col-md-9">
-                                            <input type="text" id="identification" name="identification" class="form-control" placeholder="detalles">
+                                            <input type="text" id="presentation" name="presentation" class="form-control" placeholder="detalles" required>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-md-3 control-label">Marca</label>
                                         <div class="col-md-9">
-                                            <input type="text" id="contact" name="contact" class="form-control" placeholder="fabricante">
+                                            <input type="text" id="brand" name="brand" class="form-control" placeholder="fabricante" required>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-md-3 control-label">Precio sin IVA</label>
                                         <div class="col-md-9">
-                                            <input type="text" id="contact" name="contact" class="form-control" placeholder="valor antes de IVA">
+                                            <input type="text" id="price" name="price" class="form-control" placeholder="valor antes de IVA" required>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-md-3 control-label">Precio con IVA</label>
                                         <div class="col-md-9">
-                                            <input type="text" id="contact" name="contact" class="form-control" placeholder="Valor con impuesto IVA">
+                                            <input type="text" id="price_with_tax" name="price_with_tax" class="form-control" placeholder="Valor con impuesto IVA">
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-md-3 control-label">Cantidad</label>
                                         <div class="col-md-9">
-                                            <input type="text" id="contact" name="contact" class="form-control" placeholder="Disponible">
+                                            <input type="text" id="quantity" name="quantity" class="form-control" placeholder="Disponible">
                                         </div>
                                     </div>
                                 </div>

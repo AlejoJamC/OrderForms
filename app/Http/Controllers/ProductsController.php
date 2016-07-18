@@ -51,7 +51,28 @@ class ProductsController extends Controller
         return $product;
     }
 
-    public function postProduct(){
+    public function postProduct(Request $request){
+        // Requiered entities
+        $product = new Product;
+
+        $header_msg = '';
+
+        // product content
+        $product->title = $request->title;
+        $product->presentation = $request->presentation;
+        $product->brand = $request->brand;
+        $product->price = $request->price;
+        $product->price_with_tax = $request->price_with_tax;
+        $product->quantity = $request->quantity;
+
+        if($product->save()){
+            $header_msg = 'true';
+        }
+        else{
+            $header_msg = 'Error insertando la orden';
+        }
+        return redirect()->back()->withErrors('header_msg', $header_msg);
+    }
 
     }
 

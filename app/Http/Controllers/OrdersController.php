@@ -22,7 +22,7 @@ class OrdersController extends Controller
         $order_header = DB::table('users')
             ->join('cities', 'users.city_id', '=', 'cities.id')
             ->join('states', 'users.state_id', '=', 'states.id')
-            ->select( 'users.business_name', 'users.identification', 'users.contact',
+            ->select('users.id AS user_id', 'users.business_name', 'users.identification', 'users.contact',
                 'users.email', 'users.address', 'cities.name AS city', 'states.name AS state')
             ->where('users.id', Auth::user()->id)
             ->get();

@@ -30,10 +30,14 @@ class HistoryController extends Controller
     }
 
     public function listAll(){
-        // Populate select controls
-        // Order states
-        $order_states = OrderState::where('status', true)->pluck('name','id');
-        return view('history.all')->with('order_states', $order_states);
+        if(Auth::user()->role_id == 1){
+            return redirect('dash/history/me');
+        }else{
+            // Populate select controls
+            // Order states
+            $order_states = OrderState::where('status', true)->pluck('name','id');
+            return view('history.all')->with('order_states', $order_states);
+        }
     }
 
     public function listAllAjax(){

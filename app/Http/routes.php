@@ -17,6 +17,7 @@
 // TODO: Build a helper to manage active menu 
 // TODO: Fix custom login and register using default version
 // TODO: Create it own file for ajax javascript
+// TODO: Create some file or table to manage easy role settings
 
 /*
  * Routes for Login in this case is the entry point or index

@@ -77,6 +77,8 @@ Route::get('/dash/products/ajax-product-by-id','ProductsController@ajaxProductBy
 
 Route::post('/dash/products/new','ProductsController@postProduct');
 
+Route::patch('/dash/products/details/{id}','ProductsController@patchProduct');
+
 /*
  * Routes for Users
  */

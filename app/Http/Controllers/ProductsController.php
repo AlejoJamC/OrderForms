@@ -74,6 +74,25 @@ class ProductsController extends Controller
         return redirect()->back()->withErrors('header_msg', $header_msg);
     }
 
+    public function patchProduct(Request $request, $id){
+        // Get the object
+        $product = Product::where('id', $id)->first();
+
+        // Update values
+        $product->title = $request->title;
+        $product->presentation = $request->presentation;
+        $product->brand = $request->brand;
+        $product->price = $request->price;
+        $product->price_with_tax = $request->price_with_tax;
+        $product->quantity = $request->quantity;
+
+        if($product->save()){
+            $header_msg = 'true';
+        }
+        else{
+            $header_msg = 'Error actualizando el product: ' . $request->title;
+        }
+        return redirect()->back()->withErrors('header_msg', $header_msg);
     }
 
 }

@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Models\Product;
 use Illuminate\Http\Request;
 
-use App\Http\Requests;
 use Illuminate\Support\Facades\Input;
 
 class ProductsController extends Controller
@@ -37,8 +36,9 @@ class ProductsController extends Controller
         return $products;
     }
 
-    public function details(){
-        return view('product.detail');
+    public function details($id){
+        $product_by_id = Product::where('id',$id)->get();
+        return view('product.detail')->with('product_by_id', $product_by_id);
     }
 
     public function newProduct(){

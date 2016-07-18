@@ -38,6 +38,17 @@
                 </ul>
             </div>
             <!-- END PAGE HEADER-->
+            @if(isset($header_msg))
+                @if($header_msg == 'true')
+                    <div class="alert alert alert-success">
+                        Se inserto la orden y su detalle <strong>correctamente!</strong>
+                    </div>
+                @else
+                    <div class="alert alert-danger">
+                        <strong>Error!</strong> No se pudo insertar la order, comuniquese con su administrador.
+                    </div>
+                @endif
+            @endif
             @if(Auth::user()->role_id == 3)
                 <div class="alert alert-warning">
                     <strong>Advertencia!</strong> Este perfil es de solo navegaci&oacute;n.
@@ -55,6 +66,7 @@
                         </div>
                         <div class="portlet-body form">
                             <form action="{{ url('/dash/orders/new') }}" method="post" role="form">
+                                {{ csrf_field() }}
                                 <div class="form-body">
                                     <div class="form-group  col-md-6 no-bottom">
                                         <label>Razon Social</label>
@@ -105,7 +117,7 @@
                                                     <span class="input-group-addon">
                                                         <i class="fa fa-money font-green"></i>
                                                     </span>
-                                            <input type="text" class="form-control" placeholder="Efectivo" id="order_way_to_pay" name="order_way_to_pay">
+                                            <input type="text" class="form-control" placeholder="Efectivo" id="order_way_to_pay" name="order_way_to_pay" required>
                                         </div>
                                     </div>
                                 </div>
@@ -160,6 +172,7 @@
                                                 <tbody id="tbBodyDetail">
                                                 </tbody>
                                             </table>
+                                            <input value="0" type="hidden" id="order_rows" name="order_rows"/>
                                         </div>
                                     </div>
                                     <!-- END AJAX ORDER DETAIL -->
@@ -206,6 +219,7 @@
             });
         });
         $('#btncleantb').click(function(){
+            $('#order_rows').val('0');
             $('#tbBodyDetail').empty();
         });
         $(document).on('click', 'button', function () {
@@ -213,22 +227,26 @@
             subid = subid.substring(0,8);
             if(subid = 'btnclean'){
                 $(this).closest("tr").remove();
+                var rowCount = $('#tbDetail tr').length -1;
+                $('#order_rows').val(rowCount);
             }
         });
         $('#btnaddrow').click(function(){
             var product_id = $("#product_list option:selected").val();
             $.get('{{ url('dash') }}/products/ajax-product-by-id?product=' + product_id, function(data) {
                 var trHTML = '';
+                var rowCount = $('#tbDetail tr').length;
+                $('#order_rows').val(rowCount);
                 $.each(data, function (i, item) {
                     trHTML +='<tr  class="odd gradeX">' +
                             '<td>'+
-                            '<input value="'+ item.id + '" type="hidden" id="order_detail_product_id" name="order_detail_product_id"/>' +
+                            '<input value="'+ item.id + '" type="hidden" id="order_detail_product_'+ rowCount +'" name="order_detail_product_'+ rowCount +'"/>' +
                             item.title +
                             '</td>' +
                             '<td>'+ item.presentation +'</td>' +
                             '<td>'+ item.brand +'</td>' +
                             '<td>'+ item.price +'</td>' +
-                            '<td>'+ '<input type="text" class="form-control input-xsmall" name="order_product_quantity" id="order_detail_product_quantity">' +'</td>' +
+                            '<td>'+ '<input type="text" class="form-control input-xsmall" name="order_detail_product_quantity_'+ rowCount +'" id="order_detail_product_quantity_'+ rowCount +'" required>' +'</td>' +
                             '<td>'+ '<div class="btn-group"> <button class="btn btn-xs purple-plum" type="button" id="btnclean'+ item.id +'" > Eliminar <i class="fa fa-minus"></i> </button> </div>' +'</td>' +
                             '</tr>';
                 });

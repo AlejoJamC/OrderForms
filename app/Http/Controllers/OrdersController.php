@@ -9,11 +9,12 @@ use DB;
 use Auth;
 use Illuminate\Http\Request;
 
-use App\Http\Requests;
 use Illuminate\Support\Facades\Input;
 
 class OrdersController extends Controller
 {
+    // TODO: Allow basic user delete his own orders
+
     public function __construct()
     {
         $this->middleware('auth');
@@ -68,8 +69,43 @@ class OrdersController extends Controller
         return $order_detail;
     }
 
-    public function postOrder(){
-        
+    public function postOrder(Request $request){
+        // Requiered entities
+        $order = new Order;
+
+        $header_msg = '';
+        $detail_msg = '';
+
+        // Order header
+        $order->user_id = Auth::user()->id;
+        $order->order_state_id = 1;
+        $order->way_to_pay = $request->order_way_to_pay;
+
+        if($order->save()){
+            $new_order_id = $order->id;
+            $header_msg = 'true';
+            // Try to insert order detail
+            // TODO: fix this way to store detail
+            // TODO: use mysql transactions
+            for($i=1; $i <= $request->order_rows; $i++) {
+                // Requiered entities
+                $order_detail = new OrderDetail;
+                // Order detail
+                $order_detail->order_id = $new_order_id;
+                $order_detail->product_id = $request->{'order_detail_product_' . $i};
+                $order_detail->quantity = $request->{'order_detail_product_quantity_' . $i};
+
+                $order_detail->save();
+            }
+            $detail_msg = 'true';
+        }
+        else{
+            $header_msg = 'Error insertando la orden';
+            $detail_msg = 'Error insertando el detalle de la orden';
+        }
+
+
+        return redirect('dash/orders/new')->with('header_msg', $header_msg)->with('detail_msg', $detail_msg);
     }
 
 }

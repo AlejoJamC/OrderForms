@@ -11,7 +11,7 @@
     <!-- END AJAX STYLES -->
 @stop
 
-@section('title', 'Historial de las ordenes de compra')
+@section('title', 'Lista completa de productos')
 
 @section('content')
     <div class="page-content-wrapper">

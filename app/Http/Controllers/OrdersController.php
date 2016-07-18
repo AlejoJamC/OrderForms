@@ -64,4 +64,9 @@ class OrdersController extends Controller
             ->get();
         return $order_detail;
     }
+
+    public function postOrder(){
+        
+    }
+
 }

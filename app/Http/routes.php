@@ -54,6 +54,8 @@ Route::get('/dash/orders','OrdersController@redirectTo');
 Route::get('/dash/orders/new','OrdersController@index');
 Route::get('/dash/orders/{id}','OrdersController@details');
 
+Route::post('/dash/orders/new','OrdersController@postOrder');
+
 /*
  * Routes for Order Details
  */
@@ -71,6 +73,8 @@ Route::get('/dash/products/details/{id}','ProductsController@details');
 Route::get('/dash/products/ajax-list','ProductsController@ajaxList');
 Route::get('/dash/products/ajax-light-list','ProductsController@ajaxList');
 Route::get('/dash/products/ajax-product-by-id','ProductsController@ajaxProductById');
+
+Route::post('/dash/products/new','ProductsController@postProduct');
 
 /*
  * Routes for Users

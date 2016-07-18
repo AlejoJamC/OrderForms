@@ -107,9 +107,22 @@
                                     </div>
                                     <div class="form-group  col-md-3">
                                         <label>Estado de la Orden</label>
-                                        <ul class="list-group">
-                                            <li class="list-group-item list-group-item-info"> {{ $order_header{0}->order_state }}</li>
-                                        </ul>
+                                        @if( Auth::user()->role_id == 2)
+                                            <select class="bs-select form-control" id="role" name="role">
+                                                <option value="0" disabled selected>Seleccionar...</option>
+                                                @foreach ($order_states as $order_state_id => $state)
+                                                    @if($order_header{0}->order_state_id == $order_state_id )
+                                                        <option value="{{ $order_state_id }}" selected>{{ $state }}</option>
+                                                    @else
+                                                        <option value="{{ $order_state_id }}">{{ $state }}</option>
+                                                    @endif
+                                                @endforeach
+                                            </select>
+                                            @else
+                                            <ul class="list-group">
+                                                <li class="list-group-item list-group-item-info"> {{ $order_header{0}->order_state }}</li>
+                                            </ul>
+                                        @endif
                                     </div>
                                     <div class="form-group  col-md-3">
                                         <label>Fecha de Creación</label>
@@ -147,6 +160,21 @@
                                     </div>
                                     <!-- END AJAX ORDER DETAIL -->
                                 </div>
+                                @if(Auth::user()->role_id == 2)
+                                <div class="form-actions">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            @if(Auth::user()->role_id == 3)
+                                                <button type="submit" class="btn blue" disabled>Guardar</button>
+                                                <a href="{{ url('dash/products/new') }}" class="btn red" disabled>Cancelar</a>
+                                            @else
+                                                <button type="submit" class="btn blue" id="btnsubmit" name="btnsubmit">Guardar</button>
+                                                <a href="{{ url('dash/products/new') }}" class="btn red">Cancelar</a>
+                                            @endif
+                                        </div>
+                                    </div>
+                                </div>
+                                @endif
                             </form>
                         </div>
                     </div>

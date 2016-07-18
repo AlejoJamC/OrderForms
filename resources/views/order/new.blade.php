@@ -61,6 +61,7 @@
                                         <ul class="list-group no-bottom ">
                                             <li class="list-group-item list-group-item-default"> {{ $order_header{0}->business_name }}</li>
                                         </ul>
+                                        <input value="{{ $order_header{0}->user_id }}" type="hidden" id="order_user_id" name="order_user_id"/>
                                     </div>
                                     <div class="form-group  col-md-6">
                                         <label>Identificacion</label>
@@ -104,7 +105,7 @@
                                                     <span class="input-group-addon">
                                                         <i class="fa fa-money font-green"></i>
                                                     </span>
-                                            <input type="text" class="form-control" placeholder="Efectivo">
+                                            <input type="text" class="form-control" placeholder="Efectivo" id="order_way_to_pay" name="order_way_to_pay">
                                         </div>
                                     </div>
                                 </div>
@@ -220,11 +221,14 @@
                 var trHTML = '';
                 $.each(data, function (i, item) {
                     trHTML +='<tr  class="odd gradeX">' +
-                            '<td>'+ item.title +'</td>' +
+                            '<td>'+
+                            '<input value="'+ item.id + '" type="hidden" id="order_detail_product_id" name="order_detail_product_id"/>' +
+                            item.title +
+                            '</td>' +
                             '<td>'+ item.presentation +'</td>' +
                             '<td>'+ item.brand +'</td>' +
                             '<td>'+ item.price +'</td>' +
-                            '<td>'+ '<input type="text" class="form-control input-xsmall" name="order_customer_name">' +'</td>' +
+                            '<td>'+ '<input type="text" class="form-control input-xsmall" name="order_product_quantity" id="order_detail_product_quantity">' +'</td>' +
                             '<td>'+ '<div class="btn-group"> <button class="btn btn-xs purple-plum" type="button" id="btnclean'+ item.id +'" > Eliminar <i class="fa fa-minus"></i> </button> </div>' +'</td>' +
                             '</tr>';
                 });

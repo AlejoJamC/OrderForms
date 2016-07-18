@@ -32,5 +32,4 @@
 @include('partials.admin.scripts')
 <!-- END SCRIPTS -->
 </body>
-
 </html>

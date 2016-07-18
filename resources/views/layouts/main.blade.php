@@ -15,5 +15,4 @@
 @include('partials.main.scripts')
 <!-- END SCRIPTS -->
 </body>
-
 </html>

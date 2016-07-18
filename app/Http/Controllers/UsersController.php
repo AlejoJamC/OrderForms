@@ -40,8 +40,30 @@ class UsersController extends Controller
         return $city;
     }
     
-    public function postRegister(){
-        
+    public function postRegister(Request $request){
+        // Required entity
+        $user = new User;
+
+        // User fields
+        $user->business_name = $request->business_name;
+        $user->identification = $request->identification;
+        $user->contact = $request->contact;
+        $user->email = $request->email;
+        $user->address = $request->address;
+        $user->city_id = $request->city_id;
+        $user->state_id = $request->state_id;
+        $user->picture = 'img/profile/user.png';
+        $user->username = $request->username;
+        $user->password = bcrypt($request->password);
+        $user->role_id = $request->role;
+
+        if($user->save()){
+            $header_msg = 'true';
+        }
+        else{
+            $header_msg = 'Error creando el usuario';
+        }
+        return redirect()->back()->withErrors('header_msg', $header_msg);
     }
 
     public function profile($user_id){

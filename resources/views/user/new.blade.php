@@ -49,24 +49,25 @@
                             </div>
                         </div>
                         <div class="portlet-body form">
-                            <form class="form-horizontal" role="form">
+                            <form  action="{{ url('/dash/users/new') }}" method="post" role="form" class="form-horizontal">
+                                {{ csrf_field() }}
                                 <div class="form-body">
                                     <div class="form-group">
                                         <label class="col-md-3 control-label">Razon Social</label>
                                         <div class="col-md-9">
-                                            <input type="text" id="business_name" name="business_name" class="form-control" placeholder="Nombre completo de la empresa">
+                                            <input type="text" id="business_name" name="business_name" class="form-control" placeholder="Nombre completo de la empresa" required>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-md-3 control-label">NIT</label>
                                         <div class="col-md-9">
-                                            <input type="text" id="identification" name="identification" class="form-control" placeholder="N&uacute;mero de Identificaci&oacute;n Tributaria">
+                                            <input type="text" id="identification" name="identification" class="form-control" placeholder="N&uacute;mero de Identificaci&oacute;n Tributaria" required>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-md-3 control-label">Contacto</label>
                                         <div class="col-md-9">
-                                            <input type="text" id="contact" name="contact" class="form-control" placeholder="Nombre de la persona de contacto">
+                                            <input type="text" id="contact" name="contact" class="form-control" placeholder="Nombre de la persona de contacto" required>
                                         </div>
                                     </div>
                                     <div class="form-group">
@@ -76,19 +77,20 @@
                                                         <span class="input-group-addon">
                                                             <i class="fa fa-envelope font-blue"></i>
                                                         </span>
-                                                <input type="email" id="email" name="email" class="form-control" placeholder="Direcci&oacute;n de email"> </div>
+                                                <input type="email" id="email" name="email" class="form-control" placeholder="Direcci&oacute;n de email" required>
+                                            </div>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-md-3 control-label">Direcci&oacute;n</label>
                                         <div class="col-md-9">
-                                            <input type="text" id="address" name="address" class="form-control" placeholder="Direcci&oacute;n principal">
+                                            <input type="text" id="address" name="address" class="form-control" placeholder="Direcci&oacute;n principal" required>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-md-3 control-label">Departamento</label>
                                         <div class="col-md-9">
-                                            <select class="bs-select form-control" data-live-search="true" data-size="8" id="state" name="state_id">
+                                            <select class="bs-select form-control" data-live-search="true" data-size="8" id="state" name="state_id" required>
                                                 <option value="0" disabled selected>Seleccionar...</option>
                                                 @foreach ($states as $state_id => $state)
                                                     <option value="{{ $state_id }}">{{ $state }}</option>
@@ -99,7 +101,7 @@
                                     <div class="form-group">
                                         <label class="col-md-3 control-label">Ciudad</label>
                                         <div class="col-md-9">
-                                            <select class="bs-select form-control" data-live-search="true" data-size="8" id="city" name="city_id">
+                                            <select class="bs-select form-control" data-live-search="true" data-size="8" id="city" name="city_id" required>
                                                 <option value="0" disabled selected>Seleccionar...</option>
                                             </select>
                                         </div>
@@ -129,7 +131,7 @@
                                                         <span class="input-group-addon">
                                                             <i class="fa fa-user font-blue"></i>
                                                         </span>
-                                                <input type="text" id="username" name="username" class="form-control" placeholder="NombreDeUsuarioUnico"> </div>
+                                                <input type="text" id="username" name="username" class="form-control" placeholder="NombreDeUsuarioUnico" required> </div>
                                         </div>
                                     </div>
                                     <div class="form-group">
@@ -139,14 +141,14 @@
                                                 <span class="input-group-addon">
                                                     <i class="fa fa-exclamation-triangle font-blue"></i>
                                                 </span>
-                                                <input type="password" id="password" name="password" class="form-control" placeholder="Password">
+                                                <input type="password" id="password" name="password" class="form-control" placeholder="Password" required>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-md-3 control-label">Rol</label>
                                         <div class="col-md-9">
-                                            <select class="bs-select form-control" id="role" name="role">
+                                            <select class="bs-select form-control" id="role" name="role" required>
                                                 <option value="0" disabled selected>Seleccionar...</option>
                                                 @foreach ($roles as $srole_id => $role)
                                                     <option value="{{ $srole_id }}">{{ $role }}</option>

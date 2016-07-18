@@ -18,12 +18,14 @@
                         </a>
                     </li>
                     @endif
+                    @if( Auth::user()->role_id != 1)
                     <li class="nav-item start {{ Request::is('dash/history/all') ? ' active open ' : '' }}">
                         <a href="/dash/history/all" class="nav-link ">
                             <span class="title">Todos los Clientes</span>
                             <span {{ Request::is('dash/history/me') ? ' class=selected ' : '' }}></span>
                         </a>
                     </li>
+                    @endif
                 </ul>
             </li>
             <li class="nav-item {{ Request::is('dash/orders/*') ? ' active open ' : '' }} ">
@@ -54,14 +56,17 @@
                             <span {{ Request::is('dash/products/list') ? ' class=selected ' : '' }}></span>
                         </a>
                     </li>
+                    @if( Auth::user()->role_id != 1)
                     <li class="nav-item start {{ Request::is('dash/products/new') ? ' active open ' : '' }}">
                         <a href="/dash/products/new" class="nav-link ">
                             <span class="title">Crear</span>
                             <span {{ Request::is('dash/products/new') ? ' class=selected ' : '' }}></span>
                         </a>
                     </li>
+                    @endif
                 </ul>
             </li>
+            @if( Auth::user()->role_id != 1)
             <li class="nav-item {{ Request::is('dash/users/*') ? ' active open ' : '' }} ">
                 <a href="javascript:;" class="nav-link nav-toggle">
                     <i class="icon-user-follow"></i>
@@ -83,7 +88,7 @@
                     </li>
                 </ul>
             </li>
-
+            @endif
         </ul>
         <!-- END SIDEBAR MENU -->
     </div>

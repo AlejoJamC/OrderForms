@@ -64,7 +64,10 @@
                                         <th width="25%"> Contacto </th>
                                         <th width="15%"> Email </th>
                                         <th width="15%"> Direcci&oacute;n </th>
-                                        <th width="15%"> Acciones </th>
+                                        @if( Auth::user()->role_id == 2 )
+                                            <th width="15%"> Acciones </th>
+                                        @endif
+
                                     </tr>
                                     </thead>
                                     <tbody id="tbodyProducts">
@@ -105,10 +108,12 @@
         jQuery(document).ready(function() {
             $.get('{{ url('dash') }}/users/ajax-list', function(data) {
                 $('#tbodyProducts').empty();
-                var flag ='';
                 var trHTML = '';
-                var dateFormat = '';
+                var aRow = '';
                 $.each(data, function (i, item) {
+                    @if( Auth::user()->role_id == 2 )
+                        aRow = '<td>'+ '<a href="{{url('dash')}}/users/detail/'+ item.id + '" class="btn btn-sm btn-outline dark"><i class="fa fa-edit"></i> Modificar</a>' +'</td>';
+                    @endif
                     trHTML +='<tr>' +
                             '<td></td>' +
                             '<td>'+ item.business_name +'</td>' +
@@ -117,7 +122,7 @@
                             '<td>'+ item.contact +'</td>' +
                             '<td>'+ item.email +'</td>' +
                             '<td>'+ item.address +'</td>' +
-                            '<td>'+ '<a href="{{url('dash')}}/users/detail/'+ item.id + '" class="btn btn-sm btn-outline dark" disabled><i class="fa fa-edit"></i> Modificar</a>' +'</td>' +
+                            aRow +
                             '</tr>';
                 });
                 $('#tbodyProducts').append(trHTML);

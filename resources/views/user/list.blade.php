@@ -67,7 +67,6 @@
                                         @if( Auth::user()->role_id == 2 )
                                             <th width="15%"> Acciones </th>
                                         @endif
-
                                     </tr>
                                     </thead>
                                     <tbody id="tbodyProducts">

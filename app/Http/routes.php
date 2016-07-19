@@ -47,7 +47,6 @@ Route::get('/dash/history/all','HistoryController@listAll');
 Route::get('/dash/history/ajax-me','HistoryController@listMeAjax');
 Route::get('/dash/history/ajax-all','HistoryController@listAllAjax');
 
-
 /*
  * Routes for Orders
  */
@@ -88,7 +87,7 @@ Route::get('/dash/users','UsersController@redirectTo');
 Route::get('/dash/users/list','UsersController@index');
 Route::get('/dash/users/new','UsersController@register');
 Route::get('/profile/{id}','UsersController@profile');
-Route::get('/dash/users/detail/{id}','UsersController@profile');
+Route::get('/dash/users/detail/{id}','UsersController@userDetail');
 Route::get('/dash/users/ajax-list','UsersController@ajaxList');
 Route::get('/dash/users/new/ajax-city', 'UsersController@ajaxCity');
 

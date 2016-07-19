@@ -73,6 +73,13 @@ class UsersController extends Controller
         return view('user.profile')->with('user_data', $user_data)->with('states', $states)->with('cities', $cities);
     }
 
+    public function userDetail($user_id){
+        $user_data = User::where('id', $user_id)->get();
+        $states = State::where('status', true)->orderBy('name')->pluck('name','id');
+        $cities = City::where('status', true)->orderBy('name')->pluck('name','id');
+        return view('user.detail')->with('user_data', $user_data)->with('states', $states)->with('cities', $cities);
+    }
+
     public function redirectTo(){
         return redirect('dash/users');
     }

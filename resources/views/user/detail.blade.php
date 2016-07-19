@@ -66,26 +66,28 @@
                                         <div class="tab-content">
                                             <!-- PERSONAL INFO TAB -->
                                             <div class="tab-pane active" id="tab_1_1">
-                                                <form role="form" action="#">
+                                                <form action="{{ url('/dash/users/detail/'. $user_data{0}->id) }}" method="post" role="form">
+                                                    {{ csrf_field() }}
+                                                    {{ method_field('PATCH') }}
                                                     <div class="form-group">
                                                         <label class="control-label">Razon Social</label>
-                                                        <input type="text" placeholder="John" class="form-control"  value="{{$user_data{0}->business_name}}"/>
+                                                        <input type="text" placeholder="Empresas ltda." class="form-control" id="business_name" name="business_name"  value="{{$user_data{0}->business_name}}"/>
                                                     </div>
                                                     <div class="form-group">
                                                         <label class="control-label">NIT</label>
-                                                        <input type="text" placeholder="Doe" class="form-control" value="{{$user_data{0}->identification}}"/>
+                                                        <input type="text" placeholder="Numero de NIT" class="form-control"  id="identification" name="identification" value="{{$user_data{0}->identification}}"/>
                                                     </div>
                                                     <div class="form-group">
                                                         <label class="control-label">Contacto</label>
-                                                        <input type="text" placeholder="+1 646 580 DEMO (6284)" class="form-control" value="{{$user_data{0}->contact}}"/>
+                                                        <input type="text" placeholder="Empleado" class="form-control"  id="contact" name="contact" value="{{$user_data{0}->contact}}"/>
                                                     </div>
                                                     <div class="form-group">
                                                         <label class="control-label">Email</label>
-                                                        <input type="text" placeholder="Design, Web etc." class="form-control" value="{{$user_data{0}->email}}"/>
+                                                        <input type="text" placeholder="email@empresa.com"  id="email" name="email" class="form-control" value="{{$user_data{0}->email}}"/>
                                                     </div>
                                                     <div class="form-group">
                                                         <label class="control-label">Direcci&oacute;n</label>
-                                                        <input type="text" placeholder="Design, Web etc." class="form-control" value="{{$user_data{0}->address}}"/>
+                                                        <input type="text" placeholder="calle con carrera"  id="address" name="address" class="form-control" value="{{$user_data{0}->address}}"/>
                                                     </div>
                                                     <div class="form-group">
                                                         <label class="control-label">Departamento</label>
@@ -114,8 +116,8 @@
                                                         </select>
                                                     </div>
                                                     <div class="margiv-top-10">
-                                                        <a href="javascript:;" class="btn green"> Guardar Cambios </a>
-                                                        <a href="javascript:;" class="btn red"> Cancelar </a>
+                                                        <button type="submit" class="btn blue" >Actualizar</button>
+                                                        <a href="{{ url('dash/users/list') }}" class="btn red" >Cancelar</a>
                                                     </div>
                                                 </form>
                                             </div>

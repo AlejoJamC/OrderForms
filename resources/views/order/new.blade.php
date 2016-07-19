@@ -49,11 +49,6 @@
                     </div>
                 @endif
             @endif
-            @if(Auth::user()->role_id == 3)
-                <div class="alert alert-warning">
-                    <strong>Advertencia!</strong> Este perfil es de solo navegaci&oacute;n.
-                </div>
-            @endif
             <div class="row">
                 <div class="col-md-12 ">
                     <!-- BEGIN ORDER HEADER -->
@@ -179,13 +174,8 @@
                                 </div>
                                 <div class="form-actions">
                                     <div class="col-md-12">
-                                        @if(Auth::user()->role_id == 3)
-                                            <button type="submit" class="btn blue" disabled>Crear Orden</button>
-                                            <a href="{{ url('dash/orders/new') }}" class="btn red" disabled>Cancelar</a>
-                                        @else
-                                            <button type="submit" class="btn blue" >Crear Orden</button>
-                                            <a href="{{ url('dash/orders/new') }}" class="btn red">Cancelar</a>
-                                        @endif
+                                        <button type="submit" class="btn blue" >Crear Orden</button>
+                                        <a href="{{ url('dash/orders/new') }}" class="btn red">Cancelar</a>
                                     </div>
                                 </div>
                             </form>

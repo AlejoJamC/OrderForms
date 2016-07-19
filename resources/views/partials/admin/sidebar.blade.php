@@ -10,14 +10,12 @@
                     <span class="arrow open"></span>
                 </a>
                 <ul class="sub-menu">
-                    @if( Auth::user()->role_id != 3)
                     <li class="nav-item start {{ Request::is('dash/history/me') ? ' active open ' : '' }}">
                         <a href="/dash/history/me" class="nav-link ">
                             <span class="title">{{ Auth::user()->business_name }}</span>
                             <span {{ Request::is('dash/history/me') ?  ' class=selected ' : '' }}></span>
                         </a>
                     </li>
-                    @endif
                     @if( Auth::user()->role_id != 1)
                     <li class="nav-item start {{ Request::is('dash/history/all') ? ' active open ' : '' }}">
                         <a href="/dash/history/all" class="nav-link ">

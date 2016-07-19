@@ -18,11 +18,7 @@ class HistoryController extends Controller
     }
 
     public function index(){
-        if(Auth::user()->role_id == 3){
-            return redirect('dash/history/all');
-        }else{
-            return view('history.me');
-        }
+        return view('history.me');
     }
 
     public function redirectToLogin(){

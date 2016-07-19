@@ -96,7 +96,7 @@
         }
 
         jQuery(document).ready(function() {
-            $.get('{{ url('dash') }}/history/ajax-me?user_id='+ 1, function(data) {
+            $.get('{{ url('dash') }}/history/ajax-me?user_id='+ {{ Auth::user()->id  }}, function(data) {
                 $('#tbodyhistory').empty();
                 var flag ='';
                 var trHTML = '';

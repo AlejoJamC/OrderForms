@@ -78,6 +78,8 @@ class ProductsController extends Controller
         // Get the object
         $product = Product::where('id', $id)->first();
 
+        $header_msg = '';
+
         // Update values
         $product->title = $request->title;
         $product->presentation = $request->presentation;
@@ -90,7 +92,7 @@ class ProductsController extends Controller
             $header_msg = 'true';
         }
         else{
-            $header_msg = 'Error actualizando el product: ' . $request->title;
+            $header_msg = 'Error actualizando el perfil: ' . $request->title;
         }
         return redirect()->back()->withErrors('header_msg', $header_msg);
     }

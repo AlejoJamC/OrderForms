@@ -44,7 +44,7 @@
                         <div class="portlet-title">
                             <div class="caption">
                                 <i class="icon-social-dribbble font-green"></i>
-                                <span class="caption-subject font-green bold uppercase">Todas las ordenes de todos los usuarios</span>
+                                <span class="caption-subject font-green bold uppercase">Todas sus ordenes de compra</span>
                             </div>
                         </div>
                         <div class="portlet-body">

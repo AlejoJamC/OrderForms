@@ -26,7 +26,14 @@ class HistoryController extends Controller
     }
 
     public function redirectToLogin(){
-        return redirect('login');
+        $url = '';
+        $session_value = session('username');
+        if($session_value == 'guest'){
+            $url = 'login';
+        }else{
+            $url = 'dash';
+        }
+        return redirect($url);
     }
 
     public function listAll(){

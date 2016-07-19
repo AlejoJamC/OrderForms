@@ -36,7 +36,7 @@ class AuthController extends Controller
      *
      * @var string
      */
-    protected $redirectAfterLogout = '/login';
+    protected $redirectAfterLogout = '/';
 
     /**
      * Create a new authentication controller instance.
@@ -48,21 +48,6 @@ class AuthController extends Controller
         $this->middleware($this->guestMiddleware(), ['except' => 'logout']);
     }
 
-    /*
-    public function login(){
-        if(session()->has('username')){
-            $value = session()->get('username');
-            if($value === 'guest'){
-                return view('auth.login');
-            }else{
-                $user_data = User::where('username', $value)->get();
-                return redirect()->intended('/dash')->with('user_data', $user_data);
-            }
-        }else{
-            return view('auth.login');
-        }
-    }
-    */
     public function login(){
         return view('auth.login');
     }
@@ -81,11 +66,13 @@ class AuthController extends Controller
             // get some values required to show data on dashboard
             $user_data = User::where('username', $request->input('username'))->first();
             session()->flash('msg','Bienvenido!');
-            session()->flash('username', $request->input('username'));
+            session(['username' => $request->input('username')]);
+            //$request->session()->put('username', $request->input('username'));
             return redirect()->intended('/dash/history/me')->with('user_data', $user_data);
         }
         session()->flash('msg','Error en la autenticación');
-        session()->flash('username', 'guest');
+        session(['username' => 'guest']);
+        //$request->session()->put('username', 'guest');
         return redirect()->back();
     }
     /**
@@ -97,6 +84,7 @@ class AuthController extends Controller
     {
         Auth::logout();
         session()->flash('msg','Se cerro la sesi&oacute;n correctamente, gracias por usar este sistema de gesti&oacute;n');
+        session(['username' => 'guest']);
         return redirect('login');
     }
 

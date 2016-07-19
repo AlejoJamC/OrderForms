@@ -5,7 +5,7 @@
     <link href="{{ URL::asset('assets/pages/css/profile.min.css') }}" rel="stylesheet" type="text/css" />
 @stop
 
-@section('title', 'Historial de las ordenes de compra')
+@section('title', 'Editar detalle del usuario')
 
 @section('content')
     <div class="page-content-wrapper">
@@ -16,6 +16,13 @@
                 <small>Todos los campos son requeridos</small>
             </h3>
             <!-- END PAGE HEADER-->
+            @if($errors->any())
+                @if($errors->has('user_picture'))
+                    <div class="alert alert-danger">
+                        <strong>Error!</strong> El logo de la empresa/usuario es obligatorio.
+                    </div>
+                @endif
+            @endif
             <div class="row">
                 <div class="col-md-12">
                     <!-- BEGIN PROFILE SIDEBAR -->
@@ -124,8 +131,13 @@
                                             <!-- END PERSONAL INFO TAB -->
                                             <!-- CHANGE AVATAR TAB -->
                                             <div class="tab-pane" id="tab_1_2">
+                                                @if($errors->has('fail'))
+                                                    {!! 'Error cargando la imagen.' !!}
+                                                @endif
                                                 <p> La imagen corporativa o el logo de la empresa/cliente es obligatorio. </p>
-                                                <form action="#" role="form">
+                                                <form action="{{ url('/dash/users/load/image/'. $user_data{0}->id) }}"  enctype="multipart/form-data" method="post"  role="form" id="upload_form" name="upload_form">
+                                                    {{ csrf_field() }}
+                                                    {{ method_field('PATCH') }}
                                                     <div class="form-group">
                                                         <div class="fileinput fileinput-new" data-provides="fileinput">
                                                             <div class="fileinput-new thumbnail" style="width: 200px; height: 150px;">
@@ -133,10 +145,10 @@
                                                             <div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 200px; max-height: 150px;"> </div>
                                                             <div>
                                                                         <span class="btn default btn-file">
-                                                                            <span class="fileinput-new"> Select image </span>
-                                                                            <span class="fileinput-exists"> Change </span>
-                                                                            <input type="file" name="..."> </span>
-                                                                <a href="javascript:;" class="btn default fileinput-exists" data-dismiss="fileinput"> Remove </a>
+                                                                            <span class="fileinput-new"> Selecionar imagen </span>
+                                                                            <span class="fileinput-exists"> Cambiar </span>
+                                                                            <input type="file" id="user_picture" name="user_picture"> </span>
+                                                                <a href="javascript:;" class="btn default fileinput-exists" data-dismiss="fileinput"> Eliminar </a>
                                                             </div>
                                                         </div>
                                                         <div class="clearfix margin-top-10">
@@ -145,8 +157,8 @@
                                                         </div>
                                                     </div>
                                                     <div class="margin-top-10">
-                                                        <a href="javascript:;" class="btn green"> Cargar </a>
-                                                        <a href="javascript:;" class="btn red"> Cancelar </a>
+                                                        <button type="submit" class="btn blue" >Cargar</button>
+                                                        <a href="{{ url('dash/users/list') }}" class="btn red" >Cancelar</a>
                                                     </div>
                                                 </form>
                                             </div>
@@ -164,8 +176,8 @@
                                                         <label class="control-label">Repetir nueva Contrase&ntilde;a</label>
                                                         <input type="password" class="form-control" /> </div>
                                                     <div class="margin-top-10">
-                                                        <a href="javascript:;" class="btn green"> Cambiar Contrase&ntilde;a </a>
-                                                        <a href="javascript:;" class="btn red"> Cancelar </a>
+                                                        <button type="submit" class="btn blue" >Actualizar</button>
+                                                        <a href="{{ url('dash/users/list') }}" class="btn red" >Cancelar</a>
                                                     </div>
                                                 </form>
                                             </div>

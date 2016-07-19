@@ -96,3 +96,4 @@ Route::post('/dash/users/add/image','UsersController@postLogo');
 
 Route::patch('/profile/{id}','UsersController@patchProfile');
 Route::patch('/dash/users/detail/{id}','UsersController@patchProfile');
+Route::patch('/dash/users/load/image/{id}','UsersController@patchImage');

@@ -6,6 +6,7 @@ use App\Models\City;
 use App\Models\Role;
 use App\Models\State;
 use App\Models\User;
+use Validator;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -111,4 +112,32 @@ class UsersController extends Controller
         }
         return redirect()->back()->withErrors('header_msg', $header_msg);
     }
+
+    public function patchImage(Request $request, $id){
+        $validation = Validator::make(request()->all(), array(
+            'user_picture' => 'image|required'
+        ));
+
+        if($validation->fails()){
+            return redirect()->back()->withErrors($validation);
+        }else{
+            $user = User::where('id', $id)->first();
+
+            $imagename = 'user_'. $id . '_' . rand() . '_' . $request->user_picture;
+            $basefolder = 'img/profile/';
+            $urlpicture = $basefolder . $imagename;
+
+            $request->file('user_picture')->move(
+                base_path() . 'public/' . $basefolder, $imagename
+            );
+
+            $user->picture = $urlpicture;
+            if($user->save()){
+                return redirect()->back();
+            }else{
+                return redirect()->back()->withErrors('fail', 'Error cargando la imagen');
+            }
+        }
+    }
+
 }

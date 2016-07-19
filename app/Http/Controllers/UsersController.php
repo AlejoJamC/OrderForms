@@ -7,6 +7,8 @@ use App\Models\Role;
 use App\Models\State;
 use App\Models\User;
 use Validator;
+use Auth;
+use Hash;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -136,6 +138,54 @@ class UsersController extends Controller
                 return redirect()->back();
             }else{
                 return redirect()->back()->withErrors('fail', 'Error cargando la imagen');
+            }
+        }
+    }
+
+    public function resetPassword(Request $request, $id){
+        // get the validation if its the user or its admin
+        if(Auth::user()->id == $id){
+            $validation = Validator::make(request()->all(), array(
+                'password' => 'required',
+                'newpassword' => 'required',
+                'repassword' => 'required'
+            ));
+
+            if($validation->fails()){
+                return redirect()->back()->withErrors($validation);
+            }else{
+                $user = User::where('id', $id)->first();
+
+                $user->password = Hash::make($request->newpassword);
+
+                if($user->save()){
+                    return redirect()->back();
+                }else{
+                    return redirect()->back()->withErrors('fail', 'Error actualiando la contraseña');
+                }
+            }
+        }else{
+            if(Auth::user()->role_id == 2){
+                $validation = Validator::make(request()->all(), array(
+                    'newpassword' => 'required',
+                    'repassword' => 'required'
+                ));
+
+                if($validation->fails()){
+                    return redirect()->back()->withErrors($validation);
+                }else{
+                    $user = User::where('id', $id)->first();
+
+                    $user->password = Hash::make($request->newpassword);
+
+                    if($user->save()){
+                        return redirect()->back();
+                    }else{
+                        return redirect()->back()->withErrors('fail', 'Error actualiando la contraseña');
+                    }
+                }
+            }else{
+                return redirect()->back()->withErrors('nosamesassion', 'Error de permisos');
             }
         }
     }

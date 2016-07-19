@@ -165,16 +165,21 @@
                                             <!-- END CHANGE AVATAR TAB -->
                                             <!-- CHANGE PASSWORD TAB -->
                                             <div class="tab-pane" id="tab_1_3">
-                                                <form action="#">
+                                                <form action="{{ url('/dash/users/reset/pass/'. $user_data{0}->id) }}" method="post" role="form">
+                                                    {{ csrf_field() }}
+                                                    {{ method_field('PATCH') }}
+                                                    @if(Auth::user()->role_id != 2)
                                                     <div class="form-group">
                                                         <label class="control-label">Contrase&ntilde;a actual</label>
-                                                        <input type="password" class="form-control" /> </div>
+                                                            <input type="password" name="password" id="password" class="form-control" required/>
+                                                    </div>
+                                                    @endif
                                                     <div class="form-group">
                                                         <label class="control-label">Nueva contrase&ntilde;a</label>
-                                                        <input type="password" class="form-control" /> </div>
+                                                        <input type="password" name="newpassword" id="newpassword" class="form-control" required/> </div>
                                                     <div class="form-group">
-                                                        <label class="control-label">Repetir nueva Contrase&ntilde;a</label>
-                                                        <input type="password" class="form-control" /> </div>
+                                                        <label class="control-label">Repetir nueva contrase&ntilde;a</label>
+                                                        <input type="password" name="repassword" id="repassword" class="form-control" required/> </div>
                                                     <div class="margin-top-10">
                                                         <button type="submit" class="btn blue" >Actualizar</button>
                                                         <a href="{{ url('dash/users/list') }}" class="btn red" >Cancelar</a>

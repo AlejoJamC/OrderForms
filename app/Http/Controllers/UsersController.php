@@ -88,4 +88,27 @@ class UsersController extends Controller
         $users =  User::where('status', true)->orderBy('business_name')->get();
         return $users;
     }
+
+    public function patchProfile(Request $request, $id){
+        // Required entity
+        $user = User::where('id', $id)->first();
+        $header_msg = '';
+
+        // change details
+        $user->business_name = $request->business_name;
+        $user->identification = $request->identification;
+        $user->contact = $request->contact;
+        $user->email = $request->email;
+        $user->address = $request->address;
+        $user->city_id = $request->city_id;
+        $user->state_id = $request->state_id;
+
+        if($user->save()){
+            $header_msg = 'true';
+        }
+        else{
+            $header_msg = 'Error insertando la orden';
+        }
+        return redirect()->back()->withErrors('header_msg', $header_msg);
+    }
 }

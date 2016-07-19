@@ -94,4 +94,5 @@ Route::get('/dash/users/new/ajax-city', 'UsersController@ajaxCity');
 Route::post('/dash/users/new','UsersController@postRegister');
 Route::post('/dash/users/add/image','UsersController@postLogo');
 
-Route::put('/profile/{id}','UsersController@putProfile');
+Route::patch('/profile/{id}','UsersController@patchProfile');
+Route::patch('/dash/users/detail/{id}','UsersController@patchProfile');

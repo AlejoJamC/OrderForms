@@ -125,12 +125,12 @@ class UsersController extends Controller
         }else{
             $user = User::where('id', $id)->first();
 
-            $imagename = 'user_'. $id . '_' . rand() . '_' . $request->user_picture;
+            $imagename = 'user_'. $id . '_' . rand() . '_' . $request->file('user_picture')->getClientOriginalName();
             $basefolder = 'img/profile/';
             $urlpicture = $basefolder . $imagename;
 
             $request->file('user_picture')->move(
-                base_path() . 'public/' . $basefolder, $imagename
+                base_path() . '/public/' . $basefolder, $imagename
             );
 
             $user->picture = $urlpicture;

@@ -37,6 +37,11 @@
                     <strong>Advertencia!</strong> Este perfil es de solo navegaci&oacute;n.
                 </div>
             @endif
+            @if($errors->any())
+                <div class="alert alert-danger">
+                    <strong>Error!</strong> Error creando el usuario.
+                </div>
+            @endif
             <div class="row">
                 <div class="col-md-2 "></div>
                 <div class="col-md-8 ">
@@ -49,7 +54,7 @@
                             </div>
                         </div>
                         <div class="portlet-body form">
-                            <form  action="{{ url('/dash/users/new') }}" method="post" role="form" class="form-horizontal">
+                            <form  action="{{ url('/dash/users/new') }}" enctype="multipart/form-data" method="post" role="form" class="form-horizontal">
                                 {{ csrf_field() }}
                                 <div class="form-body">
                                     <div class="form-group">
@@ -118,7 +123,7 @@
                                                             <span class="input-group-addon btn default btn-file">
                                                                 <span class="fileinput-new"> Seleccionar archivo </span>
                                                                 <span class="fileinput-exists"> Cambiar </span>
-                                                                <input type="file" id="picture" name="picture"> </span>
+                                                                <input type="file" id="user_picture" name="user_picture"> </span>
                                                     <a href="javascript:;" class="input-group-addon btn red fileinput-exists" data-dismiss="fileinput"> Eliminar </a>
                                                 </div>
                                             </div>

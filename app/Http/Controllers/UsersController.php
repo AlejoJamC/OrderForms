@@ -44,29 +44,44 @@ class UsersController extends Controller
     }
     
     public function postRegister(Request $request){
-        // Required entity
-        $user = new User;
+        $validation = Validator::make(request()->all(), array(
+            'user_picture' => 'image|required'
+        ));
 
-        // User fields
-        $user->business_name = $request->business_name;
-        $user->identification = $request->identification;
-        $user->contact = $request->contact;
-        $user->email = $request->email;
-        $user->address = $request->address;
-        $user->city_id = $request->city_id;
-        $user->state_id = $request->state_id;
-        $user->picture = 'img/profile/user.png';
-        $user->username = $request->username;
-        $user->password = bcrypt($request->password);
-        $user->role_id = $request->role;
+        if($validation->fails()){
+            return redirect()->back()->withErrors($validation);
+        }else{
+            // Required entity
+            $user = new User;
+            // User fields
+            $user->business_name = $request->business_name;
+            $user->identification = $request->identification;
+            $user->contact = $request->contact;
+            $user->email = $request->email;
+            $user->address = $request->address;
+            $user->city_id = $request->city_id;
+            $user->state_id = $request->state_id;
+            $user->username = $request->username;
+            $user->password = bcrypt($request->password);
+            $user->role_id = $request->role;
 
-        if($user->save()){
-            $header_msg = 'true';
+            $imagename = 'user_'. rand() . '_' . rand() . '_' . $request->file('user_picture')->getClientOriginalName();
+            $basefolder = 'img/profile/';
+            $urlpicture = $basefolder . $imagename;
+
+            $request->file('user_picture')->move(
+                base_path() . '/public/' . $basefolder, $imagename
+            );
+
+            $user->picture = $urlpicture;
+
+            if($user->save()){
+                return redirect()->back();
+            }
+            else{
+                return redirect()->back()->withErrors('fail', 'Error creando el usuario');
+            }
         }
-        else{
-            $header_msg = 'Error creando el usuario';
-        }
-        return redirect()->back()->withErrors('header_msg', $header_msg);
     }
 
     public function profile($user_id){
@@ -189,5 +204,4 @@ class UsersController extends Controller
             }
         }
     }
-
 }
